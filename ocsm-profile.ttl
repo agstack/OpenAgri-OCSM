@@ -35,11 +35,11 @@
 @base <https://w3id.org/ocsm/> .
 
 <https://w3id.org/ocsm> a owl:Ontology ;                            
-                            dct:contributor [ schema:affiliation [ foaf:name "xxx"
+                            dct:contributor [ schema:affiliation [ foaf:name "Maastricht University"
                                                                  ] ;
-                                              foaf:name "Jack"
+                                              foaf:name "Jack Verhoosel"
                                             ] ,
-                                            [ schema:affiliation [ foaf:name "xxx"
+                                            [ schema:affiliation [ foaf:name "Maastricht University"
                                                                  ] ;
                                               foaf:name "Christopher Brewster"
                                             ] ;
