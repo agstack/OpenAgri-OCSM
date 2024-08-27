@@ -1,259 +1,192 @@
-@prefix : <https://w3id.org/ocsm/> .
-@prefix ocsm: <https://w3id.org/ocsm/> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix stat: <http://data.europa.eu/m8g/> .
-@prefix schema: <https://schema.org/> .
-@prefix af-inspire:	<http://inspire.ec.europa.eu/schemas/af/3.0#> .
-@prefix act-inspire:	<http://inspire.ec.europa.eu/schemas/act-core/3.0#> .
-@prefix foodie: <http://foodie-cloud.com/model/foodie#> .
-@prefix saref4agri: <https://saref.etsi.org/saref4agri/> .
-@prefix common: <http://portele.de/ont/inspire/baseInspire#> .
-@prefix fiware: <https://smartdatamodels.org/> .
-@prefix iso19109: <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#> .
-@prefix iso19150-2: <http://def.seegrid.csiro.au/isotc211/iso19150/-2/2012/basic#> .
-@prefix iso19103: <http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix saref: <https://saref.etsi.org/core/> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix fiware-agrifood: <https://smartdatamodels.org/dataModel.Agrifood/> .
-@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix ploutos: <https://www.tno.nl/agrifood/ontology/ploutos/common#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
-@base <https://w3id.org/ocsm/> .
-
-<https://w3id.org/ocsm> a owl:Ontology ;                            
-                            dct:contributor [ schema:affiliation [ foaf:name "Maastricht University"
-                                                                 ] ;
-                                              foaf:name "Jack Verhoosel"
-                                            ] ,
-                                            [ schema:affiliation [ foaf:name "Maastricht University"
-                                                                 ] ;
-                                              foaf:name "Christopher Brewster"
-                                            ] ;
-                            dct:creator [ schema:affiliation [ foaf:name "PSNC"
-                                                             ] ;
-                                          rdfs:seeAlso <http://orcid.org/0000-0003-4289-4922> ;
-                                          foaf:name "Raul Palma"
-                                        ] ;
-                            owl:imports <https://w3id.org/demeter/agri/agriCommon> ,
-                            						<https://w3id.org/demeter/agri/agriFeature> , 
-                            						<https://w3id.org/demeter/agri/agriCrop> , 
-                            						<https://w3id.org/demeter/agri/agriIntervention> , 
-                            						<https://w3id.org/demeter/agri/agriAlert> , 
-                            						<https://w3id.org/demeter/agri/agriProduct> , 
-                            						<https://w3id.org/demeter/agri/agriProperty> , 
-                            						<https://w3id.org/demeter/agri/agriSystem> , 
-                            						<https://w3id.org/demeter/agri/agriPest> ,
-                            						<https://w3id.org/demeter/agri/farmAnimal> ;
-                            dct:description "The OpenAgri Common Semantic Information Model is a project specific ontology covering the needs of project pilots and components. It is based on the Agriculure Information Model (AIM) and the ploutos ontology"@en ;
-                            dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
-                            dct:title "OpenAgri Common Semantic Information Model (OCSM) project ontology"@en ;
-                            rdfs:label "OpenAgri Common Semantic Information Model (OCSM) project ontology"@en ;
-                            rdfs:comment "The OpenAgri Common Semantic Information Model (OCSM) is the common vocabulary in OpenAgri project providing the basis for semantic interoperability across pilots and components"@en ;
-                            owl:versionInfo "1.0" ;
-                            foaf:maker [ foaf:homepage <https://horizon-openagri.eu/> ;
-                                         foaf:name "OpenAgri project"
-                                       ] .
-
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-
-#################################################################
-#    Datatypes
-#################################################################
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-## ploutos ##
-ploutos:usesPesticide
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "uses pesticide" ;
-  rdfs:range ploutos:Pesticide ;
-.
-
-ploutos:hasCost
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit" ;
-  rdfs:label "has cost" ;
-  rdfs:range om:Measure ;
-.
-
-### incorrect range (om:Unit), should be om:Measure
-ploutos:isPricePer
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit" ;
-  rdfs:label "is price per" ;
-  rdfs:range om:Measure ;
-.
-
-### incorrect range (ploutos:SoilManagementOperation), should be unionof ploutos:SoilManagementOperation and CropManagementOperation
-ploutos:isOperatedOn
-  rdf:type owl:ObjectProperty ;  
-  rdfs:label "is operated on" ;
-  rdfs:domain [
-      rdf:type owl:Class ;
-      owl:unionOf (
-          ploutos:SoilManagementOperation
-          ploutos:CropManagementOperation
-        ) ;
-    ] ;
-.
-
-ploutos:responsibleAgent
-  rdf:type owl:ObjectProperty ;
-  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
-.
-
-ploutos:usesAgriculturalMachinery
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "This property indicates the kind of agricultural machine that is used for a specific operation" ;
-  rdfs:domain ploutos:Operation ;
-  rdfs:label "uses agricultural machinery" ;
-  rdfs:range ploutos:AgriculturalMachine ;
-.
-
-ploutos:hasGreenhouseGasEmission
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "This property indicates that a farm or a machine can have an estimation of the total greenhouse gas emission during a time period of usually a year. The emission is expressed in terms of the amount of kilograms of carbon equivalent per ton of product produced by the farm." ;
-  rdfs:domain [
-      rdf:type owl:Class ;
-      owl:unionOf (
-          ploutos:Farm
-          ploutos:AgriculturalMachine
-        ) ;
-    ] ;
-  rdfs:label "has greenhouse gas emission" ;
-  rdfs:range sosa:Observation ;
-.
-
-ploutos:usesIrrigationSystem
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ploutos:Parcel ;
-  rdfs:label "uses irrigation system" ;
-  rdfs:range ploutos:IrrigationSystem ;
-.
-
-ploutos:hasCycle
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "This is the property that expresses the relationship between a parcel and multiple crop cycles." ;
-  rdfs:label "has cycle" ;
-.
-
-ploutos:isAppliedPer
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "is applied per" ;
-  rdfs:range om:Area ;
-.
-
-ploutos:hasAppliedAmount
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Here we make the link to the Ontology of units of Measure and enable classes to have a measure witth a numerical value and a unit" ;
-  rdfs:label "has applied amount" ;
-  rdfs:range om:Measure ;
-.
-
-ploutos:hasWeatherObservation
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "This property indicates that an operation can have an observation of a weather phenomenon done during the execution of the operation. Such a weather phenomenon can have influence on the operation and the environment in which the operation is executed." ;
-  rdfs:domain ploutos:Operation ;
-  rdfs:label "has weather observation" ;
-  rdfs:range sosa:Observation ;
-.
-
-## ocsm ##
-
-ocsm:hasPestThreat
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "References the Pest that threatens the subject entity" ;
-  rdfs:isDefinedBy <https://w3id.org/ocsm/> .
-  
-ocsm:hasYieldPrediction
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "References the Yield prediction for a crop in a parcel/plot" ;
-  rdfs:range	ocsm:YieldPrediction ;
-  rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-  
-ocsm:hasVinesStressIndicator
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "References the Vines Stress Indicator of a Vineyard in a parcel/plot" ;
-  rdfs:range	ocsm:VinesStressIndicator ;
-  rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-  
-ocsm:hasCanopyDensityProfile
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "References the Canopy Density Profile of a Vineyard in a parcel/plot" ;
-  rdfs:range	ocsm:CanopyDensityProfile ;
-  rdfs:isDefinedBy <https://w3id.org/ocsm/> .           
-  
-
-#################################################################
-#    Data properties
-#################################################################
-
-
-## ploutos ##
-
-ploutos:hasPreHarvestInterval
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This property indicates preharvest interval, which is the waiting time between a pesticide application and when a crop can be harvested. During the PHI, the pesticide may be broken down in the plant, or on its surface." ;
-  rdfs:domain ploutos:Pesticide ;
-  rdfs:label "has preharvest interval" ;
-  rdfs:range <http://www.w3.org/2006/time#Duration> ;
-.
-
-ploutos:hasCommercialName
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has commercial name" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:hasActiveSubstance
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "1: This property is used by instances of class TreatmentMaterial to indicate the active substance in the treatment material." ;
-  rdfs:comment "2: For now, this is modelled as a string for simplicity. In the future, this can be replaced by a Substance class of which there can be a different types from a vocabulary" ;
-  rdfs:domain ploutos:TreatmentMaterial ;
-  rdfs:label "has active substance" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:isTargetedTowards
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "1: This property expresses the organism towards which a pest prevention operation or a treatment material is targeted, e.g. late blight" ;
-  rdfs:comment "2: For now, this is modelled for simplicity as a string that contains the name of the targeted organism. In the future, this can be replaced by a class Organisms with more properties than just the name." ;
-  rdfs:domain [
-      rdf:type owl:Class ;
-      owl:unionOf (
-          ploutos:TreatmentMaterial
-          ploutos:PestPreventionOperation
-          ploutos:PestMonitoringOperation
-        ) ;
-    ] ;
-  rdfs:label "is targeted towards" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:actsOnCropStage
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment """This property indicates that a crop management operation acts on a crop that is in a certain crop stage. Crop stages can be:
+<rdf:RDF
+    xmlns:qudt="http://qudt.org/schema/qudt/"
+    xmlns:af-inspire="http://inspire.ec.europa.eu/schemas/af/3.0#"
+    xmlns:ploutos="https://www.tno.nl/agrifood/ontology/ploutos/common#"
+    xmlns:saref="https://saref.etsi.org/core/"
+    xmlns:common="http://portele.de/ont/inspire/baseInspire#"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:obo="http://purl.obolibrary.org/obo/"
+    xmlns:saref4agri="https://saref.etsi.org/saref4agri/"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:sosa="http://www.w3.org/ns/sosa/"
+    xmlns:iso19103="http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:foodie="http://foodie-cloud.com/model/foodie#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="https://schema.org/"
+    xmlns:fiware="https://smartdatamodels.org/"
+    xmlns:iso19109="http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#"
+    xmlns:iso19150-2="http://def.seegrid.csiro.au/isotc211/iso19150/-2/2012/basic#"
+    xmlns:stat="http://data.europa.eu/m8g/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ocsm="https://w3id.org/ocsm/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:qb="http://purl.org/linked-data/cube#"
+    xmlns:geo="http://www.opengis.net/ont/geosparql#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:act-inspire="http://inspire.ec.europa.eu/schemas/act-core/3.0#"
+    xmlns:ssn="http://www.w3.org/ns/ssn/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:fiware-agrifood="https://smartdatamodels.org/dataModel.Agrifood/"
+    xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/" > 
+  <rdf:Description rdf:about="https://w3id.org/ocsm/NumberOfFruits">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>NumberOfFruits</rdfs:comment>
+    <rdfs:label>NumberOfFruits</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasAdministrator"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie#operator">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#responsibleAgent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <foaf:name>Christopher Brewster</foaf:name>
+    <schema:affiliation rdf:nodeID="A2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#actsOnCropStage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#isTargetedTowards">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>is targeted towards</rdfs:label>
+    <rdfs:domain rdf:nodeID="A4"/>
+    <rdfs:comment>2: For now, this is modelled for simplicity as a string that contains the name of the targeted organism. In the future, this can be replaced by a class Organisms with more properties than just the name.</rdfs:comment>
+    <rdfs:comment>1: This property expresses the organism towards which a pest prevention operation or a treatment material is targeted, e.g. late blight</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#System">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>System</rdfs:label>
+    <rdfs:comment>This class represents all kinds of systems that are used in the agrifood supply chain</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/CanopyDensityProfile">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>Canopy Density Profile</rdfs:comment>
+    <rdfs:label>CanopyDensityProfile</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <owl:someValuesFrom rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropCycle"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCycle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasStartDatetime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>has start datetime</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <owl:unionOf rdf:nodeID="A7"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/Vineyard">
+    <rdfs:subClassOf rdf:resource="https://smartdatamodels.org/dataModel.Agrifood/AgriParcel"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>Vineyard type of plot</rdfs:comment>
+    <rdfs:label>Vineyard</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#inRegion"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasAppliedAmount"/>
+    <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://smartdatamodels.org/dataModel.Agrifood/endedAt">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasEndDatetime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <foaf:name>Raul Palma</foaf:name>
+    <rdfs:seeAlso rdf:resource="http://orcid.org/0000-0003-4289-4922"/>
+    <schema:affiliation rdf:nodeID="A11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/cultivationSeason">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>cultivation season</rdfs:comment>
+    <rdfs:label xml:lang="en">cultivationSeason</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#Pesticide">
+    <rdfs:subClassOf rdf:nodeID="A12"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#TreatmentMaterial"/>
+    <rdfs:comment>This class represents the set of pesticides. A pesticide is a substance that is meant to control pests.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#responsibleAgent">
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasNumberOfSprinklers"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <foaf:name>Maastricht University</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:rest rdf:nodeID="A15"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#SoilManagementOperation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/ENVO_00000114">
+    <rdfs:label>agricultural field</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel">
+    <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4agri/Parcel"/>
+    <rdfs:subClassOf rdf:nodeID="A16"/>
+    <rdfs:subClassOf rdf:nodeID="A8"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>2: A parcel has various attributes, such as an area, a region, a toponym and an administrator. In addition, the crop that is being cultivated on the parcel has various dates, such as first leaves date, blossoming date and fruiting date. Last but not least, various systems can be used on the parcel for cultivation, such as an irrigation system.</rdfs:comment>
+    <rdfs:comment>1: This class represents the set of parcels. A parcel is a plot of land, usually a division of a larger area.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/ENVO_00000114"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:nodeID="A17"/>
+    <rdfs:subClassOf rdf:nodeID="A5"/>
+    <rdfs:subClassOf rdf:nodeID="A18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#usesPesticide">
+    <rdfs:range rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Pesticide"/>
+    <rdfs:label>uses pesticide</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A19">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasFruitingDate"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasWeatherObservation">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <rdfs:label>has weather observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Operation"/>
+    <rdfs:comment>This property indicates that an operation can have an observation of a weather phenomenon done during the execution of the operation. Such a weather phenomenon can have influence on the operation and the environment in which the operation is executed.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://smartdatamodels.org/dataModel.Agrifood/area">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasArea"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#CropManagementOperation">
+    <rdfs:subClassOf rdf:nodeID="A20"/>
+    <rdfs:subClassOf rdf:nodeID="A3"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Operation"/>
+    <rdfs:comment>2: The actsOnCropStage property indicates that the crop management operation acts on a crop that is in a certain crop stage. Crop stages can be:
 1: germination;
 2: leaf development;
 3: formation of side shoots;
@@ -263,222 +196,281 @@ ploutos:actsOnCropStage
 7: flowering;
 8: fruit development;
 9: ripening;
-10: senescence.""" ;
-  rdfs:domain ploutos:CropManagementOperation ;
-  rdfs:label "acts on crop stage" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:hasCountry
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "1: This property expresses the country in which an object is located. An object can be a farm, a farmer's association or a processing company" ;
-  rdfs:comment "2: This is modelled using the existing country ontology: http://eulersharp.sourceforge.net/2003/03swap/countries" ;
-  rdfs:label "has country" ;
-  rdfs:range <http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2DT> ;
-.
-
-ploutos:hasAdministrator
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "1: This property expresses the administrator of the parcel, which can be someone else than the farmer that owns the parcel." ;
-  rdfs:comment "2: For now, this is modelled for simplicity as a string that contains the name of the administrator. In the future, this can be replaced by a class person with more properties than just the name." ;
-  rdfs:domain ploutos:Parcel ;
-  rdfs:label "has administrator" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:hasToponym
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This property expresses the toponym of a parcel, meaning the name of the parcel as it is used by the locals" ;
-  rdfs:domain ploutos:Parcel ;
-  rdfs:label "has toponym" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:inRegion
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "1: This property expresses the region in which a parcel is located, meaning the county or province of the parcel." ;
-  rdfs:comment "2: For now, this is modelled as a string for simplicity. In the future, this can be replaced by a class of region with more properties than just the name." ;
-  rdfs:domain ploutos:Parcel ;
-  rdfs:label "in region" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:hasArea
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This property expresses the area of a flat object such as a parcel or field on the land" ;
-  rdfs:label "has area" ;
-  rdfs:range xsd:float ;
-.
-
-ploutos:hasSprinklerFlow
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "this property indicates the flow of water through the sprinklers of an irrigation system in cubic meters per hour (m3/h)" ;
-  rdfs:domain ploutos:IrrigationSystem ;
-  rdfs:label "has sprinkler flow" ;
-  rdfs:range xsd:float ;
-.
-
-ploutos:hasNumberOfSprinklers
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain ploutos:IrrigationSystem ;
-  rdfs:label "has number of sprinklers" ;
-  rdfs:range xsd:integer ;
-.
-
-ploutos:hasNumberOfSprinklersPerPlant
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain ploutos:IrrigationSystem ;
-  rdfs:label "has number of sprinklers per plant" ;
-  rdfs:range xsd:integer ;
-.
-
-ploutos:hasIrrigationType
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain ploutos:IrrigationSystem ;
-  rdfs:label "has irrigation type" ;
-  rdfs:range xsd:string ;
-.
-
-ploutos:hasBlossomingDate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has blossoming date" ;
-  rdfs:range xsd:dateTime ;
-.
-
-ploutos:hasEndDatetime
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has end datetime" ;
-  rdfs:range xsd:dateTime ;
-.
-
-ploutos:hasFirstLeavesDate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has first leaves date" ;
-  rdfs:range xsd:dateTime ;
-.
-
-ploutos:hasFruitingDate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has fruiting date" ;
-  rdfs:range xsd:dateTime ;
-.
-
-ploutos:hasStartDatetime
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "has start datetime" ;
-  rdfs:range xsd:dateTime ;
-.
-
-ploutos:hasSeedRate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:comment "This property represents the quantity of seed of a crop that is required per hectare of land to sow for optimum crop production" ;
-  rdfs:domain obo:PO_0000003 ;
-  rdfs:label "has seed rate" ;
-  rdfs:range xsd:integer ;
-.
-
-## ocsm ##
-
-ocsm:cultivationSeason	a	owl:DatatypeProperty ;
-        rdfs:label   		"cultivationSeason"@en ;
-        rdfs:comment		"cultivation season" ;
-        rdfs:isDefinedBy <https://w3id.org/ocsm/> .     
-
-
-#################################################################
-#    Classes
-#################################################################
-
-## saref4agri ##
-
-saref4agri:Yield a owl:Class ;
-	rdfs:subClassOf saref:Property, sosa:ObservedProperty ;
-  rdfs:comment "The produced amount of food for animals or of agricultural products."@en ;
-  rdfs:label "Yield"@en .
-
-## ploutos ##
-
-ploutos:Pesticide
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the set of pesticides. A pesticide is a substance that is meant to control pests." ;
-  rdfs:subClassOf ploutos:TreatmentMaterial ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onDataRange xsd:time ;
-      owl:onProperty ploutos:hasPreHarvestInterval ;
-    ] ;
-.
-
-ploutos:TreatmentMaterial
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents all material or substances that can be used on a parcel, i.e. in the soil or on the crop, e.g. fertilizers, pesticides, but also water" ;
-  rdfs:label "Treatment material" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasCommercialName ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass om:Measure ;
-      owl:onProperty ploutos:hasCost ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass om:Unit ;
-      owl:onProperty ploutos:isPricePer ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:hasActiveSubstance ;
-      owl:someValuesFrom xsd:string ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:isTargetedTowards ;
-      owl:someValuesFrom xsd:string ;
-    ] ;
-.
-
-ploutos:PestPreventionOperation
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the set of operations to protect crop against any kind of pest or disease by trying to prevent pest attacks. It is a specific CropProtectionOperation." ;
-  rdfs:label "Pest prevention operation" ;
-  rdfs:subClassOf ploutos:CropProtectionOperation ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:isTargetedTowards ;
-      owl:someValuesFrom xsd:string ;
-    ] ;
-.
-
-ploutos:PestMonitoringOperation
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the set of operations to protect crop against any kind of pest or disease by trying to monitor the presence of possible pests. It is a specific CropProtectionOperation." ;
-  rdfs:label "Pest monitoring operation" ;
-  rdfs:subClassOf ploutos:CropProtectionOperation ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:isTargetedTowards ;
-      owl:someValuesFrom xsd:string ;
-    ] ;
-.
-
-ploutos:CropProtectionOperation
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the set of operations to protect crop against any kind of pest or disease. It is a specific CropManagementOperation and is meant for pest prevention, pest monitoring and pest intervention." ;
-  rdfs:label "Crop protection operation" ;
-  rdfs:subClassOf ploutos:CropManagementOperation ;
-.
-
-ploutos:CropManagementOperation
-  rdf:type owl:Class ;
-  rdfs:comment "1: This is the class of crop management operations in which the crop/plant is being treated to enhance the performance, e.g. a crop protection operation or pruning operation" ;
-  rdfs:comment """2: The actsOnCropStage property indicates that the crop management operation acts on a crop that is in a certain crop stage. Crop stages can be:
+10: senescence.</rdfs:comment>
+    <rdfs:comment>1: This is the class of crop management operations in which the crop/plant is being treated to enhance the performance, e.g. a crop protection operation or pruning operation</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A21">
+    <rdf:rest rdf:nodeID="A22"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#TreatmentMaterial"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <foaf:name>PSNC</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasStartDatetime"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#Crop">
+    <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/PO_0000003"/>
+    <rdfs:subClassOf rdf:nodeID="A24"/>
+    <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4agri/Crop"/>
+    <rdfs:comment>We have defined this class to be equivalent to obo:PO_0000003 which is the concept of a "whole plant", in the PO classification, which is reused by the FOODON ontology. Thereby, the ploutos:Crop concept automatically inherits all the subclasses defined in the FOODON ontology under PO_0000003.</rdfs:comment>
+    <rdfs:comment>This class represents all kinds of cultivated plants that can be grown on a parcel of a farm or more generically on any type of substrate in any kind of environment. It is thus a superclass of a wide variety of different species.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/hasPestThreat">
+    <rdfs:range rdf:resource="https://smartdatamodels.org/dataModel.Agrifood/AgriPest"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>References the Pest that threatens the subject entity</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#CropProtectionOperation">
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropManagementOperation"/>
+    <rdfs:label>Crop protection operation</rdfs:label>
+    <rdfs:comment>This class represents the set of operations to protect crop against any kind of pest or disease. It is a specific CropManagementOperation and is meant for pest prevention, pest monitoring and pest intervention.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/Quantity">
+    <owl:equivalentClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasToponym"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://saref.etsi.org/saref4agri/wateringSystem">
+    <owl:equivalentClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/PO_0000003">
+    <rdfs:label>whole plant</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/CanopyDensity">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>CanopyDensity</rdfs:comment>
+    <rdfs:label>CanopyDensity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isTargetedTowards"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://saref.etsi.org/saref4agri/Yield">
+    <rdfs:label xml:lang="en">Yield</rdfs:label>
+    <rdfs:comment xml:lang="en">The produced amount of food for animals or of agricultural products.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Property"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#Operation">
+    <rdfs:subClassOf rdf:nodeID="A27"/>
+    <rdfs:subClassOf rdf:nodeID="A23"/>
+    <rdfs:subClassOf rdf:nodeID="A28"/>
+    <rdfs:subClassOf rdf:nodeID="A29"/>
+    <rdfs:subClassOf rdf:nodeID="A30"/>
+    <rdfs:comment>An operation is a set of actions on an object performed by a responsible agent during a specific time interval</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasSprinklerFlow">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label>has sprinkler flow</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <rdfs:comment>this property indicates the flow of water through the sprinklers of an irrigation system in cubic meters per hour (m3/h)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A31">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasGreenhouseGasEmission"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropManagementOperation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasBlossomingDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>has blossoming date</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasArea">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label>has area</rdfs:label>
+    <rdfs:comment>This property expresses the area of a flat object such as a parcel or field on the land</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/AIModel">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>AIModel</rdfs:comment>
+    <rdfs:label>AIModel</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasGreenhouseGasEmission">
+    <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <rdfs:label>has greenhouse gas emission</rdfs:label>
+    <rdfs:domain rdf:nodeID="A32"/>
+    <rdfs:comment>This property indicates that a farm or a machine can have an estimation of the total greenhouse gas emission during a time period of usually a year. The emission is expressed in terms of the amount of kilograms of carbon equivalent per ton of product produced by the farm.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#SoilManagementOperation">
+    <rdfs:subClassOf rdf:nodeID="A33"/>
+    <rdfs:subClassOf rdf:nodeID="A9"/>
+    <rdfs:subClassOf rdf:nodeID="A34"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Operation"/>
+    <rdfs:comment>2: Wikipedia says: soil management is the application of operations, practices, and treatments to protect soil and enhance its performance (such as soil fertility or soil mechanics). It includes soil conservation, soil amendment, and optimal soil health. See: https://en.wikipedia.org/wiki/Soil_management</rdfs:comment>
+    <rdfs:comment>1: This is the class of soil management operations in which certain material is applied to the soil an a parcel to enhance the performance, e.g. a fertilization operation, a spraying operation or an irrigation operation</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://smartdatamodels.org/dataModel.Agrifood/startedAt">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasStartDatetime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasWeatherObservation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A18">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasArea"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A35">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#AgriculturalMachine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Area">
+    <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+    <rdfs:label>area</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A36">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isPricePer"/>
+    <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/Unit">
+    <owl:equivalentClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/NumberOfGrapes">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>NumberOfGrapes</rdfs:comment>
+    <rdfs:label>NumberOfGrapes</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/Infestation">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>Infestation</rdfs:comment>
+    <rdfs:label>Infestation</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/AIPestDetectionModel">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>AIPestDetectionModel</rdfs:comment>
+    <rdfs:label>AIPestDetectionModel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/ocsm/AIModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A37">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCost"/>
+    <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCost">
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdfs:label>has cost</rdfs:label>
+    <rdfs:comment>Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <owl:unionOf rdf:nodeID="A38"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie#quantity">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasAppliedAmount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#PestPreventionOperation">
+    <rdfs:subClassOf rdf:nodeID="A39"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropProtectionOperation"/>
+    <rdfs:label>Pest prevention operation</rdfs:label>
+    <rdfs:comment>This class represents the set of operations to protect crop against any kind of pest or disease by trying to prevent pest attacks. It is a specific CropProtectionOperation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue">
+    <skos:prefLabel xml:lang="en">TreatmentPurposeValue</skos:prefLabel>
+    <dct:isFormatOf>http://foodie-cloud.com/model/foodie#TreatmentPurposeValue</dct:isFormatOf>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue">
+    <skos:prefLabel xml:lang="en">FormOfTreatmentValue</skos:prefLabel>
+    <dct:isFormatOf>http://foodie-cloud.com/model/foodie#FormOfTreatmentValue</dct:isFormatOf>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasAdministrator">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>has administrator</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <rdfs:comment>2: For now, this is modelled for simplicity as a string that contains the name of the administrator. In the future, this can be replaced by a class person with more properties than just the name.</rdfs:comment>
+    <rdfs:comment>1: This property expresses the administrator of the parcel, which can be someone else than the farmer that owns the parcel.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#inRegion">
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/addressRegion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>in region</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <rdfs:comment>2: For now, this is modelled as a string for simplicity. In the future, this can be replaced by a class of region with more properties than just the name.</rdfs:comment>
+    <rdfs:comment>1: This property expresses the region in which a parcel is located, meaning the county or province of the parcel.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#TreatmentMaterial">
+    <rdfs:subClassOf rdf:nodeID="A26"/>
+    <rdfs:subClassOf rdf:nodeID="A40"/>
+    <rdfs:subClassOf rdf:nodeID="A36"/>
+    <rdfs:subClassOf rdf:nodeID="A37"/>
+    <rdfs:subClassOf rdf:nodeID="A41"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>Treatment material</rdfs:label>
+    <rdfs:comment>This class represents all material or substances that can be used on a parcel, i.e. in the soil or on the crop, e.g. fertilizers, pesticides, but also water</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A40">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasActiveSubstance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/hasCanopyDensityProfile">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:range rdf:resource="https://w3id.org/ocsm/CanopyDensityProfile"/>
+    <rdfs:comment>References the Canopy Density Profile of a Vineyard in a parcel/plot</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCountry">
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/addressCountry"/>
+    <rdfs:range rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2DT"/>
+    <rdfs:label>has country</rdfs:label>
+    <rdfs:comment>2: This is modelled using the existing country ontology: http://eulersharp.sourceforge.net/2003/03swap/countries</rdfs:comment>
+    <rdfs:comment>1: This property expresses the country in which an object is located. An object can be a farm, a farmer's association or a processing company</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A42">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasFirstLeavesDate"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#actsOnCropStage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>acts on crop stage</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropManagementOperation"/>
+    <rdfs:comment>This property indicates that a crop management operation acts on a crop that is in a certain crop stage. Crop stages can be:
 1: germination;
 2: leaf development;
 3: formation of side shoots;
@@ -488,416 +480,437 @@ ploutos:CropManagementOperation
 7: flowering;
 8: fruit development;
 9: ripening;
-10: senescence.""" ;
-  rdfs:subClassOf ploutos:Operation ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:actsOnCropStage ;
-      owl:someValuesFrom xsd:string ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:isOperatedOn ;
-      owl:someValuesFrom ploutos:Parcel ;
-    ] ;
-.
-
-ploutos:Operation
-  rdf:type owl:Class ;
-  rdfs:comment "An operation is a set of actions on an object performed by a responsible agent during a specific time interval" ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass <http://xmlns.com/foaf/0.1/Agent> ;
-      owl:onProperty ploutos:responsibleAgent ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onClass ploutos:AgriculturalMachine ;
-      owl:onProperty ploutos:usesAgriculturalMachinery ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onDataRange xsd:dateTime ;
-      owl:onProperty ploutos:hasEndDatetime ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onDataRange xsd:dateTime ;
-      owl:onProperty ploutos:hasStartDatetime ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:hasWeatherObservation ;
-      owl:someValuesFrom sosa:Observation ;
-    ] ;
-.
-
-ploutos:AgriculturalMachine
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents the set of all agricultural machines that are used on the farm" ;
-  rdfs:label "Agricultural machine" ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:hasGreenhouseGasEmission ;
-      owl:someValuesFrom sosa:Observation ;
-    ] ;
-.
-
-ploutos:Farm
-  rdf:type owl:Class ;
-  rdfs:subClassOf org:Organization ;
-  rdfs:subClassOf saref4agri:Farm ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onDataRange <http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2DT> ;
-      owl:onProperty ploutos:hasCountry ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:hasGreenhouseGasEmission ;
-      owl:someValuesFrom sosa:Observation ;
-    ] ;
-.
-
-ploutos:Parcel
-  rdf:type owl:Class ;
-  rdfs:comment "1: This class represents the set of parcels. A parcel is a plot of land, usually a division of a larger area." ;
-  rdfs:comment "2: A parcel has various attributes, such as an area, a region, a toponym and an administrator. In addition, the crop that is being cultivated on the parcel has various dates, such as first leaves date, blossoming date and fruiting date. Last but not least, various systems can be used on the parcel for cultivation, such as an irrigation system." ;
-  rdfs:subClassOf obo:ENVO_00000114 ;
-  rdfs:subClassOf saref4agri:Parcel ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasAdministrator ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasToponym ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:inRegion ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass ploutos:IrrigationSystem ;
-      owl:onProperty ploutos:usesIrrigationSystem ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onDataRange xsd:float ;
-      owl:onProperty ploutos:hasArea ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:hasCycle ;
-      owl:someValuesFrom ploutos:CropCycle ;
-    ] ;
-.
-
-ploutos:IrrigationSystem
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents all kind of irrigation systems that are used to irrigate the soil of a parcel on a farm." ;
-  rdfs:label "Irrigation system" ;
-  rdfs:subClassOf ploutos:System ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onDataRange xsd:float ;
-      owl:onProperty ploutos:hasSprinklerFlow ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onDataRange xsd:integer ;
-      owl:onProperty ploutos:hasNumberOfSprinklers ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onDataRange xsd:integer ;
-      owl:onProperty ploutos:hasNumberOfSprinklersPerPlant ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onDataRange xsd:string ;
-      owl:onProperty ploutos:hasIrrigationType ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-.
-
-ploutos:CropCycle
-  rdf:type owl:Class ;
-  rdfs:comment "1: This class represents the set of crop cycles. A crop cycle is a single cycle of cultivating a crop from sowing till harvesting. For a multiyear plant or crop, a crop cycle is the period between first leaving until harvesting." ;
-  rdfs:comment "2: A crop cycle has various attributes, such as the parcel on which the crop is being cultivated as well as various dates, such as first leaves date, blossoming date and fruiting date." ;
-  rdfs:comment "3: A ploutos:Crop is equivalent to the class obo:PO_0000003, which contains all or most plant varieties." ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasBlossomingDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasEndDatetime ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasFirstLeavesDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasFruitingDate ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasStartDatetime ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasToponym ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass ploutos:Crop ;
-      owl:onProperty saref4agri:contains ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-.
-
-ploutos:Crop
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents all kinds of cultivated plants that can be grown on a parcel of a farm or more generically on any type of substrate in any kind of environment. It is thus a superclass of a wide variety of different species." ;
-  rdfs:comment "We have defined this class to be equivalent to obo:PO_0000003 which is the concept of a \"whole plant\", in the PO classification, which is reused by the FOODON ontology. Thereby, the ploutos:Crop concept automatically inherits all the subclasses defined in the FOODON ontology under PO_0000003." ;
-  rdfs:subClassOf saref4agri:Crop ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty ploutos:hasSeedRate ;
-    ] ;
-  owl:equivalentClass obo:PO_0000003 ;
-.
-
-ploutos:SoilManagementOperation
-  rdf:type owl:Class ;
-  rdfs:comment "1: This is the class of soil management operations in which certain material is applied to the soil an a parcel to enhance the performance, e.g. a fertilization operation, a spraying operation or an irrigation operation" ;
-  rdfs:comment "2: Wikipedia says: soil management is the application of operations, practices, and treatments to protect soil and enhance its performance (such as soil fertility or soil mechanics). It includes soil conservation, soil amendment, and optimal soil health. See: https://en.wikipedia.org/wiki/Soil_management" ;
-  rdfs:subClassOf ploutos:Operation ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass om:Area ;
-      owl:onProperty ploutos:isAppliedPer ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onClass om:Measure ;
-      owl:onProperty ploutos:hasAppliedAmount ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      rdf:type owl:Restriction ;
-      owl:onProperty ploutos:isOperatedOn ;
-      owl:someValuesFrom ploutos:Parcel ;
-    ] ;
-.
-
-ploutos:System
-  rdf:type owl:Class ;
-  rdfs:comment "This class represents all kinds of systems that are used in the agrifood supply chain" ;
-  rdfs:label "System" ;
-  rdfs:subClassOf owl:Thing ;
-.
-
-
-obo:PO_0000003 a owl:Class ;  
-  rdfs:label "whole plant" ;  
-.
-
-obo:ENVO_00000114 a owl:Class ;  
-  rdfs:label "agricultural field" ;  
-.
-
-om:Area a owl:Class ;
-	rdfs:label "area" ;  
-	rdfs:subClassOf om:Quantity ; 
-.
-
-## ocsm ##
-
-ocsm:Vineyard a owl:Class ;
-			rdfs:label "Vineyard" ;   
-			rdfs:comment "Vineyard type of plot" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> .     
-			
-ocsm:YieldPrediction a owl:Class ;
-			rdfs:label "YieldPrediction" ;   
-			rdfs:comment "Yield Prediction" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-			
-ocsm:VinesStressIndicator a owl:Class ;
-			rdfs:label "VinesStressIndicator" ;   
-			rdfs:comment "Vines Stress Indicator" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-			
-ocsm:CanopyDensityProfile a owl:Class ;
-			rdfs:label "CanopyDensityProfile" ;   
-			rdfs:comment "Canopy Density Profile" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-			
-ocsm:AIModel a owl:Class ;
-			rdfs:label "AIModel" ;   
-			rdfs:comment "AIModel" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> . 												
-			
-ocsm:AIPestDetectionModel a owl:Class ;
-			rdfs:subClassOf ocsm:AIModel ;
-			rdfs:label "AIPestDetectionModel" ;   
-			rdfs:comment "AIPestDetectionModel" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> .
-			
-ocsm:SprayingMap a owl:Class ;
-			rdfs:label "SprayingMap" ;   
-			rdfs:comment "SprayingMap" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> .			 
-			
-
-#################################################################
-#    Alignments
-#################################################################
-
-ocsm:hasPestThreat rdfs:range	fiware-agrifood:AgriPest .
-ocsm:Vineyard rdfs:subClassOf  fiware-agrifood:AgriParcel .
-ocsm:YieldPrediction rdfs:subClassOf  sosa:Observation .
-ocsm:VinesStressIndicator rdfs:subClassOf  sosa:Observation .
-ocsm:CanopyDensityProfile rdfs:subClassOf  sosa:Observation .
-qudt:QuantityValue owl:equivalentClass om:Measure .
-qudt:Unit owl:equivalentClass om:Unit .
-qudt:Quantity owl:equivalentClass om:Quantity .
-foodie:interventionPlot owl:equivalentProperty ploutos:isOperatedOn  .
-foodie:operator owl:equivalentProperty ploutos:responsibleAgent .
-ploutos:usesAgriculturalMachinery rdfs:subPropertyOf foodie:machine . 
-foodie:quantity owl:equivalentProperty ploutos:hasAppliedAmount .
-ploutos:hasCountry rdfs:subPropertyOf schema:addressCountry .
-ploutos:inRegion rdfs:subPropertyOf schema:addressRegion .
-fiware-agrifood:area owl:equivalentProperty ploutos:hasArea .
-ploutos:hasIrrigationType rdfs:subPropertyOf foodie:type .
-fiware-agrifood:endedAt owl:equivalentProperty ploutos:hasEndDatetime .
-fiware-agrifood:startedAt owl:equivalentProperty ploutos:hasStartDatetime .
-foodie:Intervention owl:equivalentClass ploutos:CropManagementOperation .
-ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType .
-ssn:Sysgtem owl:equivalentClass ploutos:System .
-saref4agri:wateringSystem owl:equivalentClass ploutos:IrrigationSystem .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-## foodie
-
-<http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue>
-        a               skos:ConceptScheme ;
-        dct:isFormatOf  "http://foodie-cloud.com/model/foodie#TreatmentPurposeValue" ;
-        skos:prefLabel  "TreatmentPurposeValue"@en .
-
-<http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/pest>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue" ;
-        skos:prefLabel  "pest"@en .
-        
-<http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/fertilization>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue" ;
-        skos:prefLabel  "fertilization"@en .
-
-<http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/weed>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue" ;
-        skos:prefLabel  "weed"@en .
-        
-<http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/disease>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue" ;
-        skos:prefLabel  "disease"@en .                
-
-<http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue>
-        a               skos:ConceptScheme ;
-        dct:isFormatOf  "http://foodie-cloud.com/model/foodie#FormOfTreatmentValue" ;
-        skos:prefLabel  "FormOfTreatmentValue"@en .
-        
-<http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/aerial>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue" ;
-        skos:prefLabel  "aerial"@en .
-
-<http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/applicationMachine>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue" ;
-        skos:prefLabel  "applicationMachine"@en .        
-
-<http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/manual>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue" ;
-        skos:prefLabel  "manual"@en .
-
-<http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/sprayed>
-        a               skos:Concept ;
-        skos:inScheme   "http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue" ;
-        skos:prefLabel  "sprayed"@en .
-
-## ocsm
-
-ocsm:CropYield a owl:NamedIndividual , saref4agri:Yield ;
-              rdfs:label "CropYield" ;
-              rdfs:comment "CropYield" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> .
-              
-ocsm:PlantStress a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "plantStress" ;
-              rdfs:comment "plantStress" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-              
-ocsm:CanopyDensity a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "CanopyDensity" ;
-              rdfs:comment "CanopyDensity" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                 
-              
-ocsm:Infestation a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "Infestation" ;
-              rdfs:comment "Infestation" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> .               
-
-ocsm:Infestation a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "Infestation" ;
-              rdfs:comment "Infestation" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> .                 
-              
-ocsm:NumberOfGrapes a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "NumberOfGrapes" ;
-              rdfs:comment "NumberOfGrapes" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-              
-ocsm:NumberOfFruits a owl:NamedIndividual , sosa:ObservedProperty ;
-              rdfs:label "NumberOfFruits" ;
-              rdfs:comment "NumberOfFruits" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
-              
-ocsm:VineyardRow a owl:NamedIndividual , sosa:FeautureOfInterest ;
-              rdfs:label "VineyardRow" ;
-              rdfs:comment "VineyardRow" ;
-              rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                           
+10: senescence.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A38">
+    <rdf:rest rdf:nodeID="A35"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Farm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasSeedRate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label>has seed rate</rdfs:label>
+    <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/PO_0000003"/>
+    <rdfs:comment>This property represents the quantity of seed of a crop that is required per hectare of land to sow for optimum crop production</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/sprayed">
+    <skos:prefLabel xml:lang="en">sprayed</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A41">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCommercialName"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/CropYield">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>CropYield</rdfs:comment>
+    <rdfs:label>CropYield</rdfs:label>
+    <rdf:type rdf:resource="https://saref.etsi.org/saref4agri/Yield"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A43">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasStartDatetime"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#AgriculturalMachine">
+    <rdfs:subClassOf rdf:resource="http://foodie-cloud.com/model/foodie#MachineType"/>
+    <rdfs:subClassOf rdf:nodeID="A44"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>Agricultural machine</rdfs:label>
+    <rdfs:comment>This class represents the set of all agricultural machines that are used on the farm</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasSeedRate"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A45">
+    <foaf:name>OpenAgri project</foaf:name>
+    <foaf:homepage rdf:resource="https://horizon-openagri.eu/"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A34">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isAppliedPer"/>
+    <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Area"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A46">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasBlossomingDate"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A30">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#responsibleAgent"/>
+    <owl:onClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/SprayingMap">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>SprayingMap</rdfs:comment>
+    <rdfs:label>SprayingMap</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#isPricePer">
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdfs:label>is price per</rdfs:label>
+    <rdfs:comment>Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A47">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasNumberOfSprinklersPerPlant"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/disease">
+    <skos:prefLabel xml:lang="en">disease</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A20">
+    <owl:someValuesFrom rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isOperatedOn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/aerial">
+    <skos:prefLabel xml:lang="en">aerial</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasPreHarvestInterval">
+    <rdfs:range rdf:resource="http://www.w3.org/2006/time#Duration"/>
+    <rdfs:label>has preharvest interval</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Pesticide"/>
+    <rdfs:comment>This property indicates preharvest interval, which is the waiting time between a pesticide application and when a crop can be harvested. During the PHI, the pesticide may be broken down in the plant, or on its surface.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A44">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasGreenhouseGasEmission"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/pest">
+    <skos:prefLabel xml:lang="en">pest</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#usesIrrigationSystem">
+    <rdfs:range rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <rdfs:label>uses irrigation system</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasNumberOfSprinklersPerPlant">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label>has number of sprinklers per plant</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasAppliedAmount">
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdfs:label>has applied amount</rdfs:label>
+    <rdfs:comment>Here we make the link to the Ontology of units of Measure and enable classes to have a measure witth a numerical value and a unit</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A48">
+    <foaf:name>Jack Verhoosel</foaf:name>
+    <schema:affiliation rdf:nodeID="A14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasNumberOfSprinklers">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label>has number of sprinklers</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/ssn/Sysgtem">
+    <owl:equivalentClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#System"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie#interventionPlot">
+    <owl:equivalentProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isOperatedOn"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <foaf:name>Maastricht University</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasIrrigationType">
+    <rdfs:subPropertyOf rdf:resource="http://foodie-cloud.com/model/foodie#type"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>has irrigation type</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/fertilization">
+    <skos:prefLabel xml:lang="en">fertilization</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A39">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isTargetedTowards"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#usesAgriculturalMachinery">
+    <rdfs:subPropertyOf rdf:resource="http://foodie-cloud.com/model/foodie#machine"/>
+    <rdfs:range rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#AgriculturalMachine"/>
+    <rdfs:label>uses agricultural machinery</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Operation"/>
+    <rdfs:comment>This property indicates the kind of agricultural machine that is used for a specific operation</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A49">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasEndDatetime"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasActiveSubstance">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>has active substance</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#TreatmentMaterial"/>
+    <rdfs:comment>2: For now, this is modelled as a string for simplicity. In the future, this can be replaced by a Substance class of which there can be a different types from a vocabulary</rdfs:comment>
+    <rdfs:comment>1: This property is used by instances of class TreatmentMaterial to indicate the active substance in the treatment material.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/PlantStress">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>plantStress</rdfs:comment>
+    <rdfs:label>plantStress</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservedProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/VineyardRow">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>VineyardRow</rdfs:comment>
+    <rdfs:label>VineyardRow</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/FeautureOfInterest"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A50">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCountry"/>
+    <owl:onDataRange rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2DT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasEndDatetime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>has end datetime</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A17">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#usesIrrigationSystem"/>
+    <owl:onClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#PestMonitoringOperation">
+    <rdfs:subClassOf rdf:nodeID="A51"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropProtectionOperation"/>
+    <rdfs:label>Pest monitoring operation</rdfs:label>
+    <rdfs:comment>This class represents the set of operations to protect crop against any kind of pest or disease by trying to monitor the presence of possible pests. It is a specific CropProtectionOperation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationSystem">
+    <rdfs:subClassOf rdf:nodeID="A52"/>
+    <rdfs:subClassOf rdf:nodeID="A47"/>
+    <rdfs:subClassOf rdf:nodeID="A13"/>
+    <rdfs:subClassOf rdf:nodeID="A53"/>
+    <rdfs:subClassOf rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#System"/>
+    <rdfs:label>Irrigation system</rdfs:label>
+    <rdfs:comment>This class represents all kind of irrigation systems that are used to irrigate the soil of a parcel on a farm.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#CropCycle">
+    <rdfs:subClassOf rdf:nodeID="A19"/>
+    <rdfs:subClassOf rdf:nodeID="A46"/>
+    <rdfs:subClassOf rdf:nodeID="A49"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>2: A crop cycle has various attributes, such as the parcel on which the crop is being cultivated as well as various dates, such as first leaves date, blossoming date and fruiting date.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="A25"/>
+    <rdfs:comment>3: A ploutos:Crop is equivalent to the class obo:PO_0000003, which contains all or most plant varieties.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="A42"/>
+    <rdfs:subClassOf rdf:nodeID="A54"/>
+    <rdfs:comment>1: This class represents the set of crop cycles. A crop cycle is a single cycle of cultivating a crop from sowing till harvesting. For a multiyear plant or crop, a crop cycle is the period between first leaving until harvesting.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="A43"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasPreHarvestInterval"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A28">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasEndDatetime"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasFruitingDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>has fruiting date</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCycle">
+    <rdfs:label>has cycle</rdfs:label>
+    <rdfs:comment>This is the property that expresses the relationship between a parcel and multiple crop cycles.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A55">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#PestMonitoringOperation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/hasYieldPrediction">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:range rdf:resource="https://w3id.org/ocsm/YieldPrediction"/>
+    <rdfs:comment>References the Yield prediction for a crop in a parcel/plot</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#isAppliedPer">
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Area"/>
+    <rdfs:label>is applied per</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue/weed">
+    <skos:prefLabel xml:lang="en">weed</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/TreatmentPurposeValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasToponym"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/manual">
+    <skos:prefLabel xml:lang="en">manual</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/YieldPrediction">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>Yield Prediction</rdfs:comment>
+    <rdfs:label>YieldPrediction</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A53">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasSprinklerFlow"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasToponym">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>has toponym</rdfs:label>
+    <rdfs:domain rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <rdfs:comment>This property expresses the toponym of a parcel, meaning the name of the parcel as it is used by the locals</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#isOperatedOn">
+    <rdfs:domain rdf:nodeID="A6"/>
+    <rdfs:label>is operated on</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/VinesStressIndicator">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:comment>Vines Stress Indicator</rdfs:comment>
+    <rdfs:label>VinesStressIndicator</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A54">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://saref.etsi.org/saref4agri/contains"/>
+    <owl:onClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Crop"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm/hasVinesStressIndicator">
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/ocsm/"/>
+    <rdfs:range rdf:resource="https://w3id.org/ocsm/VinesStressIndicator"/>
+    <rdfs:comment>References the Vines Stress Indicator of a Vineyard in a parcel/plot</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie#Intervention">
+    <owl:equivalentClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#CropManagementOperation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <owl:unionOf rdf:nodeID="A21"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <rdf:rest rdf:nodeID="A55"/>
+    <rdf:first rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#PestPreventionOperation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <owl:someValuesFrom rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isOperatedOn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue/applicationMachine">
+    <skos:prefLabel xml:lang="en">applicationMachine</skos:prefLabel>
+    <skos:inScheme>http://foodie-cloud.com/model/foodie/code/FormOfTreatmentValue</skos:inScheme>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasFirstLeavesDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>has first leaves date</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#hasCommercialName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>has commercial name</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/QuantityValue">
+    <owl:equivalentClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A51">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#isTargetedTowards"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/ocsm">
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriSystem"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriProduct"/>
+    <dct:contributor rdf:nodeID="A1"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriFeature"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriCommon"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriPest"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriCrop"/>
+    <dct:contributor rdf:nodeID="A48"/>
+    <foaf:maker rdf:nodeID="A45"/>
+    <rdfs:comment xml:lang="en">The OpenAgri Common Semantic Information Model (OCSM) is the common vocabulary in OpenAgri project providing the basis for semantic interoperability across pilots and components</rdfs:comment>
+    <dct:creator rdf:nodeID="A10"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriProperty"/>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriIntervention"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dct:description xml:lang="en">The OpenAgri Common Semantic Information Model is a project specific ontology covering the needs of project pilots and components. It is based on the Agriculure Information Model (AIM) and the ploutos ontology</dct:description>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/farmAnimal"/>
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://w3id.org/demeter/agri/agriAlert"/>
+    <rdfs:label xml:lang="en">OpenAgri Common Semantic Information Model (OCSM) project ontology</rdfs:label>
+    <dct:title xml:lang="en">OpenAgri Common Semantic Information Model (OCSM) project ontology</dct:title>
+    <dct:rights xml:lang="en">This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0</dct:rights>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A52">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#hasIrrigationType"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.tno.nl/agrifood/ontology/ploutos/common#Farm">
+    <rdfs:subClassOf rdf:nodeID="A31"/>
+    <rdfs:subClassOf rdf:nodeID="A50"/>
+    <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4agri/Farm"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A29">
+    <owl:onProperty rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#usesAgriculturalMachinery"/>
+    <owl:onClass rdf:resource="https://www.tno.nl/agrifood/ontology/ploutos/common#AgriculturalMachine"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+</rdf:RDF>
