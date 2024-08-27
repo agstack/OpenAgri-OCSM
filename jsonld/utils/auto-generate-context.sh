@@ -466,7 +466,21 @@ java -jar /users/rap/GitRepositories/GitHub/owl2jsonld/target/uberjar/owl2jsonld
     }        
 '  
     
-    
+### for OCSM add also
+'
+	  "ploutos.Farm" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Farm"
+    },
+    "ploutos.Parcel" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"
+    },
+    "ploutos.Crop" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Crop"
+    },
+    "ploutos.System" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#System"
+    }
+'
 ######## core-ngsi-ld
 ## CHANGE in generated context
 : '

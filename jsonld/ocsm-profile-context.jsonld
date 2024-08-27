@@ -41,10 +41,7 @@
     },
     "Crop" : {
       "@id" : "https://saref.etsi.org/saref4agri/Crop"
-    },
-    "Sysgtem" : {
-      "@id" : "http://www.w3.org/ns/ssn/Sysgtem"
-    },
+    },    
     "Yield" : {
       "@id" : "https://saref.etsi.org/saref4agri/Yield"
     },
@@ -122,7 +119,7 @@
       "@id" : "https://w3id.org/demeter/agri/agriCrop#numberOfHivesNeeded",
       "@type" : "http://www.w3.org/2001/XMLSchema#integer"
     },
-    "validFrom" : {
+    "alertValidFrom" : {
       "@id" : "https://smartdatamodels.org/dataModel.Weather/validFrom",
       "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
     },
@@ -364,7 +361,7 @@
       "@id" : "http://foodie-cloud.com/model/foodie#livestockNumber",
       "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
     },
-    "FeatureOfInterest" : {
+    "saref.FeatureOfInterest" : {
       "@id" : "https://saref.etsi.org/core/FeatureOfInterest"
     },
     "dataProvider" : {
@@ -409,14 +406,14 @@
       "@id" : "http://foodie-cloud.com/model/foodie#originType",
       "@type" : "@id"
     },
-    "hasValue" : {
+    "propertyHasValue" : {
       "@id" : "https://saref.etsi.org/core/hasValue"
     },
     "usesAgriculturalMachinery" : {
       "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#usesAgriculturalMachinery",
       "@type" : "@id"
     },
-    "RO_0002473" : {
+    "composedPrimarilyOf" : {
       "@id" : "http://purl.obolibrary.org/obo/RO_0002473",
       "@type" : "@id"
     },
@@ -525,7 +522,7 @@
     "harvestingInterval" : {
       "@id" : "https://smartdatamodels.org/dataModel.Agrifood/harvestingInterval"
     },
-    "HANCESTRO_0308" : {
+    "hasCountryOfOrigin" : {
       "@id" : "http://purl.obolibrary.org/obo/HANCESTRO_0308",
       "@type" : "@id"
     },
@@ -687,10 +684,10 @@
     "CampaignType" : {
       "@id" : "http://foodie-cloud.com/model/foodie#CampaignType"
     },
-    "hasProperty" : {
+    "saref.hasProperty" : {
       "@id" : "https://saref.etsi.org/core/hasProperty"
     },
-    "isMemberOf" : {
+    "isMemberOfAnimalGroup" : {
       "@id" : "https://saref.etsi.org/saref4agri/isMemberOf",
       "@type" : "@id"
     },
@@ -855,7 +852,7 @@
     "Energy" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Energy"
     },
-    "name" : {
+    "foaf.name" : {
       "@id" : "http://xmlns.com/foaf/0.1/name"
     },
     "VinesStressIndicator" : {
@@ -915,7 +912,7 @@
     "ProductKindValue" : {
       "@id" : "http://foodie-cloud.com/model/foodie#ProductKindValue"
     },
-    "quantity" : {
+    "totalQuantity" : {
       "@id" : "https://smartdatamodels.org/dataModel.Agrifood/quantity"
     },
     "imageURL" : {
@@ -975,7 +972,7 @@
     "temperature" : {
       "@id" : "https://smartdatamodels.org/dataModel.Weather/temperature"
     },
-    "FOODON_00001301" : {
+    "hasFoodSubstanceAnalog" : {
       "@id" : "http://purl.obolibrary.org/obo/FOODON_00001301",
       "@type" : "@id"
     },
@@ -1101,7 +1098,7 @@
     "MassFlowRate" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate"
     },
-    "QuantityKind" : {
+    "qu.QuantityKind" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/qu#QuantityKind"
     },
     "Pesticide" : {
@@ -1214,7 +1211,7 @@
       "@id" : "https://smartdatamodels.org/dataModel.Agrifood/hasAgriProductType",
       "@type" : "@id"
     },
-    "Point" : {
+    "wgs84.Point" : {
       "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#Point"
     },
     "length" : {
@@ -1266,7 +1263,7 @@
       "@id" : "http://www.w3.org/ns/sosa/usedProcedure",
       "@type" : "@id"
     },
-    "Property" : {
+    "saref.Property" : {
       "@id" : "https://saref.etsi.org/core/Property"
     },
     "ingredientName" : {
@@ -1283,7 +1280,7 @@
       "@id" : "http://www.opengis.net/ont/geosparql#sfContains",
       "@type" : "@id"
     },
-    "RO_0002180" : {
+    "hasComponent" : {
       "@id" : "http://purl.obolibrary.org/obo/RO_0002180",
       "@type" : "@id"
     },
@@ -1300,7 +1297,7 @@
     "LinearRing" : {
       "@id" : "http://www.opengis.net/ont/sf#LinearRing"
     },
-    "validTo" : {
+    "alertValidTo" : {
       "@id" : "https://smartdatamodels.org/dataModel.Weather/validTo",
       "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
     },
@@ -1335,7 +1332,7 @@
     "MeasureProperty" : {
       "@id" : "http://purl.org/linked-data/cube#MeasureProperty"
     },
-    "type" : {
+    "typeName" : {
       "@id" : "http://foodie-cloud.com/model/foodie#type",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
@@ -1371,7 +1368,7 @@
     "Pluviometer" : {
       "@id" : "https://saref.etsi.org/saref4agri/Pluviometer"
     },
-    "hasFeatureOfInterest" : {
+    "saref.hasFeatureOfInterest" : {
       "@id" : "https://saref.etsi.org/core/hasFeatureOfInterest",
       "@type" : "@id"
     },
@@ -1833,7 +1830,7 @@
     "prefLabel" : {
       "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
     },
-    "Surface" : {
+    "cf.Surface" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/cf/cf-feature#Surface"
     },
     "addressCountry" : {
@@ -1942,6 +1939,116 @@
     "isFeatureOfInterestOf" : {
       "@id" : "http://www.w3.org/ns/sosa/isFeatureOfInterestOf",
       "@type" : "@id"
+    },
+    "animalSpecies" : {
+      "@id" : "https://smartdatamodels.org/dataModel.Agrifood/species"
+    },
+    "schema.Person" : {
+      "@id" : "https://schema.org/Person"
+    },
+    "dct.description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "value" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/hasValue"
+    },
+    "sf.Geometry" : {
+      "@id" : "http://www.opengis.net/ont/sf#Geometry"
+    },
+    "Surface" : {
+      "@id" : "http://www.opengis.net/ont/sf#Surface"
+    },
+    "saref.Temperature" : {
+      "@id" : "https://saref.etsi.org/core/Temperature"
+    },
+    "FeatureOfInterest" : {
+      "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+    },
+    "FarmAnimal" : {
+      "@id" : "https://smartdatamodels.org/dataModel.Agrifood/Animal"
+    },
+    "Point" : {
+      "@id" : "http://www.opengis.net/ont/sf#Point"
+    },
+    "Property" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/Property"
+    },
+    "ssn.Property" : {
+      "@id" : "http://www.w3.org/ns/ssn/Property"
+    },
+    "validFrom" : {
+      "@id" : "http://portele.de/ont/inspire/baseInspire#validFrom",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "validTo" : {
+      "@id" : "http://portele.de/ont/inspire/baseInspire#validTo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "operationStatus" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/status"
+    },
+    "quantity" : {
+      "@id" : "http://foodie-cloud.com/model/foodie#quantity",
+      "@type" : "@id"
+    },
+    "name" : {
+      "@id" : "https://smartdatamodels.org/name"
+    },
+    "schema.name" : {
+      "@id" : "https://schema.org/name"
+    },
+    "containsSite" : {
+      "@id" : "http://inspire.ec.europa.eu/schemas/af/3.0#contains",
+      "@type" : "@id"
+    },
+    "locationGeoJson" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/location",
+      "@type" : "@id"
+    },
+    "hasProperty" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasProperty",
+      "@type" : "@id"
+    },
+    "hasFeatureOfInterest" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
+      "@type" : "@id"
+    },
+    "saref.isFeatureOfInterestOf" : {
+      "@id" : "https://saref.etsi.org/core/isFeatureOfInterestOf",
+      "@type" : "@id"
+    },
+    "saref.isPropertyOf" : {
+      "@id" : "https://saref.etsi.org/core/isPropertyOf",
+      "@type" : "@id"
+    },
+    "QuantityKind" : {
+      "@id" : "http://qudt.org/schema/qudt/QuantityKind"
+    },
+    "hasMemberAnimal" : {
+      "@id" : "https://saref.etsi.org/saref4agri/hasMember",
+      "@type" : "@id"
+    },
+    "qb.Observation" : {
+      "@id" : "http://purl.org/linked-data/cube#Observation"
+    },
+    "saref.Sensor" : {
+      "@id" : "https://saref.etsi.org/core/Sensor"
+    },
+    "object" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/hasObject",
+      "@type" : "@id"
+    },
+    "ploutos.Farm" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Farm"
+    },
+    "ploutos.Parcel" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Parcel"
+    },
+    "ploutos.Crop" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Crop"
+    },
+    "ploutos.System" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#System"
     }
   }
 }

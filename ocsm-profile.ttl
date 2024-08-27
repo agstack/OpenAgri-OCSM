@@ -800,7 +800,7 @@ fiware-agrifood:endedAt owl:equivalentProperty ploutos:hasEndDatetime .
 fiware-agrifood:startedAt owl:equivalentProperty ploutos:hasStartDatetime .
 foodie:Intervention owl:equivalentClass ploutos:CropManagementOperation .
 ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType .
-ssn:Sysgtem owl:equivalentClass ploutos:System .
+ssn:System owl:equivalentClass ploutos:System .
 saref4agri:wateringSystem owl:equivalentClass ploutos:IrrigationSystem .
 
 
