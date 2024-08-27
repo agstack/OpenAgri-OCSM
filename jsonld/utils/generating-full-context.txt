@@ -1,4 +1,4 @@
-java -jar /users/rap/GitRepositories/GitHub/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar -v -i -a -o demeterAgriProfile-context.jsonld https://w3id.org/demeter/agri
+java -jar /users/rap/GitRepositories/GitHub/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar -v -i -a -o ocsm-profile-context.jsonld https://w3id.org/ocsm/main
 
 ./env/bin/profilewiz -j -o agriFeature-test.jsonld /Users/rap/GitRepositories/GitHub/DEMETER/models/agriFeature.ttl
 ./env/bin/profilewiz -n -a -q -x /Users/rap/GitRepositories/GitHub/DEMETER/models/agriFeature.ttl
