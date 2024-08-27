@@ -1,0 +1,680 @@
+{
+  "@context" : {
+    "PhotonFluxDensity" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity"
+    },
+    "implements" : {
+      "@id" : "http://www.w3.org/ns/ssn/implements",
+      "@type" : "@id"
+    },
+    "invalidatedAtTime" : {
+      "@id" : "http://www.w3.org/ns/prov#invalidatedAtTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "MultiLineString" : {
+      "@id" : "http://www.opengis.net/ont/sf#MultiLineString"
+    },
+    "Attachable" : {
+      "@id" : "http://purl.org/linked-data/cube#Attachable"
+    },
+    "QuantityValue" : {
+      "@id" : "http://qudt.org/schema/qudt/QuantityValue"
+    },
+    "affiliation" : {
+      "@id" : "https://schema.org/affiliation"
+    },
+    "Unit" : {
+      "@id" : "http://qudt.org/schema/qudt/Unit"
+    },
+    "Line" : {
+      "@id" : "http://www.opengis.net/ont/sf#Line"
+    },
+    "member" : {
+      "@id" : "http://xmlns.com/foaf/0.1/member",
+      "@type" : "@id"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "generatedAtTime" : {
+      "@id" : "http://www.w3.org/ns/prov#generatedAtTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "example" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#example"
+    },
+    "Slice" : {
+      "@id" : "http://purl.org/linked-data/cube#Slice"
+    },
+    "Concentration" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Concentration"
+    },
+    "dataSet" : {
+      "@id" : "http://purl.org/linked-data/cube#dataSet",
+      "@type" : "@id"
+    },
+    "componentAttachment" : {
+      "@id" : "http://purl.org/linked-data/cube#componentAttachment",
+      "@type" : "@id"
+    },
+    "Platform" : {
+      "@id" : "http://www.w3.org/ns/sosa/Platform"
+    },
+    "concept" : {
+      "@id" : "http://purl.org/linked-data/cube#concept",
+      "@type" : "@id"
+    },
+    "Deployment" : {
+      "@id" : "http://www.w3.org/ns/ssn/Deployment"
+    },
+    "MultiSurface" : {
+      "@id" : "http://www.opengis.net/ont/sf#MultiSurface"
+    },
+    "TemporalDuration" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalDuration"
+    },
+    "Procedure" : {
+      "@id" : "http://www.w3.org/ns/sosa/Procedure"
+    },
+    "DiffusionCoefficient" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient"
+    },
+    "asGeoJSON" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#asGeoJSON",
+      "@type" : "http://www.opengis.net/ont/geosparql#geoJSONLiteral"
+    },
+    "Organization" : {
+      "@id" : "https://schema.org/Organization"
+    },
+    "Volume" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Volume"
+    },
+    "Thing" : {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    },
+    "GFI_Feature" : {
+      "@id" : "http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature"
+    },
+    "AttributeProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#AttributeProperty"
+    },
+    "quantityValue" : {
+      "@id" : "http://qudt.org/schema/qudt/quantityValue",
+      "@type" : "@id"
+    },
+    "TemporalUnit" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalUnit"
+    },
+    "hosts" : {
+      "@id" : "http://www.w3.org/ns/sosa/hosts",
+      "@type" : "@id"
+    },
+    "asWKT" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#asWKT",
+      "@type" : "http://www.opengis.net/ont/geosparql#wktLiteral"
+    },
+    "hasOutput" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasOutput",
+      "@type" : "@id"
+    },
+    "Angle" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Angle"
+    },
+    "TemperatureDrift" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift"
+    },
+    "RotationalSpeed" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#RotationalSpeed"
+    },
+    "FeatureOfInterest" : {
+      "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+    },
+    "ComponentProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#ComponentProperty"
+    },
+    "Class" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#Class"
+    },
+    "ObservationCollection" : {
+      "@id" : "http://www.w3.org/ns/sosa/ObservationCollection"
+    },
+    "Geometry" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#Geometry"
+    },
+    "NumberPerArea" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerArea"
+    },
+    "depiction" : {
+      "@id" : "http://xmlns.com/foaf/0.1/depiction"
+    },
+    "Curve" : {
+      "@id" : "http://www.opengis.net/ont/sf#Curve"
+    },
+    "Instant" : {
+      "@id" : "http://www.w3.org/2006/time#Instant"
+    },
+    "maker" : {
+      "@id" : "http://xmlns.com/foaf/0.1/maker"
+    },
+    "sfWithin" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#sfWithin",
+      "@type" : "@id"
+    },
+    "ThermalConductivity" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#ThermalConductivity"
+    },
+    "hasUltimateFeatureOfInterest" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest",
+      "@type" : "@id"
+    },
+    "domainIncludes" : {
+      "@id" : "https://schema.org/domainIncludes"
+    },
+    "madeBySensor" : {
+      "@id" : "http://www.w3.org/ns/sosa/madeBySensor",
+      "@type" : "@id"
+    },
+    "long" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+    },
+    "ActuatableProperty" : {
+      "@id" : "http://www.w3.org/ns/sosa/ActuatableProperty"
+    },
+    "Feature" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#Feature"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "LineString" : {
+      "@id" : "http://www.opengis.net/ont/sf#LineString"
+    },
+    "numericValue" : {
+      "@id" : "http://qudt.org/schema/qudt/numericValue"
+    },
+    "Concept" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "component" : {
+      "@id" : "http://purl.org/linked-data/cube#component",
+      "@type" : "@id"
+    },
+    "measure" : {
+      "@id" : "http://purl.org/linked-data/cube#measure",
+      "@type" : "@id"
+    },
+    "SliceKey" : {
+      "@id" : "http://purl.org/linked-data/cube#SliceKey"
+    },
+    "Result" : {
+      "@id" : "http://www.w3.org/ns/sosa/Result"
+    },
+    "isHostedBy" : {
+      "@id" : "http://www.w3.org/ns/sosa/isHostedBy",
+      "@type" : "@id"
+    },
+    "Compressibility" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Compressibility"
+    },
+    "inDeployment" : {
+      "@id" : "http://www.w3.org/ns/ssn/inDeployment",
+      "@type" : "@id"
+    },
+    "ComponentSet" : {
+      "@id" : "http://purl.org/linked-data/cube#ComponentSet"
+    },
+    "MassPerTimePerArea" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#MassPerTimePerArea"
+    },
+    "numericDuration" : {
+      "@id" : "http://www.w3.org/2006/time#numericDuration",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "ElectricConductivity" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#ElectricConductivity"
+    },
+    "Temperature" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Temperature"
+    },
+    "homepage" : {
+      "@id" : "http://xmlns.com/foaf/0.1/homepage"
+    },
+    "hasProperty" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasProperty",
+      "@type" : "@id"
+    },
+    "Measure" : {
+      "@id" : "http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#Measure"
+    },
+    "Person" : {
+      "@id" : "http://xmlns.com/foaf/0.1/Person"
+    },
+    "Triangle" : {
+      "@id" : "http://www.opengis.net/ont/sf#Triangle"
+    },
+    "note" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#note"
+    },
+    "observationGroup" : {
+      "@id" : "http://purl.org/linked-data/cube#observationGroup",
+      "@type" : "@id"
+    },
+    "Interval" : {
+      "@id" : "http://www.w3.org/2006/time#Interval"
+    },
+    "EnergyFlux" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#EnergyFlux"
+    },
+    "StressOrPressure" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#StressOrPressure"
+    },
+    "resultTime" : {
+      "@id" : "http://www.w3.org/ns/sosa/resultTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "VolumeDensityRate" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#VolumeDensityRate"
+    },
+    "Agent" : {
+      "@id" : "http://xmlns.com/foaf/0.1/Agent"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "phenomenonTime" : {
+      "@id" : "http://www.w3.org/ns/sosa/phenomenonTime",
+      "@type" : "@id"
+    },
+    "Energy" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Energy"
+    },
+    "foaf.name" : {
+      "@id" : "http://xmlns.com/foaf/0.1/name"
+    },
+    "Role" : {
+      "@id" : "https://schema.org/Role"
+    },
+    "hasSerialization" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#hasSerialization",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "hasTime" : {
+      "@id" : "http://www.w3.org/2006/time#hasTime",
+      "@type" : "@id"
+    },
+    "SF_SamplingFeature.sampledFeature" : {
+      "@id" : "http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.sampledFeature",
+      "@type" : "@id"
+    },
+    "hasMember" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasMember",
+      "@type" : "@id"
+    },
+    "rangeIncludes" : {
+      "@id" : "https://schema.org/rangeIncludes"
+    },
+    "hasInput" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasInput",
+      "@type" : "@id"
+    },
+    "Mass" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Mass"
+    },
+    "implementedBy" : {
+      "@id" : "http://www.w3.org/ns/ssn/implementedBy",
+      "@type" : "@id"
+    },
+    "location" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#location",
+      "@type" : "@id"
+    },
+    "ComponentSpecification" : {
+      "@id" : "http://purl.org/linked-data/cube#ComponentSpecification"
+    },
+    "Scheme" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#Scheme"
+    },
+    "hasEnd" : {
+      "@id" : "http://www.w3.org/2006/time#hasEnd",
+      "@type" : "@id"
+    },
+    "GeometryCollection" : {
+      "@id" : "http://www.opengis.net/ont/sf#GeometryCollection"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights"
+    },
+    "TemporalEntity" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalEntity"
+    },
+    "hasBeginning" : {
+      "@id" : "http://www.w3.org/2006/time#hasBeginning",
+      "@type" : "@id"
+    },
+    "isResultOf" : {
+      "@id" : "http://www.w3.org/ns/sosa/isResultOf",
+      "@type" : "@id"
+    },
+    "SF_SamplingFeature" : {
+      "@id" : "http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature"
+    },
+    "DimensionProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#DimensionProperty"
+    },
+    "alt" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#alt"
+    },
+    "Acceleration" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Acceleration"
+    },
+    "identifier" : {
+      "@id" : "http://purl.org/dc/terms/identifier"
+    },
+    "hasSubSystem" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasSubSystem",
+      "@type" : "@id"
+    },
+    "Quantity" : {
+      "@id" : "http://qudt.org/schema/qudt/Quantity"
+    },
+    "MassFlowRate" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate"
+    },    
+    "qu.QuantityKind" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/qu#QuantityKind"
+    },
+    "SpatialObjectCollection" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#SpatialObjectCollection"
+    },
+    "Distance" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Distance"
+    },
+    "deprecated" : {
+      "@id" : "http://www.w3.org/2002/07/owl#deprecated"
+    },
+    "Radiance" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Radiance"
+    },
+    "Duration" : {
+      "@id" : "http://www.w3.org/2006/time#Duration"
+    },
+    "TIN" : {
+      "@id" : "http://www.opengis.net/ont/sf#TIN"
+    },
+    "SurfaceDensity" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#SurfaceDensity"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "wgs84.Point" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#Point"
+    },
+    "definition" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#definition"
+    },
+    "editorialNote" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#editorialNote"
+    },
+    "observes" : {
+      "@id" : "http://www.w3.org/ns/sosa/observes",
+      "@type" : "@id"
+    },
+    "hasDeployment" : {
+      "@id" : "http://www.w3.org/ns/ssn/hasDeployment",
+      "@type" : "@id"
+    },
+    "hasResult" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasResult",
+      "@type" : "@id"
+    },
+    "order" : {
+      "@id" : "http://purl.org/linked-data/cube#order",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "hasGeometry" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#hasGeometry",
+      "@type" : "@id"
+    },
+    "usedProcedure" : {
+      "@id" : "http://www.w3.org/ns/sosa/usedProcedure",
+      "@type" : "@id"
+    },
+    "ssn.Property" : {
+      "@id" : "http://www.w3.org/ns/ssn/Property"
+    },
+    "sfContains" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#sfContains",
+      "@type" : "@id"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "Density" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Density"
+    },
+    "LinearRing" : {
+      "@id" : "http://www.opengis.net/ont/sf#LinearRing"
+    },
+    "Molality" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Molality"
+    },
+    "inXSDDateTimeStamp" : {
+      "@id" : "http://www.w3.org/2006/time#inXSDDateTimeStamp",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    },
+    "MeasureProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#MeasureProperty"
+    },
+    "PropertyKind" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/qu#PropertyKind"
+    },
+    "SpatialObject" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#SpatialObject"
+    },
+    "sliceStructure" : {
+      "@id" : "http://purl.org/linked-data/cube#sliceStructure",
+      "@type" : "@id"
+    },
+    "hasFeatureOfInterest" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
+      "@type" : "@id"
+    },
+    "NumberPerLength" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength"
+    },
+    "lat" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+    },
+    "VolumeFlowRate" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate"
+    },
+    "SpecificEntropy" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#SpecificEntropy"
+    },
+    "CodedProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#CodedProperty"
+    },
+    "observedProperty" : {
+      "@id" : "http://www.w3.org/ns/sosa/observedProperty",
+      "@type" : "@id"
+    },
+    "slice" : {
+      "@id" : "http://purl.org/linked-data/cube#slice",
+      "@type" : "@id"
+    },
+    "madeObservation" : {
+      "@id" : "http://www.w3.org/ns/sosa/madeObservation",
+      "@type" : "@id"
+    },
+    "FeatureCollection" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#FeatureCollection"
+    },
+    "unit" : {
+      "@id" : "http://qudt.org/schema/qudt/unit",
+      "@type" : "@id"
+    },
+    "date" : {
+      "@id" : "http://purl.org/dc/terms/date"
+    },
+    "isPropertyOf" : {
+      "@id" : "http://www.w3.org/ns/ssn/isPropertyOf",
+      "@type" : "@id"
+    },
+    "seeAlso" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+    },
+    "ObservationGroup" : {
+      "@id" : "http://purl.org/linked-data/cube#ObservationGroup"
+    },
+    "Sample" : {
+      "@id" : "http://www.w3.org/ns/sosa/Sample"
+    },
+    "DataSet" : {
+      "@id" : "http://purl.org/linked-data/cube#DataSet"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "PolyhedralSurface" : {
+      "@id" : "http://www.opengis.net/ont/sf#PolyhedralSurface"
+    },
+    "Polygon" : {
+      "@id" : "http://www.opengis.net/ont/sf#Polygon"
+    },
+    "MultiPolygon" : {
+      "@id" : "http://www.opengis.net/ont/sf#MultiPolygon"
+    },
+    "ObservableProperty" : {
+      "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/terms/contributor"
+    },
+    "deployedSystem" : {
+      "@id" : "http://www.w3.org/ns/ssn/deployedSystem",
+      "@type" : "@id"
+    },
+    "System" : {
+      "@id" : "http://www.w3.org/ns/ssn/System"
+    },
+    "unitKind" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/qu#unitKind",
+      "@type" : "@id"
+    },
+    "dimension" : {
+      "@id" : "http://purl.org/linked-data/cube#dimension",
+      "@type" : "@id"
+    },
+    "RadianceExposure" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#RadianceExposure"
+    },
+    "VelocityOrSpeed" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#VelocityOrSpeed"
+    },
+    "deployedOnPlatform" : {
+      "@id" : "http://www.w3.org/ns/ssn/deployedOnPlatform",
+      "@type" : "@id"
+    },
+    "inXSDDate" : {
+      "@id" : "http://www.w3.org/2006/time#inXSDDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "GFI_DomainFeature" : {
+      "@id" : "http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_DomainFeature"
+    },
+    "Actuation" : {
+      "@id" : "http://www.w3.org/ns/sosa/Actuation"
+    },
+    "observation" : {
+      "@id" : "http://purl.org/linked-data/cube#observation",
+      "@type" : "@id"
+    },
+    "Dimensionless" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Dimensionless"
+    },
+    "Area" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Area"
+    },
+    "Sampling" : {
+      "@id" : "http://www.w3.org/ns/sosa/Sampling"
+    },
+    "Power" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#Power"
+    },
+    "OM_Observation" : {
+      "@id" : "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation"
+    },
+    "prefLabel" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    "Surface" : {
+      "@id" : "http://www.opengis.net/ont/sf#Surface"
+    },
+    "sliceKey" : {
+      "@id" : "http://purl.org/linked-data/cube#sliceKey",
+      "@type" : "@id"
+    },
+    "inScheme" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
+    },
+    "dct.description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "MultiCurve" : {
+      "@id" : "http://www.opengis.net/ont/sf#MultiCurve"
+    },
+    "hasQuantityKind" : {
+      "@id" : "http://qudt.org/schema/qudt/hasQuantityKind",
+      "@type" : "@id"
+    },
+    "DataStructureDefinition" : {
+      "@id" : "http://purl.org/linked-data/cube#DataStructureDefinition"
+    },
+    "MultiPoint" : {
+      "@id" : "http://www.opengis.net/ont/sf#MultiPoint"
+    },
+    "qb.Observation" : {
+      "@id" : "http://purl.org/linked-data/cube#Observation"
+    },
+    "EnergyDensity" : {
+      "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#EnergyDensity"
+    },
+    "Sensor" : {
+      "@id" : "http://www.w3.org/ns/sosa/Sensor"
+    },
+    "hasSimpleResult" : {
+      "@id" : "http://www.w3.org/ns/sosa/hasSimpleResult"
+    },
+    "unitType" : {
+      "@id" : "http://www.w3.org/2006/time#unitType",
+      "@type" : "@id"
+    },
+    "componentProperty" : {
+      "@id" : "http://purl.org/linked-data/cube#componentProperty",
+      "@type" : "@id"
+    },
+    "isFeatureOfInterestOf" : {
+      "@id" : "http://www.w3.org/ns/sosa/isFeatureOfInterestOf",
+      "@type" : "@id"
+    },
+    "sf.Geometry" : {
+      "@id" : "http://www.opengis.net/ont/sf#Geometry"
+    },
+    "schema.Person" : {
+      "@id" : "https://schema.org/Person"
+    },
+    "Observation" : {
+      "@id" : "http://www.w3.org/ns/sosa/Observation"
+    },
+    "Point" : {
+      "@id" : "http://www.opengis.net/ont/sf#Point"
+    },   
+    "schema.name" : {
+      "@id" : "https://schema.org/name"
+    },
+    "QuantityKind" : {
+      "@id" : "http://qudt.org/schema/qudt/QuantityKind"
+    }
+  }
+}

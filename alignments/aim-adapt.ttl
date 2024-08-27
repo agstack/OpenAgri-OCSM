@@ -1,0 +1,53 @@
+@prefix : <https://w3id.org/cybele/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foodie: <http://foodie-cloud.com/model/foodie#> .
+@prefix saref4agri: <https://w3id.org/def/saref4agri#> .
+@prefix fiware: <https://uri.fiware.org/ns/data-models#> .
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix adapt: <http://adapt.github.io/ADAPT/> .
+@base <https://w3id.org/demeter/> .
+
+#################################################################
+#    Alignments
+#################################################################
+#Grower
+adapt:Farm owl:equivalentClass saref4agri:Farm   .
+adapt:Field owl:equivalentClass saref4agri:Parcel   .
+adapt:Grower rdfs:subClassOf saref4agri:Farmer .
+adapt:CropZone owl:equivalentClass foodie:CropSpecies .
+adapt:Location rdfs:subClassOf geo:Feature .
+adapt:Facility rdfs:subClassOf geo:Feature .
+adapt:Id owl:equivalentProperty foodie:code .
+adapt:Description owl:equivalentProperty foodie:description .
+adapt:Position rdfs:subPropertyOf geo:hasGeometry .
+adapt:Area owl:equivalentProperty fiware:area .
+adapt:BoundingRegion rdfs:subPropertyOf geo:hasGeometry .
+adapt:Notes owl:equivalentProperty foodie:notes .
+#FieldBoundary
+adapt:FieldBoundary rdfs:subClassOf geo:Feature .
+#Product
+adapt:Product owl:equivalentClass foodie:Product .
+adapt:CropProtectionProduct rdfs:subClassOf foodie:Product .
+adapt:CropVarietyProduct rdfs:subClassOf foodie:Product .
+adapt:CropNutritionProduct rdfs:subClassOf foodie:Product .
+adapt:FertilizerProduct rdfs:subClassOf foodie:Product .
+adapt:IngredientUse owl:equivalentClass foodie:ActiveIngredients .
+#UOM
+adapt:UnitOfMeasure owl:equivalentClass qudt:Unit .
+adapt:UnitOfMeasureDimensionEnum owl:equivalentClass qudt:QuantityKind .
+#Observations
+adapt:Obs rdfs:subClassOf sosa:Observation .
+adapt:ObsCollection rdfs:subClassOf sosa:ObservationCollection .
+adapt:OMCode rdfs:subClassOf sosa:ObservableProperty .
+adapt:Place rdfs:subClassOf sosa:FeatureOfInterest .
+adapt:SpatialExtent owl:equivalentProperty geo:hasGeometry .
+#Shape
+adapt:Shape owl:equivalentClass geo:Geometry .
