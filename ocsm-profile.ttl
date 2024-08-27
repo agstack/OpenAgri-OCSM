@@ -189,19 +189,19 @@ ocsm:hasPestThreat
 ocsm:hasYieldPrediction
   rdf:type owl:ObjectProperty ;
   rdfs:comment "References the Yield prediction for a crop in a parcel/plot" ;
-  rdfs:range	ocsm:YieldPrediction .
+  rdfs:range	ocsm:YieldPrediction ;
   rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
   
 ocsm:hasVinesStressIndicator
   rdf:type owl:ObjectProperty ;
   rdfs:comment "References the Vines Stress Indicator of a Vineyard in a parcel/plot" ;
-  rdfs:range	ocsm:VinesStressIndicator .
+  rdfs:range	ocsm:VinesStressIndicator ;
   rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
   
 ocsm:hasCanopyDensityProfile
   rdf:type owl:ObjectProperty ;
   rdfs:comment "References the Canopy Density Profile of a Vineyard in a parcel/plot" ;
-  rdfs:range	ocsm:CanopyDensityProfile .
+  rdfs:range	ocsm:CanopyDensityProfile ;
   rdfs:isDefinedBy <https://w3id.org/ocsm/> .           
   
 
