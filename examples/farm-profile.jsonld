@@ -1,0 +1,83 @@
+{
+  	"@context": [
+	  	"https://w3id.org/ocsm/main-context.jsonld"
+   	],
+  	"@graph": [
+  	{
+		"@id": "urn:openagri:farm:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+		"@type": "Farm",
+		"name": "FarmWineryGR",
+		"description": "A farm with vineyards",
+        "hasAdministrator": "Tanasio Kaltzis",
+        "contactPerson": {
+            "@id": "urn:demeter:farm:supervisor:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Person",
+            "firstname": "Nikos",
+            "lastname": "Kaltzis"
+        },
+        "telephone":"+32514620992",
+        "vatID":"xyz-abc-1234",
+        "address":{
+            "@id": "urn:demeter:farm:address:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Address",
+            "adminUnitL1": "Greece",
+            "adminUnitL2": "county x",
+            "addressArea": "district y",
+            "municipality":"municipality 1",
+            "community":"community 20",
+            "locatorName":"name of the place"
+        },
+        "area":5000000,                        
+		"hasAgriParcel": {
+            "@id": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Vineyard",
+            "identifier": "219521",
+            "description": "Vineyard 219521",
+            "category": "arable",
+            "validFrom":"2024-01-01T00:00:00",
+            "validTo":"2024-12-31T23:59:59",
+            "inRegion":"Tripoli/Greece",
+            "hasToponym":"Tripoli_toponym",
+            "area":16300,
+            "isNitroAarea":1,
+            "isNatura2000Area":0,
+            "isPDOPGIArea":0,
+            "isIrrigated":1,
+            "isCultivatedInLevels":1,
+            "isGroundSlope":1,
+            "depiction":"http://example.org/vineyardXYZ/picture1.jpg",
+            "hasGeometry": {
+                "@id":"urn:openagri:parcel:geo:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Polygon",
+                "asWKT": "POLYGON((23.9322701881733 40.7820495321096,23.9323245843835 40.7817824255166,23.9323869265477 40.7815327279933,23.9324394315589 40.7814937518698,23.9325628696526 40.7814044956245,23.9329256329856 40.7811247043384,23.9331829551785 40.7809262428462,23.9334772461322 40.780685462059,23.9335369414428 40.78063661624,23.9340088791779 40.7802860323414,23.9340540881738 40.7802288540965,23.9341268396996 40.7802308054513,23.9341769918998 40.7802441756817,23.9342497090337 40.7802690085744,23.9342558554715 40.7802733181475,23.9343718327165 40.7803545418937,23.9344443317064 40.7804085891615,23.9344611151517 40.7804303182295,23.934472786915 40.7804559991319,23.9344691717903 40.7805047962176,23.9344657991777 40.7805238833507,23.9344192543572 40.7805898623161,23.9343107405506 40.7806793722864,23.9342284494312 40.7807484567761,23.934080498922 40.7808694918706,23.9340720171033 40.7809137999191,23.9340686305853 40.7809228425352,23.9339921723761 40.7810251265688,23.9339562543815 40.7810820308348,23.9339453669572 40.7811021135951,23.9339175860559 40.7812832409348,23.9339137051205 40.7813127956536,23.9338847357177 40.7815330102477,23.9338317855411 40.781627299059,23.9337231146653 40.781705412598,23.9334904657728 40.7816541103864,23.933446487568 40.7816522112616,23.9332783090527 40.7816255300224,23.9331515967591 40.7817658544065,23.9328382414817 40.7820668721708,23.9328413154661 40.782085953994,23.9328417206113 40.7821073044098,23.932822677888 40.7821284363106,23.9328069350828 40.7821561193198,23.9328020229253 40.7821852860301,23.9327967580881 40.7822351270755,23.9326272424184 40.782228677235,23.9324651899921 40.7822019443385,23.9323702501601 40.7821653592141,23.9323290630604 40.78213385932,23.9322905762418 40.7821041987324,23.9322701881733 40.7820495321096))"
+            },            
+            "location": {
+                "@id": "urn:openagri:parcel:point:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Point",
+                "lat": 40.78126183896699,
+                "long": 23.93333418261581
+            },
+            "usesIrrigationSystem":{
+                "@id": "urn:openagri:parcel:irrigation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "IrrigationSystem",
+                "name": "micro sprinkler"
+            },
+            "hasIrrigationFlow":0.12,
+            "hasAgriCrop": {
+                "@id": "urn:openagri:parcel:crop:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Crop",                
+                "name": "olive",
+                "cropSpecies":{
+                    "@id": "urn:ngsi-ld:crop:species:df72dc57-1eb9-42a3-88a9-8647ecc954b5",
+		            "@type": "CropType",
+                    "name": "Chondrolia Chalkidikis",
+                    "alternateName": "chalkidikis",
+                    "agroVocConcept": "http://aims.fao.org/aos/agrovoc/c_7952"
+                },
+                "isMeantFor":"table olives"
+            }
+
+        }
+	}  	
+	]
+}

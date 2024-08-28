@@ -811,7 +811,8 @@
       "@id" : "https://saref.etsi.org/saref4agri/MilkingSensor"
     },
     "cultivationSeason" : {
-      "@id" : "https://w3id.org/ocsm/cultivationSeason"
+      "@id" : "https://w3id.org/ocsm/cultivationSeason",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "ImageObject" : {
       "@id" : "https://schema.org/ImageObject"
@@ -2049,6 +2050,95 @@
     },
     "ploutos.System" : {
       "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#System"
+    },
+    "Address" : {
+      "@id" : "http://www.w3.org/ns/locn#Address"
+    },
+    "addressId" : {
+      "@id" : "http://www.w3.org/ns/locn#addressId",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "adminUnitL1" : {
+      "@id" : "http://www.w3.org/ns/locn#adminUnitL1"
+    },
+    "familyName" : {
+      "@id" : "http://xmlns.com/foaf/0.1/familyName",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "lastName" : {
+      "@id" : "http://xmlns.com/foaf/0.1/lastName",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "vatID" : {
+      "@id" : "https://schema.org/vatID"
+    },
+    "givenName" : {
+      "@id" : "http://xmlns.com/foaf/0.1/givenName"
+    },
+    "firstName" : {
+      "@id" : "http://xmlns.com/foaf/0.1/firstName",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "addressArea" : {
+      "@id" : "http://www.w3.org/ns/locn#addressArea",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "telephone" : {
+      "@id" : "https://schema.org/telephone"
+    },
+    "fullAddress" : {
+      "@id" : "http://www.w3.org/ns/locn#fullAddress",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "locatorName" : {
+      "@id" : "http://www.w3.org/ns/locn#locatorName"
+    },
+    "adminUnitL2" : {
+      "@id" : "http://www.w3.org/ns/locn#adminUnitL2"
+    },        
+    "contactPerson" : {
+      "@id" : "https://w3id.org/ocsm/contactPerson",
+      "@type" : "@id"
+    },
+    "isMeantFor" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#isMeantFor",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },    
+    "municipality" : {
+      "@id" : "https://w3id.org/ocsm/municipality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "community" : {
+      "@id" : "https://w3id.org/ocsm/community",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "isNitroAarea" : {
+      "@id" : "https://w3id.org/ocsm/isNitroAarea",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isNatura2000Area" : {
+      "@id" : "https://w3id.org/ocsm/isNatura2000Area",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isPDOPGIArea" : {
+      "@id" : "https://w3id.org/ocsm/isPDOPGIArea",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isIrrigated" : {
+      "@id" : "https://w3id.org/ocsm/isIrrigated",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isCultivatedInLevels" : {
+      "@id" : "https://w3id.org/ocsm/isCultivatedInLevels",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isGroundSlope" : {
+      "@id" : "https://w3id.org/ocsm/isGroundSlope",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "hasIrrigationFlow" : {
+      "@id" : "https://w3id.org/ocsm/hasIrrigationFlow",
+      "@type" : "http://www.w3.org/2001/XMLSchema#float"
     }
   }
 }
