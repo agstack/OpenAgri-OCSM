@@ -1,0 +1,322 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "@graph": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "hasAdministrator": {
+              "type": "string"
+            },
+            "contactPerson": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "firstname",
+                "lastname"
+              ]
+            },
+            "telephone": {
+              "type": "string"
+            },
+            "vatID": {
+              "type": "string"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "adminUnitL1": {
+                  "type": "string"
+                },
+                "adminUnitL2": {
+                  "type": "string"
+                },
+                "addressArea": {
+                  "type": "string"
+                },
+                "municipality": {
+                  "type": "string"
+                },
+                "community": {
+                  "type": "string"
+                },
+                "locatorName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "adminUnitL1",
+                "adminUnitL2",
+                "addressArea",
+                "municipality",
+                "community",
+                "locatorName"
+              ]
+            },
+            "area": {
+              "type": "integer"
+            },
+            "hasAgriParcel": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "identifier": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "validFrom": {
+                  "type": "string"
+                },
+                "validTo": {
+                  "type": "string"
+                },
+                "inRegion": {
+                  "type": "string"
+                },
+                "hasToponym": {
+                  "type": "string"
+                },
+                "area": {
+                  "type": "integer"
+                },
+                "isNitroAarea": {
+                  "type": "integer"
+                },
+                "isNatura2000Area": {
+                  "type": "integer"
+                },
+                "isPDOPGIArea": {
+                  "type": "integer"
+                },
+                "isIrrigated": {
+                  "type": "integer"
+                },
+                "isCultivatedInLevels": {
+                  "type": "integer"
+                },
+                "isGroundSlope": {
+                  "type": "integer"
+                },
+                "depiction": {
+                  "type": "string"
+                },
+                "hasGeometry": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "@type": {
+                      "type": "string"
+                    },
+                    "asWKT": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "asWKT"
+                  ]
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "@type": {
+                      "type": "string"
+                    },
+                    "lat": {
+                      "type": "number"
+                    },
+                    "long": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "lat",
+                    "long"
+                  ]
+                },
+                "usesIrrigationSystem": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "@type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "name"
+                  ]
+                },
+                "hasIrrigationFlow": {
+                  "type": "number"
+                },
+                "hasAgriCrop": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "@type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "cropSpecies": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "alternateName": {
+                          "type": "string"
+                        },
+                        "agroVocConcept": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "name",
+                        "alternateName",
+                        "agroVocConcept"
+                      ]
+                    },
+                    "isMeantFor": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "name",
+                    "cropSpecies",
+                    "isMeantFor"
+                  ]
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "identifier",
+                "description",
+                "category",
+                "validFrom",
+                "validTo",
+                "inRegion",
+                "hasToponym",
+                "area",
+                "isNitroAarea",
+                "isNatura2000Area",
+                "isPDOPGIArea",
+                "isIrrigated",
+                "isCultivatedInLevels",
+                "isGroundSlope",
+                "depiction",
+                "hasGeometry",
+                "location",
+                "usesIrrigationSystem",
+                "hasIrrigationFlow",
+                "hasAgriCrop"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "name",
+            "description",
+            "hasAdministrator",
+            "contactPerson",
+            "telephone",
+            "vatID",
+            "address",
+            "area",
+            "hasAgriParcel"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@graph"
+  ]
+}
