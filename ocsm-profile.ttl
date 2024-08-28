@@ -204,6 +204,12 @@ ocsm:hasCanopyDensityProfile
   rdfs:range	ocsm:CanopyDensityProfile ;
   rdfs:isDefinedBy <https://w3id.org/ocsm/> .           
   
+ocsm:contactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "contact Person of an entity, e.g., farm, parcel, etc." ;  
+  rdfs:label "contactPerson" ;
+  rdfs:range foaf:Person ;
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .   
 
 #################################################################
 #    Data properties
@@ -377,12 +383,77 @@ ploutos:hasSeedRate
   rdfs:range xsd:integer ;
 .
 
+ploutos:isMeantFor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "1: This property expresses the porpuse for which a product that is cultivated is meant, e.g. industrial processing or private consumption" ;
+  rdfs:comment "2: For now, this is modelled for simplicity as a string that contains the purpose of the product. In the future, this can be replaced by a class ProductPurpose with more properties than just the name." ;
+  rdfs:domain ploutos:Product ;
+  rdfs:label "is meant for" ;
+  rdfs:range xsd:string ;
+.
+
+
 ## ocsm ##
 
 ocsm:cultivationSeason	a	owl:DatatypeProperty ;
         rdfs:label   		"cultivationSeason"@en ;
         rdfs:comment		"cultivation season" ;
+        rdfs:range xsd:string ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .     
+        
+ocsm:municipality	a	owl:DatatypeProperty ;
+        rdfs:label   		"municipality"@en ;
+        rdfs:comment		"municipality" ;
+        rdfs:range xsd:string ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+        
+ocsm:community	a	owl:DatatypeProperty ;
+        rdfs:label   		"community"@en ;
+        rdfs:comment		"community" ;
+        rdfs:range xsd:string ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+        
+ocsm:isNitroAarea	a	owl:DatatypeProperty ;
+        rdfs:label   		"isNitroAarea"@en ;
+        rdfs:comment		"isNitroAarea" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+        
+ocsm:isNatura2000Area	a	owl:DatatypeProperty ;
+        rdfs:label   		"isNatura2000Area"@en ;
+        rdfs:comment		"isNatura2000Area" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+        
+ocsm:isPDOPGIArea	a	owl:DatatypeProperty ;
+        rdfs:label   		"isPDOPGIArea"@en ;
+        rdfs:comment		"isPDOPGIArea" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+        
+ocsm:isIrrigated	a	owl:DatatypeProperty ;
+        rdfs:label   		"isIrrigated"@en ;
+        rdfs:comment		"isIrrigated" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+        
+ocsm:isCultivatedInLevels	a	owl:DatatypeProperty ;
+        rdfs:label   		"isCultivatedInLevels"@en ;
+        rdfs:comment		"isCultivatedInLevels" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+        
+ocsm:isGroundSlope	a	owl:DatatypeProperty ;
+        rdfs:label   		"isGroundSlope"@en ;
+        rdfs:comment		"isGroundSlope" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+        
+ocsm:hasIrrigationFlow	a	owl:DatatypeProperty ;
+        rdfs:label   		"hasIrrigationFlow"@en ;
+        rdfs:comment		"hasIrrigationFlow" ;
+        rdfs:range xsd:float ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                                                             
 
 
 #################################################################
