@@ -28,7 +28,7 @@
             "locatorName":"name of the place"
         },
         "area":5000000,                        
-		"hasAgriParcel": {
+		"hasAgriParcel": [{
             "@id": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
             "@type": "Vineyard",
             "identifier": "219521",
@@ -77,7 +77,7 @@
                 "isMeantFor":"table olives"
             }
 
-        }
+        }]
 	}  	
 	]
 }

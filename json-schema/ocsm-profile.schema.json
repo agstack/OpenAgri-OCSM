@@ -103,60 +103,9 @@
               "type": "integer"
             },
             "hasAgriParcel": {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string"
-                },
-                "@type": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "validFrom": {
-                  "type": "string"
-                },
-                "validTo": {
-                  "type": "string"
-                },
-                "inRegion": {
-                  "type": "string"
-                },
-                "hasToponym": {
-                  "type": "string"
-                },
-                "area": {
-                  "type": "integer"
-                },
-                "isNitroAarea": {
-                  "type": "integer"
-                },
-                "isNatura2000Area": {
-                  "type": "integer"
-                },
-                "isPDOPGIArea": {
-                  "type": "integer"
-                },
-                "isIrrigated": {
-                  "type": "integer"
-                },
-                "isCultivatedInLevels": {
-                  "type": "integer"
-                },
-                "isGroundSlope": {
-                  "type": "integer"
-                },
-                "depiction": {
-                  "type": "string"
-                },
-                "hasGeometry": {
+              "type": "array",
+              "items": [
+                {
                   "type": "object",
                   "properties": {
                     "@id": {
@@ -165,74 +114,116 @@
                     "@type": {
                       "type": "string"
                     },
-                    "asWKT": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "asWKT"
-                  ]
-                },
-                "location": {
-                  "type": "object",
-                  "properties": {
-                    "@id": {
+                    "identifier": {
                       "type": "string"
                     },
-                    "@type": {
+                    "description": {
                       "type": "string"
                     },
-                    "lat": {
+                    "category": {
+                      "type": "string"
+                    },
+                    "validFrom": {
+                      "type": "string"
+                    },
+                    "validTo": {
+                      "type": "string"
+                    },
+                    "inRegion": {
+                      "type": "string"
+                    },
+                    "hasToponym": {
+                      "type": "string"
+                    },
+                    "area": {
+                      "type": "integer"
+                    },
+                    "isNitroAarea": {
+                      "type": "integer"
+                    },
+                    "isNatura2000Area": {
+                      "type": "integer"
+                    },
+                    "isPDOPGIArea": {
+                      "type": "integer"
+                    },
+                    "isIrrigated": {
+                      "type": "integer"
+                    },
+                    "isCultivatedInLevels": {
+                      "type": "integer"
+                    },
+                    "isGroundSlope": {
+                      "type": "integer"
+                    },
+                    "depiction": {
+                      "type": "string"
+                    },
+                    "hasGeometry": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "asWKT": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "asWKT"
+                      ]
+                    },
+                    "location": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "lat": {
+                          "type": "number"
+                        },
+                        "long": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "lat",
+                        "long"
+                      ]
+                    },
+                    "usesIrrigationSystem": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "name"
+                      ]
+                    },
+                    "hasIrrigationFlow": {
                       "type": "number"
                     },
-                    "long": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "lat",
-                    "long"
-                  ]
-                },
-                "usesIrrigationSystem": {
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "type": "string"
-                    },
-                    "@type": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "name"
-                  ]
-                },
-                "hasIrrigationFlow": {
-                  "type": "number"
-                },
-                "hasAgriCrop": {
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "type": "string"
-                    },
-                    "@type": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "cropSpecies": {
+                    "hasAgriCrop": {
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -244,10 +235,34 @@
                         "name": {
                           "type": "string"
                         },
-                        "alternateName": {
-                          "type": "string"
+                        "cropSpecies": {
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            },
+                            "@type": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "alternateName": {
+                              "type": "string"
+                            },
+                            "agroVocConcept": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "name",
+                            "alternateName",
+                            "agroVocConcept"
+                          ]
                         },
-                        "agroVocConcept": {
+                        "isMeantFor": {
                           "type": "string"
                         }
                       },
@@ -255,46 +270,36 @@
                         "@id",
                         "@type",
                         "name",
-                        "alternateName",
-                        "agroVocConcept"
+                        "cropSpecies",
+                        "isMeantFor"
                       ]
-                    },
-                    "isMeantFor": {
-                      "type": "string"
                     }
                   },
                   "required": [
                     "@id",
                     "@type",
-                    "name",
-                    "cropSpecies",
-                    "isMeantFor"
+                    "identifier",
+                    "description",
+                    "category",
+                    "validFrom",
+                    "validTo",
+                    "inRegion",
+                    "hasToponym",
+                    "area",
+                    "isNitroAarea",
+                    "isNatura2000Area",
+                    "isPDOPGIArea",
+                    "isIrrigated",
+                    "isCultivatedInLevels",
+                    "isGroundSlope",
+                    "depiction",
+                    "hasGeometry",
+                    "location",
+                    "usesIrrigationSystem",
+                    "hasIrrigationFlow",
+                    "hasAgriCrop"
                   ]
                 }
-              },
-              "required": [
-                "@id",
-                "@type",
-                "identifier",
-                "description",
-                "category",
-                "validFrom",
-                "validTo",
-                "inRegion",
-                "hasToponym",
-                "area",
-                "isNitroAarea",
-                "isNatura2000Area",
-                "isPDOPGIArea",
-                "isIrrigated",
-                "isCultivatedInLevels",
-                "isGroundSlope",
-                "depiction",
-                "hasGeometry",
-                "location",
-                "usesIrrigationSystem",
-                "hasIrrigationFlow",
-                "hasAgriCrop"
               ]
             }
           },
