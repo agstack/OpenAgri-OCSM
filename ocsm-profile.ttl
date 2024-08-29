@@ -179,6 +179,14 @@ ploutos:hasWeatherObservation
   rdfs:range sosa:Observation ;
 .
 
+ploutos:hasTreatedArea
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit" ;
+  rdfs:label "has treated area" ;
+  rdfs:range om:Measure ;
+.
+
+
 ## ocsm ##
 
 ocsm:hasPestThreat
@@ -241,6 +249,7 @@ ploutos:hasActiveSubstance
   rdfs:range xsd:string ;
 .
 
+## added ploutos:PestInterventionOperation in domain
 ploutos:isTargetedTowards
   rdf:type owl:DatatypeProperty ;
   rdfs:comment "1: This property expresses the organism towards which a pest prevention operation or a treatment material is targeted, e.g. late blight" ;
@@ -251,6 +260,7 @@ ploutos:isTargetedTowards
           ploutos:TreatmentMaterial
           ploutos:PestPreventionOperation
           ploutos:PestMonitoringOperation
+          ploutos:PestInterventionOperation
         ) ;
     ] ;
   rdfs:label "is targeted towards" ;
@@ -389,6 +399,14 @@ ploutos:isMeantFor
   rdfs:comment "2: For now, this is modelled for simplicity as a string that contains the purpose of the product. In the future, this can be replaced by a class ProductPurpose with more properties than just the name." ;
   rdfs:domain ploutos:Product ;
   rdfs:label "is meant for" ;
+  rdfs:range xsd:string ;
+.
+
+ploutos:isJustifiedBecause
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "This property indicates the reason why a chemical control operation and the use of a certain pesticide is justified" ;
+  rdfs:domain ploutos:ChemicalControlOperation ;
+  rdfs:label "is justified because" ;
   rdfs:range xsd:string ;
 .
 
@@ -792,6 +810,49 @@ ploutos:System
   rdfs:comment "This class represents all kinds of systems that are used in the agrifood supply chain" ;
   rdfs:label "System" ;
   rdfs:subClassOf owl:Thing ;
+.
+
+ploutos:PestInterventionOperation
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the set of operations to protect crop against any kind of pest or disease by intervening current pest attacks with pest control methods. It is a specific CropProtectionOperation." ;
+  rdfs:label "Pest intervention operation" ;
+  rdfs:subClassOf ploutos:CropProtectionOperation ;
+.
+
+ploutos:ChemicalControlOperation
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the set of operations to protect crop against any kind of pest or disease. It is a specific PestInterventionOperation and uses a specific pesticide with a treatment material is meant for pest prevention, pest monitoring and pest intervention." ;
+  rdfs:label "Crop protection operation" ;
+  rdfs:subClassOf ploutos:PestInterventionOperation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass om:Area ;
+      owl:onProperty ploutos:isAppliedPer ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass om:Measure ;
+      owl:onProperty ploutos:hasAppliedAmount ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass om:Measure ;
+      owl:onProperty ploutos:hasTreatedArea ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty ploutos:isJustifiedBecause ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty ploutos:usesPesticide ;
+      owl:someValuesFrom ploutos:Pesticide ;
+    ] ;
 .
 
 
