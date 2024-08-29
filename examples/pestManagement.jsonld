@@ -27,7 +27,8 @@
             "name": "Stremma",
             "numericValue": 50,
             "unit": "http://qudt.org/vocab/unit/M2"
-        }
+        },
+        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
 	}  	
 	]
 }
