@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "@graph": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "hasTimestamp": {
+              "type": "string"
+            },
+            "isTargetedTowards": {
+              "type": "string"
+            },
+            "usesPesticide": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "hasCommercialName": {
+                  "type": "string"
+                },
+                "hasActiveSubstance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "hasCommercialName",
+                "hasActiveSubstance"
+              ]
+            },
+            "hasAppliedAmount": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "numericValue": {
+                  "type": "number"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "numericValue",
+                "unit"
+              ]
+            },
+            "hasTreatedArea": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "numericValue": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "name",
+                "numericValue",
+                "unit"
+              ]
+            },
+            "isOperatedOn": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "description",
+            "hasTimestamp",
+            "isTargetedTowards",
+            "usesPesticide",
+            "hasAppliedAmount",
+            "hasTreatedArea",
+            "isOperatedOn"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@graph"
+  ]
+}
