@@ -1,0 +1,33 @@
+{
+  	"@context": [
+	  	"https://w3id.org/ocsm/main-context.jsonld"
+   	],
+  	"@graph": [
+  	{
+		"@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+		"@type": "ChemicalControlOperation",
+		"description": "treatment description",
+        "hasTimestamp": "2022-02-07T10:00",
+        "isTargetedTowards": "Powdery Mildew",
+        "usesPesticide":{
+            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Pesticide",
+            "hasCommercialName": "BORDELESA 20 WP",
+            "hasActiveSubstance":"Bordeaux mixture"
+        },
+        "hasAppliedAmount": {
+            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "QuantityValue",
+            "numericValue": 1176.0,
+            "unit": "http://qudt.org/vocab/unit/GM"
+        },
+        "hasTreatedArea":{
+            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "QuantityValue",
+            "name": "Stremma",
+            "numericValue": 50,
+            "unit": "http://qudt.org/vocab/unit/M2"
+        }
+	}  	
+	]
+}
