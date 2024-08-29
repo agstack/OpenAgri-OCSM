@@ -2139,6 +2139,20 @@
     "hasIrrigationFlow" : {
       "@id" : "https://w3id.org/ocsm/hasIrrigationFlow",
       "@type" : "http://www.w3.org/2001/XMLSchema#float"
+    },
+    "hasTreatedArea" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasTreatedArea",
+      "@type" : "@id"
+    },
+    "ChemicalControlOperation" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#ChemicalControlOperation"
+    },
+    "PestInterventionOperation" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#PestInterventionOperation"
+    },
+    "isJustifiedBecause" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#isJustifiedBecause",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     }
   }
 }
