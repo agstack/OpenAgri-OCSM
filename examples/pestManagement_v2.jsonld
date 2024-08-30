@@ -1,224 +1,280 @@
 {
-  	"@context": [
-	  	"https://w3id.org/ocsm/main-context.jsonld"
-   	],
-  	"@graph": [
-  	{
-		"@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a00",
-		"@type": "ChemicalControlOperation",
-		"description": "treatment description",
-        "hasTimestamp": "2022-02-07T10:00",
-        "isTargetedTowards": "Powdery Mildew",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a00",
-            "@type": "Pesticide",
-            "hasCommercialName": "BORDELESA 20 WP",
-            "hasActiveSubstance":"Bordeaux mixture"
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"
+    ],
+    "@graph": [
+        {
+            "@id": "urn:openagri:pestMgmt:2ba53329-612c-47f3-a7f9-67f5f74f98f0",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:762c62ca-bca2-464e-be18-94caf4596d3a",
+                "@type": "QuantityValue",
+                "numericValue": 1176.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-02-07",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:4db60ed3-a98a-4bf1-9e61-5be81391af4e",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Bordeaux mixture",
+                "hasCommercialName": "BORDELESA 20 WP"
+            }
         },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a00",
-            "@type": "QuantityValue",
-            "numericValue": 1176.0,
-            "unit": "http://qudt.org/vocab/unit/GM"
+        {
+            "@id": "urn:openagri:pestMgmt:51527cd3-f607-458d-9872-9996a7f2fff3",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:cb3f3364-5c9c-4cf2-ad26-c93b836f6a5d",
+                "@type": "QuantityValue",
+                "numericValue": 588.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-03-16",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:f7957436-1391-4ee6-abf9-b461ffce2c5f",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Copper hydroxide",
+                "hasCommercialName": "KOCIDE 2000 35 WG"
+            }
         },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a00",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
+        {
+            "@id": "urn:openagri:pestMgmt:1fbe948f-973b-401b-b597-ef4c4a71513d",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:4a3457f4-7ba7-44dc-ae20-161b8e8baa8f",
+                "@type": "QuantityValue",
+                "numericValue": 470.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-04-08",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:1db99ff8-e9a8-461a-9050-52d0cc7e2ac7",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Pyraclostrobin",
+                "hasCommercialName": "COMET 20 EC"
+            }
         },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-	},
-      {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a01",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-03-16T10:00",
-        "isTargetedTowards": "Powdery Mildew",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a01",
-            "@type": "Pesticide",
-            "hasCommercialName": "KOCIDE 2000 35 WG",
-            "hasActiveSubstance":"Copper hydroxide"
+        {
+            "@id": "urn:openagri:pestMgmt:a6472cf0-83cd-4820-a0b6-d50621798a9f",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:eda2ac60-f7f1-4d63-858b-09a1ab711887",
+                "@type": "QuantityValue",
+                "numericValue": 200.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-04-08",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:ebd5e781-f769-4525-8b64-e4ccb03b0df4",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Mancozeb",
+                "hasCommercialName": "TRIMANOC 75 WG"
+            }
         },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a01",
-            "@type": "QuantityValue",
-            "numericValue": 1176.0,
-            "unit": "http://qudt.org/vocab/unit/GM"
+        {
+            "@id": "urn:openagri:pestMgmt:f37a1f97-db50-4aa4-b527-4d217906cd2d",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:59f3de23-2a2f-43de-b8e3-7ea0f450b7bb",
+                "@type": "QuantityValue",
+                "numericValue": 150.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-04-28",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:75d969d5-9b18-41d3-bda5-6515fcef16bb",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Dodine",
+                "hasCommercialName": "SYLLIT 544 SC"
+            }
         },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a01",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
+        {
+            "@id": "urn:openagri:pestMgmt:0fb3593a-05ff-410a-a948-8c35a9009105",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:9c88f19f-6efe-42d0-b8b9-8db6267d769c",
+                "@type": "QuantityValue",
+                "numericValue": 100.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-05-11",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:cd74689a-8bce-4b2f-b231-bd01c1c805ae",
+                "@type": "Pesticide",
+                "hasActiveSubstance": null,
+                "hasCommercialName": "LAINCOIL"
+            }
         },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    },
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a02",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-04-08T10:00",
-        "isTargetedTowards": "Powdery Mildew",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a02",
-            "@type": "Pesticide",
-            "hasCommercialName": "COMET 20 EC",
-            "hasActiveSubstance":"Pyraclostrobin"
+        {
+            "@id": "urn:openagri:pestMgmt:a84c488e-0790-4441-8742-e480f36ad12b",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:8a3946a1-7995-4c18-96da-20eb40ebf516",
+                "@type": "QuantityValue",
+                "numericValue": 30.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-05-19",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Basin or black olive scab",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:49ac9b22-408d-4023-8e1e-81d201761fb4",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Pyriproxyfen",
+                "hasCommercialName": "ADMIRAL 10 EC"
+            }
         },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a02",
-            "@type": "QuantityValue",
-            "numericValue": 470,
-            "unit": "http://qudt.org/vocab/unit/MilliL"
+        {
+            "@id": "urn:openagri:pestMgmt:cd6133a3-8493-4780-8203-128a93e7983f",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:df9fb1ec-e98c-4ff4-8702-dd557d16723f",
+                "@type": "QuantityValue",
+                "numericValue": 100.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-05-19",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Basin or black olive scab",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:40271cb2-60f8-40d3-a6bb-95bab727a178",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Deltamethrin",
+                "hasCommercialName": "DECIS 2,5 EC"
+            }
         },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a02",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
+        {
+            "@id": "urn:openagri:pestMgmt:3452532c-76b8-4850-8f06-5d08fc2a6356",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:ce48c68f-acb5-4e12-8f1f-1254e5857be6",
+                "@type": "QuantityValue",
+                "numericValue": 100.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-06-01",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:9c831aea-b192-4738-a76d-cd7f99b8d5a0",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Pirimiphos-methyl",
+                "hasCommercialName": null
+            }
         },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    },
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a03",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-04-08T10:00",
-        "isTargetedTowards": "Powdery Mildew",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a03",
-            "@type": "Pesticide",
-            "hasCommercialName": "TRIMANOC 75 WG",
-            "hasActiveSubstance":"Mancozeb"
+        {
+            "@id": "urn:openagri:pestMgmt:b78a41a0-033d-44da-902a-7f4903b599f5",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:b96e4c35-b530-4d30-84a0-a2da50836f98",
+                "@type": "QuantityValue",
+                "numericValue": 20.0,
+                "unit": ""
+            },
+            "hasTimestamp": "2022-06-14",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Prays Oleae",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:075b4c4f-9358-431b-8b88-9083fc8cce54",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "lambda-cyhalothrin",
+                "hasCommercialName": "KARATE with Zeon technology 10 CS"
+            }
         },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a03",
-            "@type": "QuantityValue",
-            "numericValue": 200,
-            "unit": "http://qudt.org/vocab/unit/GM"
+        {
+            "@id": "urn:openagri:pestMgmt:93d5b3fc-21bd-4f4c-b8a4-621c3c7ec00f",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:bb3e4a23-bb30-4d18-a2e6-70c720bf7ce6",
+                "@type": "QuantityValue",
+                "numericValue": 320.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-08-29",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:c9378e21-30eb-4da2-8603-6911d0efe1a3",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Copper hydroxide",
+                "hasCommercialName": "JADE 40 WG"
+            }
         },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a03",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
+        {
+            "@id": "urn:openagri:pestMgmt:d13fe57d-8556-4967-bcb8-97773aaef0d9",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:ac147c93-d288-458f-8cc4-8c83a64c8cfe",
+                "@type": "QuantityValue",
+                "numericValue": 250.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-11-18",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:7b3ef2c3-1c3b-4bf0-9921-cd70de297694",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Copper hydroxide",
+                "hasCommercialName": "CUPROS 50 WP"
+            }
         },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    },
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a04",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-04-28T10:00",
-        "isTargetedTowards": "Powdery Mildew",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a04",
-            "@type": "Pesticide",
-            "hasCommercialName": "SYLLIT 544 SC",
-            "hasActiveSubstance":"Dodine"
-        },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a04",
-            "@type": "QuantityValue",
-            "numericValue": 150.0,
-            "unit": "http://qudt.org/vocab/unit/MilliL"
-        },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a04",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
-        },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    },
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-05-11T10:00",
-        "isTargetedTowards": "",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "Pesticide",
-            "hasCommercialName": "LAINCOIL",
-            "hasActiveSubstance":"null"
-        },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "QuantityValue",
-            "numericValue": 100.0,
-            "unit": "http://qudt.org/vocab/unit/MilliL"
-        },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
-        },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    },
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-05-11T10:00",
-        "isTargetedTowards": "Basin or black olive scab",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "Pesticide",
-            "hasCommercialName": "ADMIRAL 10 EC",
-            "hasActiveSubstance":"Pyriproxyfen"
-        },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "QuantityValue",
-            "numericValue": 30.0,
-            "unit": "http://qudt.org/vocab/unit/MilliL"
-        },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a05",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
-        },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    }, 
-    {
-        "@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a06",
-        "@type": "ChemicalControlOperation",
-        "description": "treatment description",
-        "hasTimestamp": "2022-05-19T10:00",
-        "isTargetedTowards": "Olive pitter",
-        "usesPesticide":{
-            "@id": "urn:openagri:pestMgmt:pesticide:72d9fb43-53f8-4ec8-a33c-fa931360259a06",
-            "@type": "Pesticide",
-            "hasCommercialName": "DECIS 2,5 EC",
-            "hasActiveSubstance":"Deltamethrin"
-        },
-        "hasAppliedAmount": {
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a06",
-            "@type": "QuantityValue",
-            "numericValue": 100.0,
-            "unit": "http://qudt.org/vocab/unit/MilliL"
-        },
-        "hasTreatedArea":{
-            "@id": "urn:openagri:pestMgmt:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a06",
-            "@type": "QuantityValue",
-            "name": "Hectare",
-            "numericValue": 5,
-            "unit": "http://qudt.org/vocab/unit/HA"
-        },
-        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
-    }
-
-]
+        {
+            "@id": "urn:openagri:pestMgmt:1fc4d46f-3410-4fc3-9699-05c068e41044",
+            "@type": "ChemicalControlOperation",
+            "description": "treatment description",
+            "hasAppliedAmount": {
+                "@id": "urn:openagri:pestMgmt:amount:b9c756ba-5bd9-497d-b321-6f6d0efe79a6",
+                "@type": "QuantityValue",
+                "numericValue": 500.0,
+                "unit": "http://qudt.org/vocab/unit/GM"
+            },
+            "hasTimestamp": "2022-12-13",
+            "hasTreatedArea": "null",
+            "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "isTargetedTowards": "Powdery mildew",
+            "usesPesticide": {
+                "@id": "urn:openagri:pestMgmt:pesticide:412ba4eb-adda-4cb3-b01a-554c9e6ddd26",
+                "@type": "Pesticide",
+                "hasActiveSubstance": "Bordeaux mixture",
+                "hasCommercialName": "AQQUOS 20 WP"
+            }
+        }
+    ]
 }
