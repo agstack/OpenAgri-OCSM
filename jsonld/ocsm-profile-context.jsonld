@@ -2153,6 +2153,44 @@
     "isJustifiedBecause" : {
       "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#isJustifiedBecause",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasCycleDuration" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasCycleDuration",
+      "@type" : "@id"
+    },
+    "usesFertilizer" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#usesFertilizer",
+      "@type" : "@id"
+    },
+    "hasNutrientConcentration" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasNutrientConcentration",
+      "@type" : "@id"
+    },
+    "hasApplicationMethod" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasApplicationMethod",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasFertilizationType" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasFertilizationType",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "IrrigationOperation" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#IrrigationOperation"
+    },
+    "Fertilizer" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Fertilizer"
+    },
+    "FertilizationOperation" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#FertilizationOperation"
+    },
+    "Percentage" : {
+      "@id" : "http://www.ontology-of-units-of-measure.org/resource/om-2/Percentage"
+    },
+    "Ratio" : {
+      "@id" : "http://www.ontology-of-units-of-measure.org/resource/om-2/Ratio"
+    },
+    "ploutos.Product" : {
+      "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Product"
     }
   }
 }
