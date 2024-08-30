@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "@graph": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "startedAt": {
+              "type": "string"
+            },
+            "endedAt": {
+              "type": "string"
+            },
+            "hasAppliedAmount": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "numericValue": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "numericValue",
+                "unit"
+              ]
+            },
+            "usesIrrigationSystem": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "hasIrrigationType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "name",
+                "hasIrrigationType"
+              ]
+            },
+            "isOperatedOn": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "description",
+            "startedAt",
+            "endedAt",
+            "hasAppliedAmount",
+            "usesIrrigationSystem",
+            "isOperatedOn"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@graph"
+  ]
+}

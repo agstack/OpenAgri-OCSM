@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "@graph": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "hasTimestamp": {
+              "type": "string"
+            },
+            "usesFertilizer": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "hasCommercialName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "hasCommercialName"
+              ]
+            },
+            "hasAppliedAmount": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "numericValue": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "numericValue",
+                "unit"
+              ]
+            },
+            "plan": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "@type",
+                "description"
+              ]
+            },
+            "hasApplicationMethod": {
+              "type": "string"
+            },
+            "operationType": {
+              "type": "string"
+            },
+            "isOperatedOn": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "@type",
+            "description",
+            "hasTimestamp",
+            "usesFertilizer",
+            "hasAppliedAmount",
+            "plan",
+            "hasApplicationMethod",
+            "operationType",
+            "isOperatedOn"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@graph"
+  ]
+}
