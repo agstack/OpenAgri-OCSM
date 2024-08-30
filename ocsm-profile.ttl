@@ -145,9 +145,16 @@ ploutos:hasGreenhouseGasEmission
   rdfs:range sosa:Observation ;
 .
 
+### updated domain to include irrigationOperation
 ploutos:usesIrrigationSystem
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain ploutos:Parcel ;
+  rdf:type owl:ObjectProperty ;  
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          ploutos:Parcel
+          ploutos:IrrigationOperation
+        ) ;
+    ] ;
   rdfs:label "uses irrigation system" ;
   rdfs:range ploutos:IrrigationSystem ;
 .
@@ -184,6 +191,26 @@ ploutos:hasTreatedArea
   rdfs:comment "Here we make the link to the Ontology of units of Measure and enable classes to have a measure with a numerical value and a unit" ;
   rdfs:label "has treated area" ;
   rdfs:range om:Measure ;
+.
+
+## fixed type of property (it was datattypeproperty)
+ploutos:hasCycleDuration
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "This property represents the duration of a sprinkling cycle period including the soak time, i.e., the time needed for the water to soak into the soil." ;
+  rdfs:domain ploutos:IrrigationOperation ;
+  rdfs:label "has cycle duration" ;
+  rdfs:range <http://www.w3.org/2006/time#Duration> ;
+.
+
+ploutos:usesFertilizer
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "uses fertilizer" ;
+  rdfs:range ploutos:Fertilizer ;
+.
+
+ploutos:hasNutrientConcentration
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has nutrient concentration" ;
 .
 
 
@@ -407,6 +434,21 @@ ploutos:isJustifiedBecause
   rdfs:comment "This property indicates the reason why a chemical control operation and the use of a certain pesticide is justified" ;
   rdfs:domain ploutos:ChemicalControlOperation ;
   rdfs:label "is justified because" ;
+  rdfs:range xsd:string ;
+.
+
+ploutos:hasApplicationMethod
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "this property defines the type of methods that can be used for crop fertilization, e.g., broadcasting, foliar, placement, and fertigation." ;
+  rdfs:label "has application method" ;
+  rdfs:range xsd:string ;
+.
+
+ploutos:hasFertilizationType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "this property defines the type of fertilization that is used, e.g., pre-planting." ;
+  rdfs:domain ploutos:FertilizationOperation ;
+  rdfs:label "has fertilization type" ;
   rdfs:range xsd:string ;
 .
 
@@ -855,6 +897,71 @@ ploutos:ChemicalControlOperation
     ] ;
 .
 
+ploutos:IrrigationOperation
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the set of operations to irrigate the soil of a parcel of a farm with water. It is a specific SoilManagementOperation." ;
+  rdfs:label "Irrigation operation" ;
+  rdfs:subClassOf ploutos:SoilManagementOperation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty ploutos:hasCycleDuration ;
+    ] ;
+.
+
+ploutos:FertilizationOperation
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the set of operations to fertilize the soil on the land of a farm. It is a specific SoilManagementOperation and uses a fertilizer or a specific type and applies this on an area that is treated. A fertilizer is a chemical or natural substance added to soil or land to increase its fertility." ;
+  rdfs:label "Fertilization operation" ;
+  rdfs:subClassOf ploutos:SoilManagementOperation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass om:Measure ;
+      owl:onProperty ploutos:hasTreatedArea ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty ploutos:hasApplicationMethod ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty ploutos:hasFertilizationType ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty ploutos:usesFertilizer ;
+      owl:someValuesFrom ploutos:Fertilizer ;
+    ] ;
+.
+
+ploutos:Fertilizer
+  rdf:type owl:Class ;
+  rdfs:comment "1: This represents the class of fertilizers that are used in fertilization operations to give nutrients to soil, water or another substrate" ;
+  rdfs:comment "2: The property hasNutrientConcentration relates to an om:Percentage that has a value and a \"phenomenon\" that indicates for which nutrient the percentage holds" ;
+  rdfs:label "fertilizer" ;
+  rdfs:subClassOf ploutos:TreatmentMaterial ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty ploutos:hasNutrientConcentration ;
+      owl:someValuesFrom om:Percentage ;
+    ] ;
+.
+
+ploutos:Product
+  rdf:type owl:Class ;
+  rdfs:comment "Instances of this class are product items, such as a can with beans, or a box with bananas, a bin with peaches or a lot with peaches" ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty ploutos:isMeantFor ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
 
 obo:PO_0000003 a owl:Class ;  
   rdfs:label "whole plant" ;  
@@ -866,6 +973,16 @@ obo:ENVO_00000114 a owl:Class ;
 
 om:Area a owl:Class ;
 	rdfs:label "area" ;  
+	rdfs:subClassOf om:Quantity ; 
+.
+
+om:Percentage a owl:Class ;
+	rdfs:label "Percentage" ;  
+	rdfs:subClassOf om:Ratio ; 
+.
+
+om:Ratio a owl:Class ;
+	rdfs:label "Ratio" ;  
 	rdfs:subClassOf om:Quantity ; 
 .
 
@@ -934,6 +1051,7 @@ foodie:Intervention owl:equivalentClass ploutos:CropManagementOperation .
 ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType .
 ssn:System owl:equivalentClass ploutos:System .
 saref4agri:wateringSystem owl:equivalentClass ploutos:IrrigationSystem .
+foodie:Product owl:equivalentClass ploutos:Product .
 
 
 #################################################################
@@ -1033,3 +1151,9 @@ ocsm:VineyardRow a owl:NamedIndividual , sosa:FeautureOfInterest ;
               rdfs:label "VineyardRow" ;
               rdfs:comment "VineyardRow" ;
               rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                           
+              
+ocsm:KiloGM-PER-PLANT a qudt:Unit ;
+  						rdfs:label "kilogram per plant" ;
+              rdfs:comment "kilogram per plant" ;
+              rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                           
+  
