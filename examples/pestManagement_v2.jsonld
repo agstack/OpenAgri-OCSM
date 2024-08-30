@@ -3,7 +3,7 @@
 	  	"https://w3id.org/ocsm/main-context.jsonld"
    	],
   	"@graph": [
-  	[{
+  	{
 		"@id": "urn:openagri:pestMgmt:72d9fb43-53f8-4ec8-a33c-fa931360259a00",
 		"@type": "ChemicalControlOperation",
 		"description": "treatment description",
@@ -221,5 +221,4 @@
     }
 
 ]
-]	
 }
