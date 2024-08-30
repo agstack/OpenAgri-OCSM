@@ -1,0 +1,27 @@
+{
+  	"@context": [
+	  	"https://w3id.org/ocsm/main-context.jsonld"
+   	],
+  	"@graph": [
+  	{
+		"@id": "urn:openagri:irrigation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+		"@type": "IrrigationOperation",
+		"description": "irrigation description",
+        "startedAt": "2022-07-23T08:45:00",
+        "endedAt": "2022-07-23T22:00:00",        
+        "hasAppliedAmount": {
+            "@id": "urn:openagri:irrigation:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "QuantityValue",
+            "numericValue": 42,
+            "unit": "http://qudt.org/vocab/unit/M3"
+        },
+        "usesIrrigationSystem":{
+            "@id": "urn:openagri:irrigation:system:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "IrrigationSystem",
+            "name": "microspringlers123",
+            "hasIrrigationType": "microspringlers"
+        },
+        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
+	}  	
+	]
+}

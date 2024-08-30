@@ -1,0 +1,32 @@
+{
+  	"@context": [
+	  	"https://w3id.org/ocsm/main-context.jsonld"
+   	],
+  	"@graph": [
+  	{
+		"@id": "urn:openagri:fertilization:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+		"@type": "FertilizationOperation",
+		"description": "fertilization description",
+        "hasTimestamp": "2022-02-26T10:00",
+        "usesFertilizer": {
+            "@id": "urn:openagri:fertilization:product:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+		    "@type": "Fertilizer",            
+            "hasCommercialName": "ENTEC 20-8-10(+2Mgo+3S)"
+        },
+        "hasAppliedAmount": {
+            "@id": "urn:openagri:fertilization:amount:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "QuantityValue",
+            "numericValue": 4,
+            "unit": "https://w3id.org/ocsm/KiloGM-PER-PLANT"
+        },
+        "plan":{
+            "@id": "urn:openagri:fertilization:plan:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "TreatmentPlan",
+            "description": "plan description"            
+        },
+        "hasApplicationMethod": "form of treatment description",         
+        "operationType":"dispersion",        
+        "isOperatedOn": "urn:openagri:parcel:72d9fb43-53f8-4ec8-a33c-fa931360259a"
+	}  	
+	]
+}
