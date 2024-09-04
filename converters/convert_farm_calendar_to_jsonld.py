@@ -6,18 +6,117 @@ import sys
 def generate_uuid(prefix):
     return f"urn:openagri:{prefix}:{uuid.uuid4()}"
 
-# Function to convert irrigation data to JSON-LD format
-def convert_irrigation_to_jsonld(irrigation_data):
-    json_ld_data = {
-        "@context": ["https://w3id.org/ocsm/main-context.jsonld"],
-        "@graph": []
-    }
+# Function to convert parcel data to JSON-LD format and create a mapping from parcelUniqueIdentifier to parcelId
+def convert_parcel_data(parcel_data_list):
+    parcel_mapping = {}
+    json_ld_parcels = []
+
+    for parcel in parcel_data_list:
+        parcel_id = generate_uuid("parcel")
+        parcel_mapping[parcel.get('parcelUniqueIdentifier')] = parcel_id
+
+        gis_data = parcel.get('gis', [{}])[0]
+
+        parcel_entry = {
+            "@id": parcel_id,
+            "@type": "Vineyard",
+            "identifier": parcel.get('parcelUniqueIdentifier', None),
+            "description": parcel.get('description', None),
+            "category": parcel.get('category', None),
+            "validFrom": parcel.get('validFrom', None),
+            "validTo": parcel.get('validTo', None),
+            "inRegion": parcel.get('inRegion', None),
+            "hasToponym": parcel.get('hasToponym', None),
+            "area": parcel.get('parcel_area') * 10000 if parcel.get('parcel_area') else None,  # Convert Ha to m²
+            "isNitroAarea": parcel.get('isNitroAarea', None),
+            "isNatura2000Area": parcel.get('isNatura2000Area', None),
+            "isPDOPGIArea": parcel.get('isPDOPGIArea', None),
+            "isIrrigated": parcel.get('isIrrigated', None),
+            "isCultivatedInLevels": parcel.get('isCultivatedInLevels', None),
+            "isGroundSlope": parcel.get('isGroundSlope', None),
+            "depiction": parcel.get('depiction', None),
+            "hasGeometry": {
+                "@id": generate_uuid("parcel:geo"),
+                "@type": "Polygon",
+                "asWKT": gis_data.get('wkt', None)
+            },
+            "location": {
+                "@id": generate_uuid("parcel:point"),
+                "@type": "Point",
+                "lat": gis_data.get('latitude', None),
+                "long": gis_data.get('longitude', None)
+            },
+            "usesIrrigationSystem": {
+                "@id": generate_uuid("parcel:irrigation"),
+                "@type": "IrrigationSystem",
+                "name": parcel.get('irrigation_system', None)
+            },
+            "hasIrrigationFlow": parcel.get('irrigation_supply_rate', None)
+        }
+
+        json_ld_parcels.append(parcel_entry)
+
+    return json_ld_parcels, parcel_mapping
+
+
+# Function to convert farm data to JSON-LD format
+def convert_farm_data(farm_data_list, json_ld_parcels):
+    json_ld_farms = []
+
+    for farm in farm_data_list:
+        farm_id = generate_uuid("farm")
+        
+        # Link parcels associated with the farm
+        farm_parcel_ids = farm.get('farm_parcel_ids', [])
+        linked_parcels = [
+            parcel for parcel in json_ld_parcels 
+            if parcel.get('identifier') in farm_parcel_ids
+        ]
+        
+        farm_entry = {
+            "@id": farm_id,
+            "@type": "Farm",
+            "name": farm.get('farmName', None),
+            "description": farm.get('description', None),
+            "hasAdministrator": farm.get('farmAdministratorName', None),
+            "contactPerson": {
+                "@id": generate_uuid("contact"),
+                "@type": "Person",
+                "firstname": farm.get('farmContactPerson', None),
+                "lastname": farm.get('farmContactPerson', None)
+            },
+            "telephone": farm.get('telephone', None),
+            "vatID": farm.get('vatID', None),
+            "address": {
+                "@id": generate_uuid("address"),
+                "@type": "Address",
+                "adminUnitL1": farm.get('adminUnitL1', None),
+                "adminUnitL2": farm.get('adminUnitL2', None),
+                "addressArea": farm.get('addressArea', None),
+                "municipality": farm.get('municipality', None),
+                "community": farm.get('community', None),
+                "locatorName": farm.get('locatorName', None)
+            },
+            "area": farm.get('totalFarmArea') * 10000 if farm.get('totalFarmArea') else None,  # Convert Ha to m²
+            "hasAgriParcel": linked_parcels  # Link the parcels related to this farm
+        }
+
+        json_ld_farms.append(farm_entry)
+
+    return json_ld_farms
+
+
+# Function to convert irrigation data to JSON-LD format and associate it with the corresponding parcelId
+def convert_irrigation_to_jsonld(irrigation_data, parcel_mapping):
+    json_ld_irrigation = []
 
     for entry in irrigation_data:
         base_id = generate_uuid("irrigation")
         amount_id = generate_uuid("irrigation:amount")
         system_id = generate_uuid("irrigation:system")
-        parcel_id = generate_uuid("parcel")
+
+        parcel_unique_identifier = entry.get('parcelUniqueIdentifier')
+        parcel_id = parcel_mapping.get(parcel_unique_identifier)
 
         irrigation_entry = {
             "@id": base_id,
@@ -40,23 +139,19 @@ def convert_irrigation_to_jsonld(irrigation_data):
             "isOperatedOn": parcel_id
         }
 
-        json_ld_data["@graph"].append(irrigation_entry)
+        json_ld_irrigation.append(irrigation_entry)
 
-    return json_ld_data
+    return json_ld_irrigation
 
-# Function to convert fertilization data to JSON-LD format
-def convert_fertilization_to_jsonld(fertilizations_data):
-    json_ld_data = {
-        "@context": ["https://w3id.org/ocsm/main-context.jsonld"],
-        "@graph": []
-    }
+# Function to convert fertilization data to JSON-LD format and associate it with the corresponding parcelId
+def convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping):
+    json_ld_fertilization = []
 
     for entry in fertilizations_data:
         base_id = generate_uuid("fertilization")
         product_id = generate_uuid("fertilization:product")
         amount_id = generate_uuid("fertilization:amount")
         plan_id = generate_uuid("fertilization:plan")
-        parcel_id = generate_uuid("parcel")
 
         # Determine the correct unit vocabulary term
         if entry.get("unit") == "kg" and entry.get("referenceDose") == "per plant":
@@ -65,6 +160,9 @@ def convert_fertilization_to_jsonld(fertilizations_data):
             unit_vocab = "https://w3id.org/ocsm/Litres-PER-Hectar"
         else:
             unit_vocab = None
+
+        parcel_unique_identifier = entry.get('parcelUniqueIdentifier')
+        parcel_id = parcel_mapping.get(parcel_unique_identifier)
 
         fertilization_entry = {
             "@id": base_id,
@@ -92,103 +190,22 @@ def convert_fertilization_to_jsonld(fertilizations_data):
             "isOperatedOn": parcel_id
         }
 
-        json_ld_data["@graph"].append(fertilization_entry)
+        json_ld_fertilization.append(fertilization_entry)
 
-    return json_ld_data
+    return json_ld_fertilization
 
-# Function to convert farm and parcel data to JSON-LD format
-def convert_to_jsonld(farm_data_list, parcel_data_list):
-    # Define the base context
-    context = {
-        "@context": [
-            "https://w3id.org/ocsm/main-context.jsonld"
-        ]
+# Function to create a single combined JSON-LD file with all data under one "@graph" array
+def create_combined_jsonld(irrigation_data, fertilizations_data, parcel_data):
+    combined_json_ld = {
+        "@context": ["https://w3id.org/ocsm/main-context.jsonld"],
+        "@graph": []
     }
-    
-    # Convert parcels
-    def convert_parcel(parcel):
-        parcel_id = f"urn:openagri:parcel:{uuid.uuid4()}"
-        gis_data = parcel.get('gis', [{}])[0]
-        
-        return {
-            "@id": parcel_id,
-            "@type": "Vineyard",
-            "identifier": parcel.get('parcelUniqueIdentifier', None),
-            "description": parcel.get('description', None),
-            "category": parcel.get('category', None),
-            "validFrom": parcel.get('validFrom', None),
-            "validTo": parcel.get('validTo', None),
-            "inRegion": parcel.get('inRegion', None),
-            "hasToponym": parcel.get('hasToponym', None),
-            "area": parcel.get('parcel_area') * 10000 if parcel.get('parcel_area') else None,  # Convert Ha to m²
-            "isNitroAarea": parcel.get('isNitroAarea', None),
-            "isNatura2000Area": parcel.get('isNatura2000Area', None),
-            "isPDOPGIArea": parcel.get('isPDOPGIArea', None),
-            "isIrrigated": parcel.get('isIrrigated', None),
-            "isCultivatedInLevels": parcel.get('isCultivatedInLevels', None),
-            "isGroundSlope": parcel.get('isGroundSlope', None),
-            "depiction": parcel.get('depiction', None),
-            "hasGeometry": {
-                "@id": f"urn:openagri:parcel:geo:{uuid.uuid4()}",
-                "@type": "Polygon",
-                "asWKT": gis_data.get('wkt', None)
-            },
-            "location": {
-                "@id": f"urn:openagri:parcel:point:{uuid.uuid4()}",
-                "@type": "Point",
-                "lat": gis_data.get('latitude', None),
-                "long": gis_data.get('longitude', None)
-            },
-            "usesIrrigationSystem": {
-                "@id": f"urn:openagri:parcel:irrigation:{uuid.uuid4()}",
-                "@type": "IrrigationSystem",
-                "name": parcel.get('irrigation_system', None)
-            },
-            "hasIrrigationFlow": parcel.get('irrigation_supply_rate', None)
-        }
 
-    # Convert farms
-    def convert_farm(farm):
-        farm_id = f"urn:openagri:farm:{uuid.uuid4()}"
-        return {
-            "@id": farm_id,
-            "@type": "Farm",
-            "name": farm.get('farmName', None),
-            "description": farm.get('description', None),
-            "hasAdministrator": farm.get('farmAdministratorName', None),
-            "contactPerson": {
-                "@id": f"urn:openagri:farm:contact:{uuid.uuid4()}",
-                "@type": "Person",
-                "firstname": farm.get('farmContactPerson', None),
-                "lastname": farm.get('farmContactPerson', None)
-            },
-            "telephone": farm.get('telephone', None),
-            "vatID": farm.get('vatID', None),
-            "address": {
-                "@id": f"urn:openagri:farm:address:{uuid.uuid4()}",
-                "@type": "Address",
-                "adminUnitL1": farm.get('adminUnitL1', None),
-                "adminUnitL2": farm.get('adminUnitL2', None),
-                "addressArea": farm.get('addressArea', None),
-                "municipality": farm.get('municipality', None),
-                "community": farm.get('community', None),
-                "locatorName": farm.get('locatorName', None)
-            },
-            "area": farm.get('totalFarmArea') * 10000 if farm.get('totalFarmArea') else None,  # Convert Ha to m²
-            "hasAgriParcel": [
-                convert_parcel(parcel) 
-                for parcel in parcel_data_list 
-                if parcel.get('parcelUniqueIdentifier') in farm.get('farm_parcel_ids', [])
-            ]
-        }
+    combined_json_ld["@graph"].extend(parcel_data)
+    combined_json_ld["@graph"].extend(irrigation_data)
+    combined_json_ld["@graph"].extend(fertilizations_data)
 
-    # Combine context with farms data
-    farm_jsonld = {
-        **context,
-        "@graph": [convert_farm(farm) for farm in farm_data_list]
-    }
-    
-    return farm_jsonld
+    return combined_json_ld
 
 def main():
     # Read the input JSON file from argv[1]
@@ -202,60 +219,56 @@ def main():
     farm_data_list = input_data.get('farm_related_data', [])
     parcel_data_list = input_data.get('parcel_related_data', [])
     
+    # Convert parcel data and create a parcel mapping
+    json_ld_parcels, parcel_mapping = convert_parcel_data(parcel_data_list)
+    
     if irrigation_data or fertilizations_data or farm_data_list:
         choice = input("Data found. Choose output option:\n"
                        "1. Dump irrigation data to console\n"
                        "2. Dump fertilization data to console\n"
                        "3. Dump farm and parcel data to console\n"
                        "4. Write all data to separate files\n"
-                       "5. Write all data into one file\n"
-                       "Enter choice (1/2/3/4): ")
+                       "5. Write all data to one combined JSON-LD file\n"
+                       "Enter choice (1/2/3/4/5): ")
 
         if choice == '1' and irrigation_data:
-            converted_data = convert_irrigation_to_jsonld(irrigation_data)
+            converted_data = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
             print(json.dumps(converted_data, indent=4))
         elif choice == '2' and fertilizations_data:
-            converted_data = convert_fertilization_to_jsonld(fertilizations_data)
+            converted_data = convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping)
             print(json.dumps(converted_data, indent=4))
         elif choice == '3' and farm_data_list:
-            converted_data = convert_to_jsonld(farm_data_list, parcel_data_list)
-            print(json.dumps(converted_data, indent=4))
+            converted_farm_data = convert_farm_data(farm_data_list, json_ld_parcels)
+            print(json.dumps(converted_farm_data, indent=4))
         elif choice == '4':
             if irrigation_data:
-                irrigation_output = convert_irrigation_to_jsonld(irrigation_data)
+                irrigation_output = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
                 with open('irrigation_output.jsonld', 'w') as irrig_file:
                     json.dump(irrigation_output, irrig_file, indent=4)
                 print("Irrigation data written to irrigation_output.jsonld")
 
             if fertilizations_data:
-                fertilization_output = convert_fertilization_to_jsonld(fertilizations_data)
+                fertilization_output = convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping)
                 with open('fertilization_output.jsonld', 'w') as fert_file:
                     json.dump(fertilization_output, fert_file, indent=4)
                 print("Fertilization data written to fertilization_output.jsonld")
 
             if farm_data_list:
-                farm_output = convert_to_jsonld(farm_data_list, parcel_data_list)
+                farm_output = convert_farm_data(farm_data_list, json_ld_parcels)
                 with open('farm_output.jsonld', 'w') as farm_file:
                     json.dump(farm_output, farm_file, indent=4)
                 print("Farm data written to farm_output.jsonld")
-        elif choice == '5':  # New choice for writing all data to one file
-            combined_output = {
-                "@context": ["https://w3id.org/ocsm/main-context.jsonld"],
-                "@graph": []
-            }
 
-            if irrigation_data:
-                combined_output["@graph"].extend(convert_irrigation_to_jsonld(irrigation_data)["@graph"])
+        elif choice == '5':  # Combined JSON-LD file option
+            irrigation_output = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
+            fertilization_output = convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping)
+            farm_output = convert_farm_data(farm_data_list, json_ld_parcels)
+            combined_output = create_combined_jsonld(irrigation_output, fertilization_output, farm_output)
 
-            if fertilizations_data:
-                combined_output["@graph"].extend(convert_fertilization_to_jsonld(fertilizations_data)["@graph"])
-
-            if farm_data_list:
-                combined_output["@graph"].extend(convert_to_jsonld(farm_data_list, parcel_data_list)["@graph"])
-
-            with open('generic_farm_calendar_aim.jsonld', 'w') as combined_file:
+            with open('combined_output.jsonld', 'w') as combined_file:
                 json.dump(combined_output, combined_file, indent=4)
-            print("All data written to generic_farm_calendar_aim.jsonld")
+            print("All data written to combined_output.jsonld")
+
         else:
             print("Invalid choice or no data for the selected option.")
     else:
