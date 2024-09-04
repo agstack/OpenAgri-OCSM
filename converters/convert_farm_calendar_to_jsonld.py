@@ -6,6 +6,14 @@ import sys
 def generate_uuid(prefix):
     return f"urn:openagri:{prefix}:{uuid.uuid4()}"
 
+# Function to map unit to vocabulary term
+def get_unit_uri(unit):
+        unit_mapping = {
+            "gr/ha": "http://qudt.org/vocab/unit/GM",
+            "ml/ha": "http://qudt.org/vocab/unit/ML"
+        }
+        return unit_mapping.get(unit, "")
+
 # Function to convert parcel data to JSON-LD format and create a mapping from parcelUniqueIdentifier to parcelId
 def convert_parcel_data(parcel_data_list):
     parcel_mapping = {}
@@ -105,6 +113,44 @@ def convert_farm_data(farm_data_list, json_ld_parcels):
 
     return json_ld_farms
 
+# Function to convert pesticides data to JSON-LD format and associate it with the corresponding parcelId
+def convert_pesticides_to_jsonld(pesticides_data, parcel_mapping):
+    json_ld_pesticides = []
+
+    for entry in pesticides_data:
+        base_id = generate_uuid("pestMgmt")
+        amount_id = generate_uuid("pestMgmt:amount")
+        system_id = generate_uuid("pestMgmt:system")
+
+        parcel_unique_identifier = entry.get('parcelUniqueIdentifier')
+        parcel_id = parcel_mapping.get(parcel_unique_identifier)
+
+        pesticides_entry = {
+            "@id": base_id,
+            "@type": "ChemicalControlOperation",
+            "description": entry.get("remarks", "treatment description"),
+            "hasAppliedAmount": {
+                "@id": amount_id,
+                "@type": "QuantityValue",
+                "numericValue": entry.get("dose"),
+                "unit": get_unit_uri(entry.get("unit"))
+            },
+            "hasTimestamp": entry.get("date"),
+            "hasTreatedArea": "null",  # Assuming no treated area info provided
+            "isOperatedOn": parcel_id,
+            "isTargetedTowards": entry.get("target"),
+            "usesPesticide": {
+                "@id": system_id,
+                "@type": "Pesticide",
+                "hasActiveSubstance": entry.get("activeSubstance"),
+                "hasCommercialName": entry.get("comercialDrugName")
+            }
+        }
+
+        json_ld_pesticides.append(pesticides_entry)
+
+    return json_ld_pesticides
+
 
 # Function to convert irrigation data to JSON-LD format and associate it with the corresponding parcelId
 def convert_irrigation_to_jsonld(irrigation_data, parcel_mapping):
@@ -195,7 +241,7 @@ def convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping):
     return json_ld_fertilization
 
 # Function to create a single combined JSON-LD file with all data under one "@graph" array
-def create_combined_jsonld(irrigation_data, fertilizations_data, parcel_data):
+def create_combined_jsonld(irrigation_data, fertilizations_data, pesticides_data, parcel_data):
     combined_json_ld = {
         "@context": ["https://w3id.org/ocsm/main-context.jsonld"],
         "@graph": []
@@ -204,6 +250,7 @@ def create_combined_jsonld(irrigation_data, fertilizations_data, parcel_data):
     combined_json_ld["@graph"].extend(parcel_data)
     combined_json_ld["@graph"].extend(irrigation_data)
     combined_json_ld["@graph"].extend(fertilizations_data)
+    combined_json_ld["@graph"].extend(pesticides_data)
 
     return combined_json_ld
 
@@ -216,6 +263,7 @@ def main():
     
     irrigation_data = input_data.get("irrigation_data", [])
     fertilizations_data = input_data.get("fertilizations_data", [])
+    pesticides_data = input_data.get("pesticides_data", [])
     farm_data_list = input_data.get('farm_related_data', [])
     parcel_data_list = input_data.get('parcel_related_data', [])
     
@@ -226,10 +274,11 @@ def main():
         choice = input("Data found. Choose output option:\n"
                        "1. Dump irrigation data to console\n"
                        "2. Dump fertilization data to console\n"
-                       "3. Dump farm and parcel data to console\n"
-                       "4. Write all data to separate files\n"
-                       "5. Write all data to one combined JSON-LD file\n"
-                       "Enter choice (1/2/3/4/5): ")
+                       "3. Dump pesticides data to console\n"
+                       "4. Dump farm and parcel data to console\n"
+                       "5. Write all data to separate files\n"
+                       "6. Write all data to one combined JSON-LD file\n"
+                       "Enter choice (1/2/3/4/5/6): ")
 
         if choice == '1' and irrigation_data:
             converted_data = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
@@ -237,10 +286,13 @@ def main():
         elif choice == '2' and fertilizations_data:
             converted_data = convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping)
             print(json.dumps(converted_data, indent=4))
-        elif choice == '3' and farm_data_list:
+        elif choice == '3' and pesticides_data:
+            converted_data = convert_pesticides_to_jsonld(pesticides_data, parcel_mapping)
+            print(json.dumps(converted_data, indent=4))
+        elif choice == '4' and farm_data_list:
             converted_farm_data = convert_farm_data(farm_data_list, json_ld_parcels)
             print(json.dumps(converted_farm_data, indent=4))
-        elif choice == '4':
+        elif choice == '5':
             if irrigation_data:
                 irrigation_output = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
                 with open('irrigation_output.jsonld', 'w') as irrig_file:
@@ -253,17 +305,24 @@ def main():
                     json.dump(fertilization_output, fert_file, indent=4)
                 print("Fertilization data written to fertilization_output.jsonld")
 
+            if pesticides_data:
+                pesticides_output = convert_fertilization_to_jsonld(pesticides_data, parcel_mapping)
+                with open('pesticides_output.jsonld', 'w') as pest_file:
+                    json.dump(pesticides_output, pest_file, indent=4)
+                print("Pesticides data written to fertilization_output.jsonld")
+
             if farm_data_list:
                 farm_output = convert_farm_data(farm_data_list, json_ld_parcels)
                 with open('farm_output.jsonld', 'w') as farm_file:
                     json.dump(farm_output, farm_file, indent=4)
                 print("Farm data written to farm_output.jsonld")
 
-        elif choice == '5':  # Combined JSON-LD file option
+        elif choice == '6':  # Combined JSON-LD file option
             irrigation_output = convert_irrigation_to_jsonld(irrigation_data, parcel_mapping)
             fertilization_output = convert_fertilization_to_jsonld(fertilizations_data, parcel_mapping)
+            pesticides_output = convert_pesticides_to_jsonld(pesticides_data, parcel_mapping)
             farm_output = convert_farm_data(farm_data_list, json_ld_parcels)
-            combined_output = create_combined_jsonld(irrigation_output, fertilization_output, farm_output)
+            combined_output = create_combined_jsonld(irrigation_output, fertilization_output, pesticides_output, farm_output)
 
             with open('combined_output.jsonld', 'w') as combined_file:
                 json.dump(combined_output, combined_file, indent=4)
