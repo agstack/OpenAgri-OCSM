@@ -2,6 +2,9 @@ import json
 import uuid
 import sys
 
+import report_service_utils as report_srv
+
+
 # Function to generate a UUID with a specific prefix
 def generate_uuid(prefix):
     return f"urn:openagri:{prefix}:{uuid.uuid4()}"
@@ -328,10 +331,22 @@ def main():
                 json.dump(combined_output, combined_file, indent=4)
             print("All data written to combined_output.jsonld")
 
+            hasReport = input("Do you want to create a PDF report? (Y/N)")
+            if hasReport == "Y":
+
+                report_types = ['work-book', 'plant-protection', 'irrigations', 'fertilisations', 'harvests', 'GlobalGAP']
+                token = report_srv.authenticate()
+                dataset_id = report_srv.upload_dataset('generic_farm_calendar_aim.jsonld', token)
+                report_srv.generate_reports_for_dataset(dataset_id, report_types, token, isDownload=True)
+
+
+
+
         else:
             print("Invalid choice or no data for the selected option.")
     else:
         print("No recognizable data type found in the input file.")
 
 if __name__ == "__main__":
+
     main()
