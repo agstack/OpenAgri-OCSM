@@ -1,5 +1,7 @@
 {
   "@context" : {
+    "@vocab": "https://w3id.org/ocsm/default-context/",
+    "type": "@type",
     "PhotonFluxDensity" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity"
     },
