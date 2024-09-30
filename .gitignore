@@ -1,1 +1,24 @@
 /.project
+.idea
+.vscode
+node_modules
+.env
+.env.development
+*.sqlite*
+db
+__pycache__
+*.sw*
+*.log
+src/protobuf/
+**/images_storage/
+/.coverage
+mypy_report
+.mypy_cache
+*.DS_Store
+*.pyc
+/data
+*.vim
+
+# Ignore compiled protobuf files
+*_pb2.py
+converters/combined_output.jsonld
