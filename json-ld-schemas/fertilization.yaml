@@ -22,6 +22,8 @@ properties:
         const: http://foodie-cloud.com/model/foodie#
       sdm-agri:
         const: https://smartdatamodels.org/dataModel.Agrifood/
+	  qudt:
+		const: http://qudt.org/schema/qudt/
       om:
         const: http://www.ontology-of-units-of-measure.org/resource/om-2/
   '@graph':
@@ -57,7 +59,7 @@ $defs:
       ploutos:usesFertilizer:
         $ref: '#/$defs/fertilizer'
       ploutos:hasAppliedAmount:
-        $ref: '#/$defs/measure'
+        $ref: '#/$defs/quantityValue'
       ploutos:hasApplicationMethod:
         type: string
       sdm-agri:operationType:
@@ -102,26 +104,17 @@ $defs:
       '@type':
         const: foodie:TreatmentPlan
 
-  measure:
-    type: object
-    required: ['@id', '@type', 'om:hasUnit', 'om:hasNumericalValue']
+  quantityValue:
+	type: object
+	required: ['@id', '@type', 'qudt:unit', 'qudt:numericValue']
     properties:
       '@id':
         type: string
         format: iri
       '@type':
-        const: om:Measure
-      om:hasUnit:
-        type: object
-        required: ['@id']
-        properties:
-          '@id':
-            type: string # should be a unit in om; can use om: prefix.
-      om:hasNumericalValue:
-        type: object
-        required: ['@value', '@type']
-        properties:
-          '@value':
-            type: string # should be a number in the string
-          '@type':
-            const: xsd:decimal
+        const: qudt:QuantityValue
+      qudt:unit:
+        type: string 
+		format: iri # here we make the link to any class that represents a unit
+      qudt:numericValue:
+        type: xsd:decimal
