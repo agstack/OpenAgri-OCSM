@@ -1,0 +1,127 @@
+$id: https://w3id.org/ocsm/fertilization.schema.json
+$schema: https://json-schema.org/draft/2020-12/schema
+description: This schema defines the structure of the JSON-LD output of the OpenAgri fertilization service
+type: object
+required:
+  - '@context'
+  - '@graph'
+properties:
+  '@context':
+    type: object
+    required: ['xsd', 'ploutos', 'saref', 's4agri', 'foodie', 'sdm-agri', 'om']
+    properties:
+      xsd:
+        const: http://www.w3.org/2001/XMLSchema#
+      ploutos:
+        const: https://www.tno.nl/agrifood/ontology/ploutos/common#
+      saref:
+        const: https://saref.etsi.org/core/
+      s4agri:
+        const: https://saref.etsi.org/saref4agri/
+      foodie:
+        const: http://foodie-cloud.com/model/foodie#
+      sdm-agri:
+        const: https://smartdatamodels.org/dataModel.Agrifood/
+      om:
+        const: http://www.ontology-of-units-of-measure.org/resource/om-2/
+  '@graph':
+    type: array
+    items:
+      $ref: '#/$defs/fertilizationOperation'
+
+$defs:
+
+  fertilizationOperation:
+    type: object
+    required:
+      - '@id'
+      - '@type'
+      - foodie:description
+      - saref:hasTimestamp
+      - ploutos:usesFertilizer
+      - ploutos:hasAppliedAmount
+      - ploutos:hasApplicationMethod
+      - sdm-agri:operationType
+      - ploutos:isOperatedOn
+      - foodie:plan
+    properties:
+      '@id':
+        type: string
+        format: iri
+      '@type':
+        const: ploutos:FertilizationOperation
+      foodie:description:
+        type: string
+      saref:hasTimestamp:
+        type: xsd:datetime
+      ploutos:usesFertilizer:
+        $ref: '#/$defs/fertilizer'
+      ploutos:hasAppliedAmount:
+        $ref: '#/$defs/measure'
+      ploutos:hasApplicationMethod:
+        type: string
+      sdm-agri:operationType:
+        type: string
+      ploutos:isOperatedOn:
+        $ref: '#/defs/parcel'
+      foodie:plan:
+        $ref: '#/defs/treatmentPlan'
+
+  fertilizer:
+    type: object
+    required:
+      - '@id'
+      - '@type'
+      - ploutos:hasCommercialName
+    properties:
+      '@id':
+        type: string
+        format: iri
+      '@type':
+        const: ploutos:Fertilizer
+      ploutos:hasCommercialName:
+        type: string
+
+  parcel:
+    type: object
+    required: ['@id', '@type']
+    properties:
+      '@id':
+        type: string
+        format: iri
+      '@type':
+        const: s4agri:Parcel
+
+  treatmentPlan:
+    type: object
+    required: ['@id', '@type']
+    properties:
+      '@id':
+        type: string
+        format: iri
+      '@type':
+        const: foodie:TreatmentPlan
+
+  measure:
+    type: object
+    required: ['@id', '@type', 'om:hasUnit', 'om:hasNumericalValue']
+    properties:
+      '@id':
+        type: string
+        format: iri
+      '@type':
+        const: om:Measure
+      om:hasUnit:
+        type: object
+        required: ['@id']
+        properties:
+          '@id':
+            type: string # should be a unit in om; can use om: prefix.
+      om:hasNumericalValue:
+        type: object
+        required: ['@value', '@type']
+        properties:
+          '@value':
+            type: string # should be a number in the string
+          '@type':
+            const: xsd:decimal
