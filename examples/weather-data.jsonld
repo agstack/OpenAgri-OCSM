@@ -1,0 +1,70 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld",
+        {
+            "qudt": "http://qudt.org/vocab/unit/",
+            "cf" : "https://vocab.nerc.ac.uk/standard_name/"
+        }
+    ],
+    "@graph": [
+    {
+        "@id": "urn:openagri:weather:data:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": ["ObservationCollection","WeatherObserved"],
+        "name": "Weather data on 2024-10-01T12:00:00+00:00",
+        "description": "clear sky",
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:weather:data:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "Point"],
+            "long" : 39.1436719643054,
+            "lat": 27.40518186700786
+        },
+        "source": "openweathermaps",
+        "resultTime": "2024-10-01T12:00:00+00:00",
+        "phenomenonTime": "2024-10-01T12:00:00+00:00",
+        "hasMember": [{
+            "@id": "urn:openagri:weather:data:temp:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:air_temperature",
+            "hasResult": {
+                "@id": "urn:openagri:weather:data:temp:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 23.6,
+                "unit": "qudt:DEG_C"
+            }
+        },
+        {
+            "@id": "urn:openagri:weather:data:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:specific_humidity",
+            "hasResult": {
+                "@id": "urn:openagri:weather:data:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 35,
+                "unit": "qudt:UNITLESS"
+            }
+        },
+        {
+            "@id": "urn:openagri:weather:data:pre:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:air_pressure",
+            "hasResult": {
+                "@id": "urn:openagri:weather:data:pre:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 1011,
+                "unit": "qudt:PA"
+            }
+        },
+        {
+            "@id": "urn:openagri:weather:data:wis:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:wind_speed",
+            "hasResult": {
+                "@id": "urn:openagri:weather:data:wis:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 3.78,
+                "unit": "qudt::M-PER-SEC"
+            }
+        }
+        ]        
+    }]
+}
