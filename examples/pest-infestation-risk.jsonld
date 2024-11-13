@@ -1,0 +1,74 @@
+{
+  	"@context":
+		{
+			"ocsm": "https://w3id.org/ocsm/",
+			"smart": "https://smartdatamodels.org/",
+			"foodie": "http://foodie-cloud.com/model/foodie#",
+			"saref": "https://saref.etsi.org/core/"
+		},
+  	"@graph": [
+	  	{
+			"@id": "urn:openagri:pestModel:101",    # this should be a universally unique identifier 
+			"@type": "ocsm:AIPestDetectionModel",
+			"smart:name": "Uncinula_necator",
+			"foodie:description": "Uncinula necator (syn. Erysiphe necator) is a fungus that causes powdery mildew
+							of grape. It is a common pathogen of Vitis species, including the wine grape,
+							Vitis vinifera",
+			"ocsm:hasPredictedInfestations": [    # to be added to the OCSM
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360259a",    # some UUID generated string
+					"@type": "ocsm:PestPrediction",     # to be added to the OCSM
+					"saref:hasTimestamp": "2024-08-31T01:00:00",
+					"ocsm:hasPredictionLevel": "Low"     # this is the result of the prediction in terms of low, medium, high. I would say that this name covers the range of values better than the general term result
+				},
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360259b",
+					"@type": "ocsm:PestPrediction",
+					"saref:hasTimestamp": "2024-08-31T02:00:00",
+					"ocsm:hasPredictionLevel": "High"
+				},
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360259c",
+					"@type": "ocsm:PestPrediction",
+					"saref:hasTimestamp": "2024-08-31T03:00:00",
+					"ocsm:hasPredictionLevel": "Medium"
+				}
+			],
+			"ocsm:basedOnWeatherDataset": {
+				"@id":"urn:openagri:weatherDataset:1234",
+				"@type": "ocsm:WeatherDataset"     # to be added to the OCSM
+			}
+		},
+		{
+			"@id": "urn:openagri:pestModel:102",
+			"@type": "ocsm:AIPestDetectionModel",
+			"smart:name": "Plasmopara_viticola",
+			"foodie:description": "Plasmopara viticola, the causal agent of grapevine downy mildew, is a
+							heterothallic oomycete that overwinters as oospores in leaf litter and soil.",
+			"ocsm:hasPredictedInfestations": [
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360250a",
+					"@type": "ocsm:PestPrediction",
+					"saref:hasTimestamp": "2024-08-31T01:00:00",
+					"ocsm:hasPredictionLevel": "High"
+				},
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360250b",
+					"@type": "ocsm:PestPrediction",
+					"saref:hasTimestamp": "2024-08-31T02:00:00",
+					"ocsm:hasPredictionLevel": "High"
+				},
+				{
+					"@id": "urn:openagri:pestPrediction:72d9fb43-53f8-4ec8-a33c-fa931360250c",
+					"@type": "ocsm:PestPrediction",
+					"saref:hasTimestamp": "2024-08-31T03:00:00",
+					"ocsm:hasPredictionLevel": "High"
+				}
+			],
+			"ocsm:basedOnWeatherDataset": {
+				"@id":"urn:openagri:weatherDataset:1234",
+				"@type": "ocsm:WeatherDataset"
+			}
+		}
+	]
+}
