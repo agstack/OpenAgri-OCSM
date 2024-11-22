@@ -1,0 +1,111 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:pestInfectationRisk:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": ["ObservationCollection"],        
+        "description": "UNCINE pest infectation risk forecast in xxx ",
+        "observedProperty": {
+            "@id": "urn:openagri:pestInfectationRisk:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["ObservableProperty", "PestInfection"],
+            "name" : "UNCINE pest infection",
+            "hasAgriPest" : {
+                "@id": "urn:openagri:pest:UNCINE",
+                "@type": "AgriPest",
+                "name": "UNCINE",
+                "description": "Uncinula necator (syn. Erysiphe necator) is a fungus that causes powdery mildew of grape. It is a common pathogen of Vitis species, including the wine grape, Vitis vinifera",
+                "eppoConcept": "https://gd.eppo.int/taxon/UNCINE"
+            }
+        },        
+        "madeBySensor": {
+            "@id": "urn:openagri:pestInfectationRisk:model:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Sensor", "AIPestDetectionModel"],
+            "name": "AI pest detaction model xyz"
+        },
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:pestInfectationRisk:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "Point"],
+            "long" : 39.1436719643054,
+            "lat": 27.40518186700786
+        },
+        "basedOnWeatherDataset": {
+            "@id":"urn:openagri:weatherDataset:1234",
+            "@type": "WeatherDataset",
+            "name": "Weather dataset 1234"
+        },
+        "resultTime": "2024-10-01T12:00:00+00:00",
+        "hasMember": [{
+            "@id": "urn:openagri:pestInfectationRisk:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-10-25T01:00:00",
+            "hasSimpleResult": "Low"
+        },
+        {
+            "@id": "urn:openagri:pestInfectationRisk:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-10-31T01:00:00",
+            "hasSimpleResult": "High"
+        },
+        {
+            "@id": "urn:openagri:pestInfectationRisk:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-11-05T01:00:00",
+            "hasSimpleResult": "Medium"
+        }]
+    },
+    {
+        "@id": "urn:openagri:pestInfectationRisk:88888888-53f8-4ec8-a33c-fa931360259a",
+        "@type": ["ObservationCollection"],        
+        "description": "PLASVI pest infectation risk forecast in yyyy",
+        "observedProperty": {
+            "@id": "urn:openagri:pestInfectationRisk:op:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["ObservableProperty", "PestInfection"],
+            "name" : "PLASVI pest infection",
+            "hasAgriPest" : {
+                "@id": "urn:openagri:pest:PLASVI",
+                "@type": "AgriPest",
+                "name": "PLASVI",
+                "description": "Plasmopara viticola, the causal agent of grapevine downy mildew, is a heterothallic oomycete that overwinters as oospores in leaf litter and soil.",
+                "eppoConcept": "https://gd.eppo.int/taxon/PLASVI"
+            }
+        },                
+        "madeBySensor": {
+            "@id": "urn:openagri:pestInfectationRisk:model:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Sensor", "AIPestDetectionModel"],
+            "name": "AI pest detaction model abc"
+        },
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:pestInfectationRisk:foi:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "Point"],
+            "long" : 40.1436719643054,
+            "lat": 28.40518186700786
+        },
+        "basedOnWeatherDataset": {
+            "@id":"urn:openagri:weatherDataset:1234",
+            "@type": "WeatherDataset",
+            "name": "Weather dataset 1234"
+        },
+        "resultTime": "2024-10-01T12:00:00+00:00",
+        "hasMember": [{
+            "@id": "urn:openagri:pestInfectationRisk:obs1:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-10-25T01:00:00",
+            "hasSimpleResult": "High"
+        },
+        {
+            "@id": "urn:openagri:pestInfectationRisk:obs2:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-10-31T01:00:00",
+            "hasSimpleResult": "High"
+        },
+        {
+            "@id": "urn:openagri:pestInfectationRisk:obs2:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation","PestInfestationRisk"],
+            "phenomenonTime": "2024-11-05T01:00:00",
+            "hasSimpleResult": "High"
+        }]
+    }
+    ]                        
+}
