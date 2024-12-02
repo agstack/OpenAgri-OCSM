@@ -53,7 +53,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:4a3457f4-7ba7-44dc-ae20-161b8e8baa8f",
                 "@type": "QuantityValue",
                 "numericValue": 470.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-04-08",
             "hasTreatedArea": "null",
@@ -95,7 +95,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:59f3de23-2a2f-43de-b8e3-7ea0f450b7bb",
                 "@type": "QuantityValue",
                 "numericValue": 150.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-04-28",
             "hasTreatedArea": "null",
@@ -116,7 +116,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:9c88f19f-6efe-42d0-b8b9-8db6267d769c",
                 "@type": "QuantityValue",
                 "numericValue": 100.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-05-11",
             "hasTreatedArea": "null",
@@ -137,7 +137,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:8a3946a1-7995-4c18-96da-20eb40ebf516",
                 "@type": "QuantityValue",
                 "numericValue": 30.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-05-19",
             "hasTreatedArea": "null",
@@ -158,7 +158,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:df9fb1ec-e98c-4ff4-8702-dd557d16723f",
                 "@type": "QuantityValue",
                 "numericValue": 100.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-05-19",
             "hasTreatedArea": "null",
@@ -179,7 +179,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:ce48c68f-acb5-4e12-8f1f-1254e5857be6",
                 "@type": "QuantityValue",
                 "numericValue": 100.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-06-01",
             "hasTreatedArea": "null",
@@ -200,7 +200,7 @@
                 "@id": "urn:openagri:pestMgmt:amount:b96e4c35-b530-4d30-84a0-a2da50836f98",
                 "@type": "QuantityValue",
                 "numericValue": 20.0,
-                "unit": ""
+                "unit": "http://qudt.org/vocab/unit/GM"
             },
             "hasTimestamp": "2022-06-14",
             "hasTreatedArea": "null",
