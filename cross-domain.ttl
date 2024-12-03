@@ -214,6 +214,12 @@ geo:wktLiteral a rdfs:Datatype ;
                                 <http://www.opengis.net/spec/geosparql/1.0> ;
                rdfs:label "Well-known Text Literal"@en .
 
+###  http://www.opengis.net/ont/geosparql#geoJSONLiteral  
+geo:geoJSONLiteral a rdfs:Datatype ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "GeoJSON Literal"@en ;
+    skos:definition "A GeoJSON serialization of a Geometry object."@en .               
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -694,6 +700,16 @@ geo:asWKT a owl:DatatypeProperty ;
                            <http://www.opengis.net/spec/geosparql/1.0> ;
           rdfs:label "asWKT"@en .
 
+###  http://www.opengis.net/ont/geosparql#asGeoJSON
+geo:asGeoJSON
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf geo:hasSerialization ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "as GeoJSON"@en ;
+    skos:definition "The GeoJSON serialization of a Geometry."@en ;
+    rdfs:domain geo:Geometry ;
+    rdfs:range geo:geoJSONLiteral .
+
 ###  http://www.opengis.net/ont/geosparql#hasSerialization
 geo:hasSerialization a owl:DatatypeProperty ;
                      rdfs:domain geo:Geometry ;
@@ -949,6 +965,118 @@ dim:VelocityOrSpeed a owl:Class ;
                     rdfs:comment "A VelocityOrSpeed is something that is a QuantityKind and has a unitKind property who must be a VelocityOrSpeedUnit" ;
                     rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .
 
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Angle
+dim:Angle a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Angle" ;
+                    rdfs:comment "A dim:Angle is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:AngleUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Area
+dim:Area a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Area" ;
+                    rdfs:comment "A dim:Area is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:AreaUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#DiffusionCoefficient
+dim:DiffusionCoefficient a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "DiffusionCoefficient" ;
+                    rdfs:comment "A dim:DiffusionCoefficient is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:DiffusionCoefficientUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Duration
+dim:Duration a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Duration" ;
+                    rdfs:comment "A dim:Duration is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:DurationUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#ElectricConductivity
+dim:ElectricConductivity a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Electric Conductivity" ;
+                    rdfs:comment "A dim:ElectricConductivity is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:ElectricConductivityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Mass
+dim:Mass a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Mass" ;
+                    rdfs:comment "A dim:Mass is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MassUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#MassFlowRate
+dim:MassFlowRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Mass Flow Rate" ;
+                    rdfs:comment "A dim:MassFlowRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MassFlowRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                                                                                                     
+                                                           
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Molality
+dim:Molality a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Molality" ;
+                    rdfs:comment "A dim:Molality is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:MolalityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerArea
+dim:NumberPerArea a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Number Per Area" ;
+                    rdfs:comment "A dim:NumberPerArea is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:NumberPerAreaUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#NumberPerLength
+dim:NumberPerLength a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Number Per Length" ;
+                    rdfs:comment "A dim:NumberPerLength is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:NumberPerLengthUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#PhotonFluxDensity
+dim:PhotonFluxDensity a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Photon Flux Density" ;
+                    rdfs:comment "A dim:PhotonFluxDensity is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:PhotonFluxDensityUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                                        
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Radiance
+dim:Radiance a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Radiance" ;
+                    rdfs:comment "A dim:Radiance is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:RadianceUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#TemperatureDrift
+dim:TemperatureDrift a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Temperature Drift" ;
+                    rdfs:comment "A dim:TemperatureDrift is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:TemperatureDriftUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#Volume
+dim:Volume a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Volume" ;
+                    rdfs:comment "A dim:Volume is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> . 
+
+###  http://purl.oclc.org/NET/ssnx/qu/dim#VolumeDensityRate
+dim:VolumeDensityRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "VolumeDensityRate" ;
+                    rdfs:comment "A dim:VolumeDensityRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeDensityRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                     
+                    
+###  http://purl.oclc.org/NET/ssnx/qu/dim#VolumeFlowRate
+dim:VolumeFlowRate a owl:Class ;
+                    rdfs:subClassOf qu:QuantityKind ;
+                    rdfs:label "Volume Flow Rate" ;
+                    rdfs:comment "A dim:VolumeFlowRate is something that is a qu:QuantityKind and has a qu:unitKind property who must be a dim:VolumeFlowRateUnit" ;
+                    rdfs:isDefinedBy <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> .                                                                                                                       
+
 #### QU
 ###  http://purl.oclc.org/NET/ssnx/qu/qu#PropertyKind
 qu:PropertyKind a owl:Class ;
@@ -963,6 +1091,35 @@ qu:QuantityKind a owl:Class ;
                 rdfs:label "QuantityKind" .
 
 #### GEOSPARQL
+###  http://www.opengis.net/ont/geosparql#SpatialObjectCollection
+geo:SpatialObjectCollection
+    a owl:Class ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "Spatial Object Collection" ;
+    skos:definition "A collection of individual Spatial Objects."@en ;
+    skos:note "This is the superclass of Feature Collection and Geometry Collection."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:allValuesFrom geo:SpatialObject ;
+        owl:onProperty rdfs:member ;
+    ] ;
+.
+
+
+###  http://www.opengis.net/ont/geosparql#FeatureCollection
+geo:FeatureCollection
+    a owl:Class ;
+    rdfs:isDefinedBy geo: ;
+    skos:prefLabel "Feature Collection" ;
+    skos:definition "A collection of individual Features."@en ;
+    rdfs:subClassOf geo:SpatialObjectCollection ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:allValuesFrom geo:Feature ;
+        owl:onProperty rdfs:member ;
+    ] ;
+.
+
 ###  http://www.opengis.net/ont/geosparql#Feature
 geo:Feature a owl:Class ;
             rdfs:subClassOf geo:SpatialObject ,
@@ -1649,6 +1806,7 @@ sosa:Sample owl:equivalentClass iso19156_SF:SF_SamplingFeature .
 sosa:isSampleOf owl:equivalentProperty iso19156_SF:SF_SamplingFeature.sampledFeature .
 sosa:Observation owl:equivalentClass iso19156_OB:OM_Observation .
 qudt:QuantityKind owl:equivalentClass qu:QuantityKind .
+sosa:Result owl:equivalentClass qudt:QuantityValue .
 iso19103:Measure owl:equivalentClass qudt:QuantityValue .
 qu:unitKind owl:equivalentProperty qudt:unit .
 qu:Unit owl:equivalentClass qudt:Unit .
