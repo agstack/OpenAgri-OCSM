@@ -1,0 +1,89 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:soilMoistureAggregation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": "SoilMoistureAggregation",
+        "description": "Aggregation of soil moisture levels over a longer period including saturation, irrigation and stress indications",
+		"duringPeriod": {
+			"@id": "urn:openagri:Period:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Interval",
+			"hasBeginning": {
+				"@id": "urn:openagri:Instant:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+				"@type": "Instant",
+				"inXSDDateTime": "2024-10-17T13:24:35.198Z"				
+			},
+			"hasEnd": {
+				"@id": "urn:openagri:Instant:72d9fb43-53f8-4ec8-a33c-fa931360259b",
+				"@type": "Instant",
+				"inXSDDateTime": "2024-10-18T13:24:35.198Z"
+			}
+		},
+		"numberOfPrecipitationEvents": 10,
+		"saturationAnalysis": {
+			"@id": "urn:openagri:Analysis:72d9fb43-53f8-4ec8-a33c-fa931360259b",
+			"@type": "SaturationAnalysis",
+			"numberOfSaturationDays": 1,
+			"hasSaturationDates": [
+				{
+					"@value": "2024-10-17T13:24:35.198Z",
+					"@type": "xsd:DateTime"
+				}
+			],
+			"hasFieldCapacities": [
+				{
+					"@id": "urn:openagri:field:capacity:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+					"@type": "QuantityValue",
+					"numericValue": 0.17,
+					"unit": "om:Percentage",
+					"atDepth" : {
+					    "@id": "urn:openagri:depth:10",
+					    "@type": "Measure",
+					    "hasNumericValue": "10",
+						"hasUnit": "om:centimetre"
+						}
+				}
+			]		
+		},
+		"stressAnalysis": {
+			"@id": "urn:openagri:Analysis:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "StressAnalysis",
+			"numberOfStressDays": 1,
+			"hasStressDates": [
+				{
+					"@value": "2024-10-17T13:24:35.198Z",
+					"@type": "xsd:DateTime"
+				}
+			],
+			"hasStressLevels": [
+				{
+					"@id": "urn:openagri:stress:level:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+					"@type": "QuantityValue",
+					"numericValue": 0.04,
+					"unit": "om:Percentage",
+					"atDepth" : {
+					    "@id": "urn:openagri:depth:10",
+					    "@type": "Measure",
+					    "hasNumericValue": "10",
+						"hasUnit": "om:centimetre"
+						}
+				}
+			]			
+		},
+		"irrigationAnalysis": {
+			"@id": "urn:openagri:Analysis:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "IrrigationAnalysis",
+			"numberOfIrrigationOperations": 12,
+			"numberOfHighDoseIrrigationOperations": 3,
+			"hasHighDoseIrrigationOperationDates": [
+				{
+					"@value": "2024-10-17T13:24:35.198Z",
+					"@type": "xsd:DateTime"
+				}
+			]			
+		}
+    }
+    ]                        
+}

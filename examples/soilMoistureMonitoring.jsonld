@@ -1,0 +1,108 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:soilMoistureMonitoring:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": ["ObservationCollection"],
+        "description": "Monitoring of soil moisture levels at various depths in the soil of a parcel",
+		"resultTime": "2024-10-17T13:18:054Z",
+        "observedProperty": {
+            "@id": "urn:openagri:Moisture:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["ObservableProperty", "Moisture"],
+            "name" : "The moisture level in some material"
+        },        
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:soil:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "Soil"]
+        },
+        "precipitation": {
+            "@id":"urn:openagri:precipitation:0.6",
+            "@type": "https://smartdatamodels.org/dataModel.Weather/precipitation",
+			"description": "the measured precipitation during monitoring of the soil moisture",
+			"value": 0.6
+        },
+		"temperature": {
+		    "@id":"urn:openagri:temperature:22.3",
+		    "@type": "https://smartdatamodels.org/dataModel.Weather/temperature",
+			"description": "the measured temperature during monitoring of the soil moisture",
+			"value": 22.3
+		},
+		"relativeHumidity": {
+		    "@id":"urn:openagri:relativeHumidity:66.33",
+		    "@type": "https://smartdatamodels.org/dataModel.Weather/relativeHumidity",
+			"description": "the measured relative humidity during monitoring of the soil moisture",
+			"value": 66.33
+		},
+        "hasMember": [
+			{
+            "@id": "urn:openagri:soilMoistureVwc:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["Observation"],
+            "hasSimpleResult": "7.3",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:10",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "10",
+				"hasUnit": "om:centimetre"
+				}
+        	},
+			{
+			"@id": "urn:openagri:soilMoistureVwc:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": ["Observation"],
+			"hasSimpleResult": "2.4",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:20",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "20",
+				"hasUnit": "om:centimetre"
+				}
+			},
+			{
+			"@id": "urn:openagri:soilMoistureVwc:obs3:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": ["Observation"],
+			"hasSimpleResult": "2.2",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:30",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "30",
+				"hasUnit": "om:centimetre"
+				}
+			},
+			{
+			"@id": "urn:openagri:soilMoistureVwc:obs4:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": ["Observation"],
+			"hasSimpleResult": "1.3",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:40",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "40",
+				"hasUnit": "om:centimetre"
+				}
+			},
+			{
+			"@id": "urn:openagri:soilMoistureVwc:obs5:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": ["Observation"],
+			"hasSimpleResult": "1.1",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:50",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "50",
+				"hasUnit": "om:centimetre"
+				}
+			},
+			{
+			"@id": "urn:openagri:soilMoistureVwc:obs6:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": ["Observation"],
+			"hasSimpleResult": "1.1",
+			"atDepth" : {
+			    "@id": "urn:openagri:depth:60",
+			    "@type": "[Measure]",
+			    "hasNumericValue": "60",
+				"hasUnit": "om:centimetre"
+				}
+			}
+		]
+    }
+    ]                        
+}

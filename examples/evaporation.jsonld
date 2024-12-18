@@ -1,0 +1,67 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:evaporation:calculation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": "Observation",
+        "description": "Measurement or calculation of the evaporation of the soil on a parcel on a specific date",
+		"resultTime": "2020-10-22T00:00:00",
+        "observedProperty": {
+            "@id": "urn:openagri:evaporation:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["ObservableProperty", "Evaporation"]
+        },        
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:soil:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "Soil"]
+        },
+        "hasSimpleResult": "5.87"
+    },
+	{
+	    "@id": "urn:openagri:evaporation:calculation:72d9fb43-53f8-4ec8-a33c-fa931360259b",
+	    "@type": "Observation",
+	    "description": "Measurement or calculation of the evaporation of the soil on a parcel on a specific date",
+		"resultTime": "2020-10-23T00:00:00",
+	    "observedProperty": {
+	        "@id": "urn:openagri:evaporation:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["ObservableProperty", "Evaporation"]
+	    },        
+	    "hasFeatureOfInterest": {
+	        "@id": "urn:openagri:soil:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["FeatureOfInterest", "Soil"]
+	    },
+	    "hasSimpleResult": "6.52"
+	},
+	{
+	    "@id": "urn:openagri:evaporation:calculation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	    "@type": "Observation",
+	    "description": "Measurement or calculation of the evaporation of the soil on a parcel on a specific date",
+		"resultTime": "2020-10-24T00:00:00",
+	    "observedProperty": {
+	        "@id": "urn:openagri:evaporation:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["ObservableProperty", "Evaporation"]
+	    },        
+	    "hasFeatureOfInterest": {
+	        "@id": "urn:openagri:soil:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["FeatureOfInterest", "Soil"]
+	    },
+	    "hasSimpleResult": "6.45"
+	},
+	{
+	    "@id": "urn:openagri:evaporation:calculation:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	    "@type": "Observation",
+	    "description": "Measurement or calculation of the evaporation of the soil on a parcel on a specific date",
+		"resultTime": "2020-10-25T00:00:00",
+	    "observedProperty": {
+	        "@id": "urn:openagri:evaporation:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["ObservableProperty", "Evaporation"]
+	    },        
+	    "hasFeatureOfInterest": {
+	        "@id": "urn:openagri:soil:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["FeatureOfInterest", "Soil"]
+	    },
+	    "hasSimpleResult": "6.55"
+	}
+    ]                        
+}
