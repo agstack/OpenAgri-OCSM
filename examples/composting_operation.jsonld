@@ -1,0 +1,130 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@type": "CompostingOperation",
+        "@id": "urn:farmcalendar:CompostingOperation:94f652c1-b73a-454d-b2f4-5c117baee12e",
+        "hasStartDatetime": "2025-01-05T00:00:00Z",  
+        "lastTurnedTimestamp": "2025-01-09T12:00:00Z",
+        "hasEndDatetime": "2025-02-10T23:59:59Z",
+        "isOperatedOn": {
+            "@type": "CompostPile",
+            "@id": "urn:farmcalendar:CompostPile:94f652c1-b73a-454d-b2f4-5c117baee12e",
+            "isLocatedIn": {             
+                "@type": "Parcel",
+                "@id": "urn:farmcalendar:Parcel:94f652c1-b73a-454d-b2f4-5c117baeeddd"
+            }
+        },
+        "hasNestedOperation": [{
+            "@type": "AddRawMaterialOperation",
+            "@id": "urn:farmcalender:AddRawMaterialOperation:94f652c1-b73a-454d-b2f4",
+            "hasStartDatetime": "2025-01-05T00:00:00Z",
+            "hasEndDatetime": "2025-01-05T23:59:59Z",
+            "hasCompostMaterial": [{
+                "@type": "CompostMaterial",
+                "@id": "urn:farmcalender:CompostMaterial:94f652c1-b73a-454d-b2f4",
+                "typeName": "Cow manure",
+                "quantityValue": {
+                    "@id": "urn:openagri:pestMgmt:amount:762c62ca-bca2-464e-be18-b2f4",
+                    "@type": "QuantityValue",
+                    "numericValue": 100,
+                    "unit": "http://qudt.org/vocab/unit/KiloGM"
+                }
+            },{
+                "@type": "CompostMaterial",
+                "@id": "urn:farmcalender:CompostMaterial:94f652c1-b73a-454d-abcd",
+                "typeName": "Straw/hay",
+                "quantityValue": {
+                        "@id": "urn:openagri:pestMgmt:amount:762c62ca-bca2-464e-be18-abcd",
+                        "@type": "QuantityValue",
+                        "numericValue": 100,
+                        "unit": "http://qudt.org/vocab/unit/KiloGM"
+                }
+            },{
+                "@type": "CompostMaterial",
+                "@id": "urn:farmcalender:CompostMaterial:94f652c1-b73a-454d-xyzw",
+                "typeName": "composty",
+                "quantityValue": {
+                        "@id": "urn:openagri:pestMgmt:amount:762c62ca-bca2-464e-be18-xyzw",
+                        "@type": "QuantityValue",
+                        "numericValue": 50,
+                        "unit": "http://qudt.org/vocab/unit/KiloGM"
+                }
+            }]            
+        },{
+            "@type": "IrrigationOperation",
+            "@id": "urn:farmcalender:IrrigationOperation:94f652c1-b73a-454d-b2f4",
+            "hasStartDatetime": "2025-01-08T00:00:00Z",
+            "hasEndDatetime": "2025-01-08T23:59:59Z",
+            "hasAppliedAmount": {
+                "@type": "Measure",
+                "@id": "urn:farmcalender:Measure:94f652c1-b73a-454d-b2f4",
+                "numericValue": 10,
+                "unit": "http://qudt.org/vocab/unit/L"                           
+            }                            
+        },{
+            "@type": "TurnOperation",
+            "@id": "urn:farmcalender:TurnOperation:94f652c1-b73a-454d-b2f4",
+            "hasStartDatetime": "2025-01-09T00:00:00Z",
+            "hasEndDatetime": "2025-01-09T23:59:59Z",
+            "description": "Turn"
+        }],
+        "hasMeasurement": {
+            "@type": "ObservationCollection",
+            "@id": "urn:farmcalender:CompostMaterial:obsCol:94f652c1-b73a-454d-1234",            
+            "madeBySensor" : {
+                "@type": "ObservationCollection",
+                "@id": "urn:farmcalender:CompostMaterial:obsCol:sensor:94f652c1-b73a-454d-1234",
+                "name": "SensorXYZ"
+            },
+            "hasMember": [{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:obs1:94f652c1-b73a-454d-1234",
+                "observedProperty": "https://vocab.nerc.ac.uk/standard_name/air_temperature/",
+                "phenomenonTime": "2025-01-06T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:obs1:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 50,
+                    "unit": "http://qudt.org/vocab/unit/DEG_C"
+                }
+            },{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:obs2:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://vocab.nerc.ac.uk/standard_name/moisture_content_of_soil_layer/",
+                "phenomenonTime": "2025-01-06T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:obs2:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 45,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
+            },{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:obs3:94f652c1-b73a-454d-1234",
+                "observedProperty": "https://vocab.nerc.ac.uk/standard_name/air_temperature/",
+                "phenomenonTime": "2025-01-07T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:obs3:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 51,
+                    "unit": "http://qudt.org/vocab/unit/DEG_C"
+                }
+            },{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:obs4:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://vocab.nerc.ac.uk/standard_name/moisture_content_of_soil_layer/",
+                "phenomenonTime": "2025-01-07T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:obs4:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 45,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
+            }]
+        }                                                            
+               
+    }]
+}
