@@ -71,82 +71,162 @@
             "hasEndDatetime": "2025-01-09T23:59:59Z",
             "description": "Turn"
         }],
-        "hasMeasurement": {
+        "hasMeasurement": [{
             "@type": "ObservationCollection",
-            "@id": "urn:farmcalender:CompostMaterial:obsCol:94f652c1-b73a-454d-1234",            
+            "@id": "urn:farmcalender:CompostMaterial:obsCol1:94f652c1-b73a-454d-1234",
+            "label" : "Collection of observations from Sensor XYZ",
             "madeBySensor" : {
-                "@type": "ObservationCollection",
-                "@id": "urn:farmcalender:CompostMaterial:obsCol:sensor:94f652c1-b73a-454d-1234",
+                "@type": "Sensor",
+                "@id": "urn:farmcalender:CompostMaterial:obsCol:sensorxyz:94f652c1-b73a-454d-1234",
                 "name": "SensorXYZ"
             },
             "hasMember": [{
                 "@type": "Observation",
-                "@id": "urn:farmcalender:CompostMaterial:obs1:94f652c1-b73a-454d-1234",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs1:94f652c1-b73a-454d-1234",
                 "observedProperty": "https://vocab.nerc.ac.uk/standard_name/air_temperature/",
                 "phenomenonTime": "2025-01-06T00:00:00Z",
                 "hasResult" : {
-                    "@id": "urn:openagri:CompostMaterial:obs1:result:94f652c1-b73a-454d-1234",
+                    "@id": "urn:openagri:CompostMaterial:col1:obs1:result:94f652c1-b73a-454d-1234",
                     "@type": "QuantityValue",
                     "numericValue": 50,
                     "unit": "http://qudt.org/vocab/unit/DEG_C"
                 }
             },{
                 "@type": "Observation",
-                "@id": "urn:farmcalender:CompostMaterial:obs2:94f652c1-b73a-454d-1234",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs2:94f652c1-b73a-454d-1234",
                 "observedProperty": "http://vocab.nerc.ac.uk/standard_name/moisture_content_of_soil_layer/",
                 "phenomenonTime": "2025-01-06T00:00:00Z",
                 "hasResult" : {
-                    "@id": "urn:openagri:CompostMaterial:obs2:result:94f652c1-b73a-454d-1234",
+                    "@id": "urn:openagri:CompostMaterial:col1:obs2:result:94f652c1-b73a-454d-1234",
                     "@type": "QuantityValue",
                     "numericValue": 45,
                     "unit": "http://qudt.org/vocab/unit/PERCENT"
                 }
 			},{
 			    "@type": "Observation",
-			    "@id": "urn:farmcalender:CompostMaterial:obs3:94f652c1-b73a-454d-1234",
+			    "@id": "urn:farmcalender:CompostMaterial:col1:obs3:94f652c1-b73a-454d-1234",
 			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
 			    "phenomenonTime": "2025-01-06T00:00:00Z",
 			    "hasResult" : {
-			        "@id": "urn:openagri:CompostMaterial:obs3:result:94f652c1-b73a-454d-1234",
+			        "@id": "urn:openagri:CompostMaterial:col1:obs3:result:94f652c1-b73a-454d-1234",
 			        "@type": "QuantityValue",
 			        "numericValue": 6,
-			        "unit": None
+			        "unit": "http://qudt.org/vocab/unit/UNITLESS"
 			    }
             },{
                 "@type": "Observation",
-                "@id": "urn:farmcalender:CompostMaterial:obs4:94f652c1-b73a-454d-1234",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs4:94f652c1-b73a-454d-1234",
                 "observedProperty": "https://vocab.nerc.ac.uk/standard_name/air_temperature/",
                 "phenomenonTime": "2025-01-07T00:00:00Z",
                 "hasResult" : {
-                    "@id": "urn:openagri:CompostMaterial:obs4:result:94f652c1-b73a-454d-1234",
+                    "@id": "urn:openagri:CompostMaterial:col1:obs4:result:94f652c1-b73a-454d-1234",
                     "@type": "QuantityValue",
                     "numericValue": 51,
                     "unit": "http://qudt.org/vocab/unit/DEG_C"
                 }
             },{
                 "@type": "Observation",
-                "@id": "urn:farmcalender:CompostMaterial:obs5:94f652c1-b73a-454d-1234",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs5:94f652c1-b73a-454d-1234",
                 "observedProperty": "http://vocab.nerc.ac.uk/standard_name/moisture_content_of_soil_layer/",
                 "phenomenonTime": "2025-01-07T00:00:00Z",
                 "hasResult" : {
-                    "@id": "urn:openagri:CompostMaterial:obs5:result:94f652c1-b73a-454d-1234",
+                    "@id": "urn:openagri:CompostMaterial:col1:obs5:result:94f652c1-b73a-454d-1234",
                     "@type": "QuantityValue",
                     "numericValue": 45,
                     "unit": "http://qudt.org/vocab/unit/PERCENT"
                 }
 			},{
 			    "@type": "Observation",
-			    "@id": "urn:farmcalender:CompostMaterial:obs6:94f652c1-b73a-454d-1234",
+			    "@id": "urn:farmcalender:CompostMaterial:col1:obs6:94f652c1-b73a-454d-1234",
 			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
 			    "phenomenonTime": "2025-01-07T00:00:00Z",
 			    "hasResult" : {
-			        "@id": "urn:openagri:CompostMaterial:obs6:result:94f652c1-b73a-454d-1234",
+			        "@id": "urn:openagri:CompostMaterial:col1:obs6:result:94f652c1-b73a-454d-1234",
 			        "@type": "QuantityValue",
 			        "numericValue": 6,
-			        "unit": None
+			        "unit": "http://qudt.org/vocab/unit/UNITLESS"
 			    }
+            },{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs7:94f652c1-b73a-454d-1234",
+                "observedProperty": "https://vocab.nerc.ac.uk/standard_name/air_temperature/",
+                "phenomenonTime": "2025-01-10T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:col1:obs4:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 49,
+                    "unit": "http://qudt.org/vocab/unit/DEG_C"
+                }
+            },{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:col1:obs8:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://vocab.nerc.ac.uk/standard_name/moisture_content_of_soil_layer/",
+                "phenomenonTime": "2025-01-10T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:col1:obs5:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 48,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
+			},{
+			    "@type": "Observation",
+			    "@id": "urn:farmcalender:CompostMaterial:col1:obs9:94f652c1-b73a-454d-1234",
+			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
+			    "phenomenonTime": "2025-01-10T00:00:00Z",
+			    "hasResult" : {
+			        "@id": "urn:openagri:CompostMaterial:col1:obs6:result:94f652c1-b73a-454d-1234",
+			        "@type": "QuantityValue",
+			        "numericValue": 6.1,
+			        "unit": "http://qudt.org/vocab/unit/UNITLESS"
+			    }
+            }
+            ]
+        },
+        {
+            "@type": "ObservationCollection",
+            "@id": "urn:farmcalender:CompostMaterial:obsCol2:94f652c1-b73a-454d-1234",
+            "label" : "Collection of observations from NPK sensor",            
+            "madeBySensor" : {
+                "@type": "Sensor",
+                "@id": "urn:farmcalender:CompostMaterial:obsCol:sensornpk:94f652c1-b73a-454d-1234",
+                "name": "Sensor NPK"
+            },
+            "hasMember": [{
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:col2:obs1:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Nittot",
+                "phenomenonTime": "2025-01-11T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:col2:obs1:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 10,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
+            },
+            {
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:col2:obs2:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Photot",
+                "phenomenonTime": "2025-01-11T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:col2:obs2:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 15,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
+            },
+            {
+                "@type": "Observation",
+                "@id": "urn:farmcalender:CompostMaterial:col2:obs3:94f652c1-b73a-454d-1234",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Pottot",
+                "phenomenonTime": "2025-01-11T00:00:00Z",
+                "hasResult" : {
+                    "@id": "urn:openagri:CompostMaterial:col2:obs3:result:94f652c1-b73a-454d-1234",
+                    "@type": "QuantityValue",
+                    "numericValue": 15,
+                    "unit": "http://qudt.org/vocab/unit/PERCENT"
+                }
             }]
-        }                                                            
-               
+        }]               
     }]
 }
