@@ -16,7 +16,8 @@
             "@type": ["FeatureOfInterest", "AgriPest"],
 		    "name": "Colorado potato beetle",
 		    "description": "The colorado potato beetle is a common and destructive pest of potatoes and eggplants in home gardens and fresh-market gardens",
-		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE"
+		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE",
+			"hasBaseGrowingDegree": "11"
         },
         "hasMember": [{
             "@id": "urn:openagri:accumulatedGDD1:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
@@ -88,7 +89,8 @@
 	        "@type": ["FeatureOfInterest", "AgriPest"],
 		    "name": "Colorado potato beetle2",
 		    "description": "The colorado potato beetle is a common and destructive pest of potatoes and eggplants in home gardens and fresh-market gardens",
-		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE"
+		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE",
+			"hasBaseGrowingDegree": "11"
 	    },
 	    "hasMember": [{
 	        "@id": "urn:openagri:accumulatedGDD2:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
