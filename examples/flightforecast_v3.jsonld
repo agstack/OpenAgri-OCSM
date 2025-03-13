@@ -1,0 +1,99 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld",
+        {
+            "qudt": "http://qudt.org/vocab/unit/",
+            "cf" : "https://vocab.nerc.ac.uk/standard_name/"
+        }
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["FeatureOfInterest", "Point"],
+        "long" : 36.434344343,
+        "lat": 22.45354353
+    },
+    {
+        "@id": "urn:openagri:flightCondition:model:DJIMavicAir2",
+        "@type": ["Sensor","UAVModel"],
+        "name": "DJI Mavic Air 2"
+    },
+    {
+        "@id": "urn:openagri:flightCondition:model:mavicLProPlatinum",
+        "@type": ["Sensor","UAVModel"],
+        "name": "Mavic Pro Platinum"
+    },
+    {
+        "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["Observation", "FlightCondition"],
+        "description": "Flight conditions for a JI Mavic Air 2 drone model on 2025-03-05T15:00:00",
+        "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",        
+        "weatherSource": "openweathermaps",
+        "resultTime": "2025-03-10T15:00:00",
+        "phenomenonTime": "2025-03-05T15:00:00",
+        "hasResult" :{
+            "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+            "@type": ["Result", "FlightConditionStatus"],
+            "status":"ok",
+            "temperature": "37.5", #or 37.5 Cel,
+            "precipitation": "0", #or 0 kg/m2,
+            "windSpeed" : "5.16" #or 5.16 m/s 
+        }
+    },
+    {
+        "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-xxxxx",
+        "@type": ["Observation", "FlightCondition"],
+        "description": "Flight conditions for a JI Mavic Air 2 drone model on 2025-03-05T18:00:00",
+        "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",        
+        "weatherSource": "openweathermaps",
+        "resultTime": "2025-03-10T15:00:00",
+        "phenomenonTime": "2025-03-05T18:00:00",
+        "hasResult" :{
+            "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-xxxxx",
+            "@type": ["Result", "FlightConditionStatus"],
+            "status":"ok",
+            "temperature": "37.5", 
+            "precipitation": "0",
+            "windSpeed" : "5.16"
+        }
+    },
+    {
+        "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-222222",
+        "@type": ["Observation", "FlightCondition"],
+        "description": "Flight conditions for a mavic Pro Platinum drone model on 2025-03-05T18:00:00",
+        "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:flightCondition:model:mavicLProPlatinum",          
+        "weatherSource": "openweathermaps",    
+        "resultTime": "2025-03-10T15:00:00",
+        "phenomenonTime": "2025-03-05T15:00:00",
+        "hasResult" :{
+            "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-222222",
+            "@type": ["Result", "FlightConditionStatus"],
+            "status":"ok",
+            "temperature": "22.65",
+            "precipitation": "0.1",
+            "windSpeed" : "5.16"
+        }
+    },
+    {
+        "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-yyyyyy",
+        "@type": ["Observation", "FlightCondition"],
+        "description": "Flight conditions for a mavic Pro Platinum drone model on 2025-03-05T18:00:00",
+        "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:flightCondition:model:mavicLProPlatinum",          
+        "weatherSource": "openweathermaps",    
+        "resultTime": "2025-03-10T15:00:00",
+        "phenomenonTime": "2025-03-05T18:00:00",
+        "hasResult" :{
+            "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-yyyyyy",
+            "@type": ["Result", "FlightConditionStatus"],
+            "status":"ok",
+            "temperature": "22.65",
+            "precipitation": "0.1",
+            "windSpeed" : "5.16"
+        }
+    }
+    ]
+}

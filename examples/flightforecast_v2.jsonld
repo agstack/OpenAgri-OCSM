@@ -1,0 +1,203 @@
+{
+  "@context": [
+      "https://w3id.org/ocsm/main-context.jsonld",
+      {
+          "qudt": "http://qudt.org/vocab/unit/",
+          "cf" : "https://vocab.nerc.ac.uk/standard_name/"
+      }
+  ],
+  "@graph": [    
+  {
+      "@id": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "@type": ["FeatureOfInterest", "Point"],
+      "long" : 36.434344343,
+      "lat": 22.45354353
+  },
+  {
+      "@id": "urn:openagri:flightCondition:model:DJIMavicAir2",
+      "@type": ["Sensor","UAVModel"],
+      "name": "DJI Mavic Air 2"
+  },
+  {
+    "@id": "urn:openagri:flightCondition:model:mavicLProPlatinum",
+    "@type": ["Sensor","UAVModel"],
+    "name": "Mavic Pro Platinum"
+  },
+  {
+      "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "@type": ["Observation","FlightCondition"],
+      "description": "Flight condition for a JI Mavic Air 2 drone model on 2025-03-05T15:00:00",
+      "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",      
+      "weatherSource": "openweathermaps",
+      "resultTime": "2025-03-10T15:00:00",
+      "phenomenonTime": "2025-03-05T15:00:00",
+      "hasSimpleResult": "OK",      
+      "relatedWeatherObservation": [{
+          "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-abcdedf",
+          "@type": "Observation",            
+          "observedProperty": "cf:air_temperature",                        
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:temp:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+              "@type": "Result",                
+              "numericValue": 22.65,
+              "unit": "qudt:DEG_C"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:gust:72d9fb43-53f8-4ec8-a33c-abcdedf",
+          "@type": "Observation",            
+          "observedProperty": "cf:wind_speed_of_gust",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:gust:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+              "@type": "Result",                
+              "numericValue": 5.16,
+              "unit": "qudt:M-PER-SEC"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:precipitation:72d9fb43-53f8-4ec8-a33c-abcdedf",
+          "@type": "Observation",            
+          "observedProperty": "cf:precipitation_amount",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:precipitation:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+              "@type": "Result",                
+              "numericValue": 0,
+              "unit": "qudt:KiloGM-PER-M2"
+          }
+      }]
+  },
+  {
+      "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-222222",
+      "@type": ["Observation","FlightCondition"],
+      "description": "Flight conditions for a JI Mavic Air 2 drone model on 2025-03-05T18:00:00",
+      "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",        
+      "weatherSource": "openweathermaps",    
+      "resultTime": "2025-03-05T18:00:00",
+      "phenomenonTime": "2025-03-05T18:00:00",
+      "hasSimpleResult": "OK",
+      "relatedWeatherObservation": [{
+          "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-222222",
+          "@type": "Observation",            
+          "observedProperty": "cf:air_temperature",                        
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:temp:result:72d9fb43-53f8-4ec8-a33c-222222",
+              "@type": "Result",                
+              "numericValue": 22.45,
+              "unit": "qudt:DEG_C"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:gust:72d9fb43-53f8-4ec8-a33c-222222",
+          "@type": "Observation",            
+          "observedProperty": "cf:wind_speed_of_gust",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:gust:result:72d9fb43-53f8-4ec8-a33c-222222",
+              "@type": "Result",                
+              "numericValue": 2.95,
+              "unit": "qudt:M-PER-SEC"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:precipitation:72d9fb43-53f8-4ec8-a33c-222222",
+          "@type": "Observation",            
+          "observedProperty": "cf:precipitation_amount",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:precipitation:result:72d9fb43-53f8-4ec8-a33c-222222",
+              "@type": "Result",                
+              "numericValue": 0,
+              "unit": "qudt:KiloGM-PER-M2"
+          }
+      }]
+  },
+  {
+      "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-33333",
+      "@type": ["Observation","FlightCondition"],
+      "description": "Flight conditions for a mavic Pro Platinum drone model on 2025-03-05T15:00:00",
+      "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",      
+      "weatherSource": "openweathermaps",  
+      "resultTime": "2025-03-05T15:00:00",
+      "phenomenonTime": "2025-03-05T15:00:00",
+      "hasSimpleResult": "OK",
+      "relatedWeatherObservation": [{
+          "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-33333",
+          "@type": "Observation",            
+          "observedProperty": "cf:air_temperature",                        
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:temp:result:72d9fb43-53f8-4ec8-a33c-33333",
+              "@type": "Result",                
+              "numericValue": 21.94,
+              "unit": "qudt:DEG_C"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:gust:72d9fb43-53f8-4ec8-a33c-33333",
+          "@type": "Observation",            
+          "observedProperty": "cf:wind_speed_of_gust",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:gust:result:72d9fb43-53f8-4ec8-a33c-33333",
+              "@type": "Result",                
+              "numericValue": 1.63,
+              "unit": "qudt:M-PER-SEC"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:precipitation:72d9fb43-53f8-4ec8-a33c-33333",
+          "@type": "Observation",            
+          "observedProperty": "cf:precipitation_amount",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:precipitation:result:72d9fb43-53f8-4ec8-a33c-33333",
+              "@type": "Result",                
+              "numericValue": 0,
+              "unit": "qudt:KiloGM-PER-M2"
+          }
+      }]
+  },
+  {
+      "@id": "urn:openagri:flightCondition:72d9fb43-53f8-4ec8-a33c-44444",
+      "@type": ["Observation","FlightCondition"],
+      "description": "Flight conditions for a mavic Pro Platinum drone model on 2025-03-05T18:00:00",
+      "hasFeatureOfInterest": "urn:openagri:flightforecast:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+      "madeBySensor": "urn:openagri:flightCondition:model:DJIMavicAir2",      
+      "weatherSource": "openweathermaps",    
+      "resultTime": "2025-03-05T18:00:00",
+      "phenomenonTime": "2025-03-05T18:00:00",
+      "hasSimpleResult": "OK",
+      "relatedWeatherObservation": [{
+          "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-44444",
+          "@type": "Observation",            
+          "observedProperty": "cf:air_temperature",                        
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:temp:result:72d9fb43-53f8-4ec8-a33c-44444",
+              "@type": "Result",                
+              "numericValue": 21.36,
+              "unit": "qudt:DEG_C"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:gust:72d9fb43-53f8-4ec8-a33c-44444",
+          "@type": "Observation",            
+          "observedProperty": "cf:wind_speed_of_gust",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:gust:result:72d9fb43-53f8-4ec8-a33c-44444",
+              "@type": "Result",                
+              "numericValue": 5.14,
+              "unit": "qudt:M-PER-SEC"
+          }
+      },
+      {
+          "@id": "urn:openagri:flightCondition:precipitation:72d9fb43-53f8-4ec8-a33c-44444",
+          "@type": "Observation",            
+          "observedProperty": "cf:precipitation_amount",
+          "hasResult": {
+              "@id": "urn:openagri:flightCondition:precipitation:result:72d9fb43-53f8-4ec8-a33c-44444",
+              "@type": "Result",                
+              "numericValue": 0,
+              "unit": "qudt:KiloGM-PER-M2"
+          }
+      }]
+  }    
+  ]
+}
