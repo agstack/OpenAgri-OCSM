@@ -1,0 +1,52 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld",
+        {
+            "qudt": "http://qudt.org/vocab/unit/",
+            "cf" : "https://vocab.nerc.ac.uk/standard_name/"
+        }
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["FeatureOfInterest", "Point"],
+        "long" : 43.22,
+        "lat": 66.33
+    },
+    {
+        "@id": "urn:openagri:sensorxyz",
+        "@type": ["Sensor"],
+        "name": "Sendsor XYZ"
+    },    
+    {
+        "@id": "urn:openagri:SprayForecast:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["Observation", "SprayForecast"],
+        "description": "Spray Forecast on 2024-11-01T09:00:00+00:00",
+        "hasFeatureOfInterest": "urn:openagri:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:sensorxyz",        
+        "weatherSource": "openweathermaps",
+        "resultTime": "2024-11-01T09:00:00+00:00",
+        "phenomenonTime": "2024-11-01T09:00:00+00:00",
+        "hasResult" :{
+            "@id": "urn:openagri:SprayForecast:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+            "@type": ["Result", "SprayForecastResult"],            
+            "temperature": 37.5, 
+            "precipitation": 0, 
+            "windSpeed" : 18,
+            "atmosphericPressure": 1014,
+            "relativeHumidity": 85,
+            "gustSpeed": 20,
+            "deltaT" : 7
+        },
+        "sprayForecastDetailedStatus":{
+            "@id": "urn:openagri:SprayForecast:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+            "@type": ["sprayForecastDetailedStatus"],            
+            "temperatureStatus": "marginal", 
+            "windStatus" : "marginal",
+            "precipitationStatus" : "optimal",
+            "humidityStatus" : "marginal",
+            "deltaTStatus" : "optimal"            
+        }
+    }    
+    ]
+}
