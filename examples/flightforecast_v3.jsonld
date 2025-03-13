@@ -36,9 +36,9 @@
             "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
             "@type": ["Result", "FlightConditionStatus"],
             "status":"ok",
-            "temperature": "37.5", #or 37.5 Cel,
-            "precipitation": "0", #or 0 kg/m2,
-            "windSpeed" : "5.16" #or 5.16 m/s 
+            "temperature": 37.5, #or 37.5 Cel,
+            "precipitation": 0, #or 0 kg/m2,
+            "windSpeed" : 5.16 #or 5.16 m/s 
         }
     },
     {
@@ -54,9 +54,9 @@
             "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-xxxxx",
             "@type": ["Result", "FlightConditionStatus"],
             "status":"ok",
-            "temperature": "37.5", 
-            "precipitation": "0",
-            "windSpeed" : "5.16"
+            "temperature": 37.5, 
+            "precipitation": 0,
+            "windSpeed" : 5.16
         }
     },
     {
@@ -72,9 +72,9 @@
             "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-222222",
             "@type": ["Result", "FlightConditionStatus"],
             "status":"ok",
-            "temperature": "22.65",
-            "precipitation": "0.1",
-            "windSpeed" : "5.16"
+            "temperature": 22.65,
+            "precipitation": 0.1,
+            "windSpeed" : 5.16
         }
     },
     {
@@ -90,9 +90,9 @@
             "@id": "urn:openagri:flightCondition:result:72d9fb43-53f8-4ec8-a33c-yyyyyy",
             "@type": ["Result", "FlightConditionStatus"],
             "status":"ok",
-            "temperature": "22.65",
-            "precipitation": "0.1",
-            "windSpeed" : "5.16"
+            "temperature": 22.65,
+            "precipitation": 0.1,
+            "windSpeed" : 5.16
         }
     }
     ]
