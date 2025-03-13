@@ -1,0 +1,153 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [
+    {
+        "@id": "urn:openagri:growingDegreeDaysForPestCalculation:72d9fb43-53f8-4ec8-a33c-fa931360259a",       # this should be a subclass of a sosa:ObservationCollection,
+        "@type": "ObservationCollection",
+        "description": "The growing degree days calculation for a specific pest during a year, which is the cumulative daily average temperature above zero on a monthly basis starting from the first of January",
+        "observedProperty": {
+            "@id": "urn:openagri:growingDegreeDays:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",      # this should be a subclass of one of the classes Temperature
+            "@type": ["ObservableProperty", "Temperature"],
+        },        
+        "hasFeatureOfInterest": {
+            "@id": "urn:openagri:agriPest:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": ["FeatureOfInterest", "AgriPest"],
+		    "name": "Colorado potato beetle",
+		    "description": "The colorado potato beetle is a common and destructive pest of potatoes and eggplants in home gardens and fresh-market gardens",
+		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE",
+			"hasBaseGrowingDegree": "11"
+        },
+        "hasMember": [{
+            "@id": "urn:openagri:accumulatedGDD1:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "phenomenonTime": "2025-01-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD1:obs1:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 17,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+        }, {
+			"@id": "urn:openagri:accumulatedGDD1:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-02-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD1:obs2:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 33,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD1:obs3:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-03-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD1:obs3:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 50,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD1:obs4:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-04-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD1:obs4:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 67,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD1:obs5:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-05-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD1:obs4:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 83,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+        }]
+    },
+	{
+	    "@id": "urn:openagri:growingDegreeDaysForPestCalculation:72d9fb43-53f8-4ec8-a33c-fa931360259a",       # this should be a subclass of a sosa:ObservationCollection,
+	    "@type": "ObservationCollection",
+	    "description": "The growing degree days calculation for a specific pest during a year, which is the cumulative daily average temperature above zero on a monthly basis starting from the first of January",
+	    "observedProperty": {
+	        "@id": "urn:openagri:growingDegreeDays:op:72d9fb43-53f8-4ec8-a33c-fa931360259a",      # this should be a subclass of one of the classes Temperature
+	        "@type": ["ObservableProperty", "Temperature"],
+	    },        
+	    "hasFeatureOfInterest": {
+	        "@id": "urn:openagri:agriPest:foi:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": ["FeatureOfInterest", "AgriPest"],
+		    "name": "Colorado potato beetle2",
+		    "description": "The colorado potato beetle is a common and destructive pest of potatoes and eggplants in home gardens and fresh-market gardens",
+		    "eppoConcept": "https://gd.eppo.int/taxon/LPTNDE",
+			"hasBaseGrowingDegree": "11"
+	    },
+	    "hasMember": [{
+	        "@id": "urn:openagri:accumulatedGDD2:obs1:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+	        "@type": "Observation",
+	        "phenomenonTime": "2025-01-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD2:obs1:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 17,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+	    }, {
+			"@id": "urn:openagri:accumulatedGDD2:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-02-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD2:obs2:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 33,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD2:obs3:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-03-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD2:obs3:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 50,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD2:obs4:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-04-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD2:obs4:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 67,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+		}, {
+			"@id": "urn:openagri:accumulatedGDD2:obs5:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+			"@type": "Observation",
+			"phenomenonTime": "2025-05-01T00:00:00",
+			"hasResult" : {
+			    "@id": "urn:openagri:accumulatedGGD2:obs4:result:94f652c1-b73a-454d-1234",
+			    "@type": "QuantityValue",
+			    "numericValue": 83,
+			    "unit": "http://qudt.org/vocab/unit/DEG_C"
+			},
+			"descriptor": "Not susceptible - do not treat"
+	    }]
+	}
+	]                        
+}
