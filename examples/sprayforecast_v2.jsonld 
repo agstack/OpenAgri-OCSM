@@ -1,0 +1,119 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld",
+        {
+            "qudt": "http://qudt.org/vocab/unit/",
+            "cf" : "https://vocab.nerc.ac.uk/standard_name/"
+        }
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["FeatureOfInterest", "Point"],
+        "long" : 43.22,
+        "lat": 66.33
+    },
+    {
+        "@id": "urn:openagri:sensorxyz",
+        "@type": ["Sensor"],
+        "name": "Sendsor XYZ"
+    },    
+    {
+        "@id": "urn:openagri:SprayForecast:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "@type": ["ObservationCollection", "SprayForecast"],
+        "description": "Spray Forecast on 2024-11-01T09:00:00+00:00",
+        "hasFeatureOfInterest": "urn:openagri:foi:72d9fb43-53f8-4ec8-a33c-abcdedf",
+        "madeBySensor": "urn:openagri:sensorxyz",        
+        "weatherSource": "openweathermaps",
+        "resultTime": "2024-11-01T09:00:00+00:00",
+        "phenomenonTime": "2024-11-01T09:00:00+00:00",
+        "hasMember": [{
+            "@id": "urn:openagri:spray:forecast:temp:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:air_temperature",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:temp:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 22.53,
+                "unit": "qudt:DEG_C"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:air_pressure",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 38,
+                "unit": "qudt:PA"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:specific_humidity",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 38,
+                "unit": "qudt:UNITLESS"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:wind_speed",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 38,
+                "unit": "qudt:M-PER-SEC"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:wind_speed_of_gust",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 38,
+                "unit": "qudt:M-PER-SEC"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "cf:precipitation_amount",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 38,
+                "unit": "qudt:KiloGM-PER-M2"
+            }
+        },
+        {
+            "@id": "urn:openagri:spray:forecast:hum:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@type": "Observation",
+            "observedProperty": "deltaT",
+            "hasResult": {
+                "@id": "urn:openagri:weather:forecast:hum:result:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+                "@type": "Result",                
+                "numericValue": 7,
+                "unit": "qudt:UNITLESS"
+            }
+        }
+        ]     
+        "sprayForecastDetailedStatus":{
+            "@id": "urn:openagri:SprayForecast:result:72d9fb43-53f8-4ec8-a33c-abcdedf",
+            "@type": ["sprayForecastDetailedStatus"],            
+            "temperatureStatus": "marginal", 
+            "windStatus" : "marginal",
+            "precipitationStatus" : "optimal",
+            "humidityStatus" : "marginal",
+            "deltaTStatus" : "optimal"            
+        }
+    }    
+    ]
+}
