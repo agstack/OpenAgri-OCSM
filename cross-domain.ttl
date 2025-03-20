@@ -578,6 +578,14 @@ qb:measure
     rdfs:range qb:MeasureProperty;
     rdfs:isDefinedBy <http://purl.org/linked-data/cube> .
 	
+  ###  http://purl.org/linked-data/cube#attribute	
+qb:attribute a rdf:Property, owl:ObjectProperty;
+    rdfs:label "attribute"@en;
+    rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is a attribute"@en;
+    rdfs:subPropertyOf qb:componentProperty;
+    rdfs:range qb:AttributeProperty;
+    rdfs:isDefinedBy <http://purl.org/linked-data/cube> .    
+    
 ###  http://purl.org/linked-data/cube#sliceStructure
 qb:sliceStructure 
 		a rdf:Property, owl:ObjectProperty;

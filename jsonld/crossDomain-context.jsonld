@@ -203,6 +203,10 @@
       "@id" : "http://purl.org/linked-data/cube#measure",
       "@type" : "@id"
     },
+    "attribute" : {
+      "@id" : "http://purl.org/linked-data/cube#attribute",
+      "@type" : "@id"
+    },
     "SliceKey" : {
       "@id" : "http://purl.org/linked-data/cube#SliceKey"
     },
