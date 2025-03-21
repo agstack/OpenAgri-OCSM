@@ -207,6 +207,10 @@
       "@id" : "http://purl.org/linked-data/cube#attribute",
       "@type" : "@id"
     },
+    "structure" : {
+      "@id" : "http://purl.org/linked-data/cube#structure",
+      "@type" : "@id"
+    },
     "SliceKey" : {
       "@id" : "http://purl.org/linked-data/cube#SliceKey"
     },

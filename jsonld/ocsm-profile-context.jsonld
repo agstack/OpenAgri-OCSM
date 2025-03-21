@@ -554,6 +554,10 @@
       "@id" : "http://purl.org/linked-data/cube#attribute",
       "@type" : "@id"
     },
+    "structure" : {
+      "@id" : "http://purl.org/linked-data/cube#structure",
+      "@type" : "@id"
+    },
     "manufacturer" : {
       "@id" : "http://foodie-cloud.com/model/foodie#manufacturer",
       "@type" : "@id"
