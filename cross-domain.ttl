@@ -264,6 +264,16 @@ geo:sfWithin a owl:ObjectProperty ;
                               <http://www.opengis.net/spec/geosparql/1.0> ;
              rdfs:label "within"@en .
 
+###  http://www.opengis.net/ont/geosparql#hasBoundingBox
+geo:hasBoundingBox a owl:ObjectProperty ;
+	          rdfs:subPropertyOf geo:hasGeometry ;
+            rdfs:domain geo:Feature ;
+            rdfs:range geo:Geometry ;
+            rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,		
+              <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties> ;
+            skos:definition """The minimum or smallest bounding or enclosing box of a given Feature."""@en ;
+            skos:prefLabel "has bounding box"@en .
+
 ##### WGS84
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#location
 wgs84_pos:location a owl:ObjectProperty ;

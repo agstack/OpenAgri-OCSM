@@ -160,6 +160,10 @@
       "@id" : "http://www.opengis.net/ont/geosparql#sfWithin",
       "@type" : "@id"
     },
+    "hasBoundingBox" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#hasBoundingBox",
+      "@type" : "@id"
+    },
     "ThermalConductivity" : {
       "@id" : "http://purl.oclc.org/NET/ssnx/qu/dim#ThermalConductivity"
     },

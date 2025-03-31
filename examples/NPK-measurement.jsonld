@@ -1,0 +1,25 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {                                
+        "@type": "Observation",
+        "@id": "urn:observation:npk:94f652c1-b73a-454d-1234",
+        "label" : "NPK Observations",            
+        "madeBySensor" : {
+            "@type": "Sensor",
+            "@id": "urn:farmcalender:CompostMaterial:obsCol:sensornpk:94f652c1-b73a-454d-1234",
+            "name": "Sensor NPK"
+        },
+        "resultTime": "2025-01-11T00:00:00Z",
+        "phenomenonTime": "2025-01-11T00:00:00Z",
+        "observedProperty": {
+            "@type": "ObservableProperty",
+            "@id": "https://w3id.org/ocsm/properties/NPK",
+            "name": "NPK"
+        },
+        "hasSimpleResult": "10:15:15"
+
+    }]               
+}
