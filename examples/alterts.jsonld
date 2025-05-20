@@ -1,0 +1,124 @@
+{
+    "@context": [
+        "https://w3id.org/ocsm/main-context.jsonld"        
+    ],
+    "@graph": [    
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+        "@type": "WeatherAlert",
+        "description": "Air temperature is above 40°C",
+        "category": "air temperature",  
+        "subCategory": "heat",  
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 43,
+            "unit": "qudt:DEG_C"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-fa931360259a"     	
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-xyz",
+        "@type": "WeatherAlert",
+        "description": "Air temperature is below 0°C",
+        "category": "air temperature",  
+        "subCategory": "frost",  
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": -10,
+            "unit": "qudt:DEG_C"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-xyz"  
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-abc",
+        "@type": "WeatherAlert",
+        "description": "Windstorm when the wind speed exceeds 62 km/h.",
+        "category": "wind speed",  
+        "subCategory": "windstorm",  
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 70,
+            "unit": "qudt:KiloM-PER-HR"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-abc"  
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-wxy",
+        "@type": "WeatherAlert",
+        "description": "Flood when the precipitation values exceed 15 mm",
+        "category": "precipitation",  
+        "subCategory": "flood",  
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 20,
+            "unit": "qudt:MilliM"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-wxy"  
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-lmn",
+        "@type": "Alert",
+        "description": "compost temperature/pH/moisture is above/below a predefined threshold.",
+        "category": "compost temperature/pH/moisture",  
+        "subCategory": "high/low",  
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 999,
+            "unit": "qudt:DEG_C"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-lmn"  
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-ijk",
+        "@type": "Alert",
+        "description": "One or more cows haven't visited the water through for a certain period",
+        "category": "missing cow",                    
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 2,
+            "unit": "qudt:NUM"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-ijk"  
+    },
+    {
+        "@id": "urn:openagri:alert:72d9fb43-53f8-4ec8-a33c-def",
+        "@type": "Alert",
+        "description": "soil moisture is below a predefined threshold",
+        "category": "soil moisture",   
+        "subCategory": "high/low",           
+        "dateIssued": "2025-03-14T13:54:01.00Z",  
+        "severity": "medium",          
+        "validFrom": "2025-03-14T13:00:00.00Z",  
+        "validTo": "2025-03-14T23:59:00.00Z",  
+        "quantityValue": {
+            "@type": "QuantityValue",                
+            "numericValue": 10,
+            "unit": "qudt:PERCENT"
+        },
+        "relatedObservation": "urn:openagri:observation:72d9fb43-53f8-4ec8-a33c-def"  
+    }    
+]}
