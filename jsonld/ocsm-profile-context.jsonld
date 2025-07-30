@@ -2154,6 +2154,14 @@
       "@id" : "https://w3id.org/ocsm/hasIrrigationFlow",
       "@type" : "http://www.w3.org/2001/XMLSchema#float"
     },
+    "isCastrated" : {
+      "@id" : "https://w3id.org/ocsm/isCastrated",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "nationalID" : {
+      "@id" : "https://w3id.org/ocsm/nationalID",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
     "hasTreatedArea" : {
       "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#hasTreatedArea",
       "@type" : "@id"

@@ -475,46 +475,57 @@ ocsm:community	a	owl:DatatypeProperty ;
         
 ocsm:isNitroAarea	a	owl:DatatypeProperty ;
         rdfs:label   		"isNitroAarea"@en ;
-        rdfs:comment		"isNitroAarea" ;
+        rdfs:comment		"is NitroAarea" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .
         
 ocsm:isNatura2000Area	a	owl:DatatypeProperty ;
         rdfs:label   		"isNatura2000Area"@en ;
-        rdfs:comment		"isNatura2000Area" ;
+        rdfs:comment		"is Natura2000Area" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
         
 ocsm:isPDOPGIArea	a	owl:DatatypeProperty ;
         rdfs:label   		"isPDOPGIArea"@en ;
-        rdfs:comment		"isPDOPGIArea" ;
+        rdfs:comment		"is PDOPGIArea" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .
         
 ocsm:isIrrigated	a	owl:DatatypeProperty ;
         rdfs:label   		"isIrrigated"@en ;
-        rdfs:comment		"isIrrigated" ;
+        rdfs:comment		"is irrigated" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .
         
 ocsm:isCultivatedInLevels	a	owl:DatatypeProperty ;
         rdfs:label   		"isCultivatedInLevels"@en ;
-        rdfs:comment		"isCultivatedInLevels" ;
+        rdfs:comment		"is cultivated in levels" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
         
 ocsm:isGroundSlope	a	owl:DatatypeProperty ;
         rdfs:label   		"isGroundSlope"@en ;
-        rdfs:comment		"isGroundSlope" ;
+        rdfs:comment		"is ground slope" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
         
 ocsm:hasIrrigationFlow	a	owl:DatatypeProperty ;
         rdfs:label   		"hasIrrigationFlow"@en ;
-        rdfs:comment		"hasIrrigationFlow" ;
+        rdfs:comment		"has irrigation flow" ;
         rdfs:range xsd:float ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                                                             
 
+ocsm:isCastrated	a	owl:DatatypeProperty ;
+        rdfs:label   		"isCastrated"@en ;
+        rdfs:comment		"is castrated" ;
+        rdfs:range xsd:boolean ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+
+ocsm:nationalID	a	owl:DatatypeProperty ;
+        rdfs:label   		"nationalID"@en ;
+        rdfs:comment		"national ID" ;
+        rdfs:range xsd:string ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .         
 
 #################################################################
 #    Classes
