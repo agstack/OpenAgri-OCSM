@@ -105,7 +105,7 @@
 			},{
 			    "@type": "Observation",
 			    "@id": "urn:farmcalender:CompostMaterial:col1:obs3:94f652c1-b73a-454d-1234",
-			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
+			    "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-pH",
 			    "phenomenonTime": "2025-01-06T00:00:00Z",
 			    "hasResult" : {
 			        "@id": "urn:openagri:CompostMaterial:col1:obs3:result:94f652c1-b73a-454d-1234",
@@ -138,7 +138,7 @@
 			},{
 			    "@type": "Observation",
 			    "@id": "urn:farmcalender:CompostMaterial:col1:obs6:94f652c1-b73a-454d-1234",
-			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
+			    "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-pH",
 			    "phenomenonTime": "2025-01-07T00:00:00Z",
 			    "hasResult" : {
 			        "@id": "urn:openagri:CompostMaterial:col1:obs6:result:94f652c1-b73a-454d-1234",
@@ -171,7 +171,7 @@
 			},{
 			    "@type": "Observation",
 			    "@id": "urn:farmcalender:CompostMaterial:col1:obs9:94f652c1-b73a-454d-1234",
-			    "observedProperty": "http://vocab.nerc.ac.uk/standard_name/pH_of_soil_layer/",
+			    "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-pH",
 			    "phenomenonTime": "2025-01-10T00:00:00Z",
 			    "hasResult" : {
 			        "@id": "urn:openagri:CompostMaterial:col1:obs6:result:94f652c1-b73a-454d-1234",
@@ -194,7 +194,7 @@
             "hasMember": [{
                 "@type": "Observation",
                 "@id": "urn:farmcalender:CompostMaterial:col2:obs1:94f652c1-b73a-454d-1234",
-                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Nittot",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-Nittot",
                 "phenomenonTime": "2025-01-11T00:00:00Z",
                 "hasResult" : {
                     "@id": "urn:openagri:CompostMaterial:col2:obs1:result:94f652c1-b73a-454d-1234",
@@ -206,7 +206,7 @@
             {
                 "@type": "Observation",
                 "@id": "urn:farmcalender:CompostMaterial:col2:obs2:94f652c1-b73a-454d-1234",
-                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Photot",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-Photot",
                 "phenomenonTime": "2025-01-11T00:00:00Z",
                 "hasResult" : {
                     "@id": "urn:openagri:CompostMaterial:col2:obs2:result:94f652c1-b73a-454d-1234",
@@ -218,7 +218,7 @@
             {
                 "@type": "Observation",
                 "@id": "urn:farmcalender:CompostMaterial:col2:obs3:94f652c1-b73a-454d-1234",
-                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalValueCode-Pottot",
+                "observedProperty": "http://w3id.org/glosis/model/codelists/physioChemicalPropertyCode-Pottot",
                 "phenomenonTime": "2025-01-11T00:00:00Z",
                 "hasResult" : {
                     "@id": "urn:openagri:CompostMaterial:col2:obs3:result:94f652c1-b73a-454d-1234",
