@@ -1062,6 +1062,7 @@ foodie:Intervention owl:equivalentClass ploutos:CropManagementOperation .
 #ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType . # is reverse
 foodie:MachineType rdfs:subClassOf ploutos:AgriculturalMachine .
 foodie:TractorType rdfs:subClassOf ploutos:AgriculturalMachine .
+ploutos:AgriculturalMachine rdfs:subClassOf sosa:Platform .
 ssn:System owl:equivalentClass ploutos:System .
 saref4agri:wateringSystem owl:equivalentClass ploutos:IrrigationSystem .
 foodie:Product owl:equivalentClass ploutos:Product .
