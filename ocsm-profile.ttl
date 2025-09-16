@@ -1059,7 +1059,9 @@ ploutos:hasIrrigationType rdfs:subPropertyOf foodie:type .
 fiware-agrifood:endedAt owl:equivalentProperty ploutos:hasEndDatetime .
 fiware-agrifood:startedAt owl:equivalentProperty ploutos:hasStartDatetime .
 foodie:Intervention owl:equivalentClass ploutos:CropManagementOperation .
-ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType .
+#ploutos:AgriculturalMachine rdfs:subClassOf foodie:MachineType . # is reverse
+foodie:MachineType rdfs:subClassOf ploutos:AgriculturalMachine .
+foodie:TractorType rdfs:subClassOf ploutos:AgriculturalMachine .
 ssn:System owl:equivalentClass ploutos:System .
 saref4agri:wateringSystem owl:equivalentClass ploutos:IrrigationSystem .
 foodie:Product owl:equivalentClass ploutos:Product .
