@@ -49,7 +49,7 @@
             "hasSimpleResult": "High"
         },
         {
-            "@id": "urn:openagri:pestInfectationRisk:obs2:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "@id": "urn:openagri:pestInfectationRisk:obs3:72d9fb43-53f8-4ec8-a33c-fa931360259a",
             "@type": ["Observation","PestInfestationRisk"],
             "phenomenonTime": "2024-11-05T01:00:00",
             "hasSimpleResult": "Medium"
@@ -101,7 +101,7 @@
             "hasSimpleResult": "High"
         },
         {
-            "@id": "urn:openagri:pestInfectationRisk:obs2:88888888-53f8-4ec8-a33c-fa931360259a",
+            "@id": "urn:openagri:pestInfectationRisk:obs3:88888888-53f8-4ec8-a33c-fa931360259a",
             "@type": ["Observation","PestInfestationRisk"],
             "phenomenonTime": "2024-11-05T01:00:00",
             "hasSimpleResult": "High"
