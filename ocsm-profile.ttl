@@ -532,11 +532,11 @@ ocsm:nationalID	a	owl:DatatypeProperty ;
 #################################################################
 
 ## saref4agri ##
-
-saref4agri:Yield a owl:Class ;
-	rdfs:subClassOf saref:Property, sosa:ObservedProperty ;
-  rdfs:comment "The produced amount of food for animals or of agricultural products."@en ;
-  rdfs:label "Yield"@en .
+# moved to AIM property with the rest
+#saref4agri:Yield a owl:Class ;
+#	rdfs:subClassOf saref:Property, sosa:ObservedProperty ;
+#  rdfs:comment "The produced amount of food for animals or of agricultural products."@en ;
+#  rdfs:label "Yield"@en .
 
 ## ploutos ##
 
