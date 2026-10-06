@@ -8,10 +8,10 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@base <https://w3id.org/ocsm/energy> .
-@prefix : <https://w3id.org/ocsm/energy> .
+@base <https://w3id.org/ocsm/main/energy> .
+@prefix : <https://w3id.org/ocsm/main/energy> .
 
-<https://w3id.org/ocsm/energy> a owl:Ontology ;  
+<https://w3id.org/ocsm/main/energy> a owl:Ontology ;  
   dcterms:description "This module of OCSM is entirely based on SAREF4ENER ontology v2.1.1.
   We import all the entities from the ontology, without importing the whole SAREF core. 
   For additional information about the ontology please refer to the base ontology URL 
