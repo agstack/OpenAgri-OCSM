@@ -1776,6 +1776,14 @@ time:Duration
   skos:definition "Duration of a temporal extent expressed as a number scaled by a temporal unit"@en ;
   skos:note "Alternative to time:DurationDescription to support description of a temporal duration other than using a calendar/clock system."@en .
 
+###  http://www.w3.org/2006/time#TemporalPosition
+time:TemporalPosition
+  a owl:Class ;
+  rdfs:comment "A position on a time-line"@en,
+  rdfs:label "Temporal position"@en  
+  rdfs:isDefinedBy time: ;
+  skos:definition "A position on a time-line"@en .  
+
 #### SKOS
 ###  http://www.w3.org/2004/02/skos/core#Scheme
 skos:Scheme a owl:Class ;
