@@ -1779,8 +1779,8 @@ time:Duration
 ###  http://www.w3.org/2006/time#TemporalPosition
 time:TemporalPosition
   a owl:Class ;
-  rdfs:comment "A position on a time-line"@en,
-  rdfs:label "Temporal position"@en  
+  rdfs:comment "A position on a time-line"@en ;
+  rdfs:label "Temporal position"@en ;
   rdfs:isDefinedBy time: ;
   skos:definition "A position on a time-line"@en .  
 
