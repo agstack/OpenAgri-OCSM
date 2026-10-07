@@ -254,11 +254,11 @@ s4ener:Device
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty s4ener:hardwareRevision ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty saref:hasManufacturer;
-    ] ;
+  #rdfs:subClassOf [
+  #    a owl:Restriction ;
+  #    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #    owl:onProperty saref:hasManufacturer ;
+  #  ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
