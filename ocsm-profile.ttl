@@ -58,7 +58,7 @@
                             						<https://w3id.org/demeter/agri/agriSystem> , 
                             						<https://w3id.org/demeter/agri/agriPest> ,
                             						<https://w3id.org/demeter/agri/farmAnimal> ,
-                                        <https://saref.etsi.org/saref4ener/>
+                                        <https://w3id.org/ocsm/energy>
                                         ;
                             dct:description "The OpenAgri Common Semantic Information Model is a project specific ontology covering the needs of project pilots and components. It is based on the Agriculure Information Model (AIM) and the ploutos ontology"@en ;
                             dct:rights "This vocabulary is distributed under Creative Commons Attribution 4.0 License - http://creativecommons.org/licenses/by/4.0"@en ;
