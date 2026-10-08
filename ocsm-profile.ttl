@@ -1254,4 +1254,13 @@ ocsm:KiloGM-PER-PLANT a qudt:Unit ;
   						rdfs:label "kilogram per plant" ;
               rdfs:comment "kilogram per plant" ;
               rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                           
-  
+
+ocsm:DeciTONNE-PER-HA a qudt:Unit ;
+              rdfs:label "decitonne per hectare" ;
+              rdfs:comment "decitonne per hectare" ;
+              rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+
+ocsm:KiloGM-PER-HectoL a qudt:Unit ;
+              rdfs:label "kilogram per hectolitre" ;
+              rdfs:comment "kilogram per hectolitre" ;
+              rdfs:isDefinedBy <https://w3id.org/ocsm/> .
