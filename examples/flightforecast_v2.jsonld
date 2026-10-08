@@ -33,7 +33,7 @@
       "resultTime": "2025-03-10T15:00:00",
       "phenomenonTime": "2025-03-05T15:00:00",
       "hasSimpleResult": "OK",      
-      "relatedWeatherObservation": [{
+      "relatedObservation": [{
           "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-abcdedf",
           "@type": "Observation",            
           "observedProperty": "cf:air_temperature",                        
@@ -77,7 +77,7 @@
       "resultTime": "2025-03-05T18:00:00",
       "phenomenonTime": "2025-03-05T18:00:00",
       "hasSimpleResult": "OK",
-      "relatedWeatherObservation": [{
+      "relatedObservation": [{
           "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-222222",
           "@type": "Observation",            
           "observedProperty": "cf:air_temperature",                        
@@ -121,7 +121,7 @@
       "resultTime": "2025-03-05T15:00:00",
       "phenomenonTime": "2025-03-05T15:00:00",
       "hasSimpleResult": "OK",
-      "relatedWeatherObservation": [{
+      "relatedObservation": [{
           "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-33333",
           "@type": "Observation",            
           "observedProperty": "cf:air_temperature",                        
@@ -165,7 +165,7 @@
       "resultTime": "2025-03-05T18:00:00",
       "phenomenonTime": "2025-03-05T18:00:00",
       "hasSimpleResult": "OK",
-      "relatedWeatherObservation": [{
+      "relatedObservation": [{
           "@id": "urn:openagri:flightCondition:temp:72d9fb43-53f8-4ec8-a33c-44444",
           "@type": "Observation",            
           "observedProperty": "cf:air_temperature",                        

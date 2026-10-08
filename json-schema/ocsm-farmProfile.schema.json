@@ -138,7 +138,7 @@
                     "area": {
                       "type": "integer"
                     },
-                    "isNitroAarea": {
+                    "isNitroArea": {
                       "type": "integer"
                     },
                     "isNatura2000Area": {
@@ -286,7 +286,7 @@
                     "inRegion",
                     "hasToponym",
                     "area",
-                    "isNitroAarea",
+                    "isNitroArea",
                     "isNatura2000Area",
                     "isPDOPGIArea",
                     "isIrrigated",

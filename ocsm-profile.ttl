@@ -32,6 +32,7 @@
 @prefix ploutos: <https://www.tno.nl/agrifood/ontology/ploutos/common#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @base <https://w3id.org/ocsm/> .
 
 <https://w3id.org/ocsm> a owl:Ontology ;                            
@@ -246,13 +247,49 @@ ocsm:contactPerson
   rdfs:comment "contact Person of an entity, e.g., farm, parcel, etc." ;  
   rdfs:label "contactPerson" ;
   rdfs:range foaf:Person ;
-  rdfs:isDefinedBy <https://w3id.org/ocsm/> .   
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .  
+
+ocsm:actsOnCrop
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "associate CropManagementOperation to the Crop it acts on" ;  
+  rdfs:label "actsOnCrop" ;
+  rdfs:domain ploutos:CropManagementOperation ;
+  rdfs:range saref4agri:Crop ;
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+
+ocsm:governsRecordsOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "the OCSM class it is about, e.g., ChemicalControlOperation" ;  
+  rdfs:label "governsRecordsOf" ;
+  rdfs:domain ocsm:Obligation ;  
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+
+ocsm:isCheckedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "the OCSM class it is about, e.g., ChemicalControlOperation" ;  
+  rdfs:label "isCheckedBy" ;
+  rdfs:domain ocsm:Obligation ;  
+  rdfs:range sh:NodeShape ;
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+
+ocsm:satisfies
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "the obligation the record is meant to meet" ;  
+  rdfs:label "satisfies" ;
+  rdfs:range ocsm:Obligation ;
+  rdfs:domain ploutos:Operation ;
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .
+
+ocsm:relatedObservation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "related observation(s) for an entity" ;  
+  rdfs:label "relatedObservation" ;
+  rdfs:range sosa:Observation ;  
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .                 
 
 #################################################################
 #    Data properties
 #################################################################
-
-
 ## ploutos ##
 
 ploutos:hasPreHarvestInterval
@@ -454,7 +491,6 @@ ploutos:hasFertilizationType
   rdfs:range xsd:string ;
 .
 
-
 ## ocsm ##
 
 ocsm:cultivationSeason	a	owl:DatatypeProperty ;
@@ -475,9 +511,9 @@ ocsm:community	a	owl:DatatypeProperty ;
         rdfs:range xsd:string ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .
         
-ocsm:isNitroAarea	a	owl:DatatypeProperty ;
-        rdfs:label   		"isNitroAarea"@en ;
-        rdfs:comment		"is NitroAarea" ;
+ocsm:isNitroArea	a	owl:DatatypeProperty ;
+        rdfs:label   		"isNitroArea"@en ;
+        rdfs:comment		"is NitroArea" ;
         rdfs:range xsd:boolean ;
         rdfs:isDefinedBy <https://w3id.org/ocsm/> .
         
@@ -527,7 +563,42 @@ ocsm:nationalID	a	owl:DatatypeProperty ;
         rdfs:label   		"nationalID"@en ;
         rdfs:comment		"national ID" ;
         rdfs:range xsd:string ;
-        rdfs:isDefinedBy <https://w3id.org/ocsm/> .         
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .   
+
+ocsm:hasAuthorisationNumber	a	owl:DatatypeProperty ;
+        rdfs:label   		"hasAuthorisationNumber"@en ;
+        rdfs:comment		"national authorisation number (e.g., for pesticides Ctgb in the Netherlands, BVL in Germany, and so on)." ;
+        rdfs:domain ploutos:Pesticide ;
+        rdfs:range xsd:string ;        
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .  
+
+ocsm:hasBBCHStage	a	owl:DatatypeProperty ;
+        rdfs:label   		"hasBBCHStage"@en ;
+        rdfs:comment		"a two-digit BBCH code, typically used next to actsOnCropStage, e.g., actsOnCropStage is a string that lists ten principal stages, and BBCH codes are two digits (65 = full flowering)" ;
+        rdfs:domain ploutos:CropManagementOperation ;
+        rdfs:range xsd:integer ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> . 
+
+ocsm:hasLegalSource	a	owl:DatatypeProperty ;
+        rdfs:label   		"hasLegalSource"@en ;
+        rdfs:comment		"the act: an ELI IRI for EU law, the national equivalent elsewhere" ;
+        rdfs:domain ocsm:Obligation ;
+        rdfs:range xsd:anyURI ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .   
+
+ocsm:retentionPeriod	a	owl:DatatypeProperty ;
+        rdfs:label   		"retentionPeriod"@en ;
+        rdfs:comment		"retention period, e.g., P3Y" ;
+        rdfs:domain ocsm:Obligation ;
+        rdfs:range xsd:duration ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .                                         
+
+ocsm:recordWithin	a	owl:DatatypeProperty ;
+        rdfs:label   		"recordWithin"@en ;
+        rdfs:comment		"record within period, e.g., P30D" ;
+        rdfs:domain ocsm:Obligation ;
+        rdfs:range xsd:duration ;
+        rdfs:isDefinedBy <https://w3id.org/ocsm/> .          
 
 #################################################################
 #    Classes
@@ -1035,8 +1106,19 @@ ocsm:AIPestDetectionModel a owl:Class ;
 ocsm:SprayingMap a owl:Class ;
 			rdfs:label "SprayingMap" ;   
 			rdfs:comment "SprayingMap" ;
-			rdfs:isDefinedBy <https://w3id.org/ocsm/> .			 
+			rdfs:isDefinedBy <https://w3id.org/ocsm/> .	
+
+ocsm:Obligation a owl:Class ;
+			rdfs:label "Obligation" ;   
+			rdfs:comment "a duty a farm holds under a legal act, a CAP rule, a certification scheme or a grant" ;
+			rdfs:isDefinedBy <https://w3id.org/ocsm/> .	      		 
 			
+ocsm:CompostingOperation
+  rdfs:label "CompostingOperation" ;   
+  rdf:type owl:Class ;
+  rdfs:comment "Composgting operation" ;  
+  rdfs:subClassOf ploutos:Operation ;  
+  rdfs:isDefinedBy <https://w3id.org/ocsm/> .
 
 #################################################################
 #    Alignments

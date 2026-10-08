@@ -1,1 +1,2 @@
+/Users/rap/Downloads/Utils/apache-jena-3.16.0/bin/riot --out=RDF/XML /Users/rap/GitRepositories/GitHub/openagri/OCSM/ocsm-energy.ttl > ocsm-energy.rdf
 /Users/rap/Downloads/Utils/apache-jena-3.16.0/bin/riot --out=RDF/XML /Users/rap/GitRepositories/GitHub/openagri/OCSM/ocsm-profile.ttl > ocsm-profile.rdf

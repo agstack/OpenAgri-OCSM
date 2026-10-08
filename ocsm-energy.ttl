@@ -12,10 +12,7 @@
 @prefix : <https://w3id.org/ocsm/main/energy> .
 
 <https://w3id.org/ocsm/main/energy> a owl:Ontology ;  
-  dcterms:description "This module of OCSM is entirely based on SAREF4ENER ontology v2.1.1.
-  We import all the entities from the ontology, without importing the whole SAREF core. 
-  For additional information about the ontology please refer to the base ontology URL 
-  <https://saref.etsi.org/saref4ener/>."@en ;  
+  dcterms:description "This module of OCSM is entirely based on SAREF4ENER ontology v2.1.1. We import all the entities from the ontology, without importing the whole SAREF core.  For additional information about the ontology please refer to the base ontology URL  <https://saref.etsi.org/saref4ener/>."@en ;  
   dcterms:title "OCSM energy module entirely based on SAREF4ENER"@en ;  
   rdfs:seeAlso <https://saref.etsi.org/saref4ener/> ;
 .

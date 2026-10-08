@@ -1177,6 +1177,9 @@
     "Duration" : {
       "@id" : "http://www.w3.org/2006/time#Duration"
     },
+    "TemporalPosition" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalPosition"
+    },
     "TIN" : {
       "@id" : "http://www.opengis.net/ont/sf#TIN"
     },
@@ -2126,8 +2129,8 @@
       "@id" : "https://w3id.org/ocsm/community",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
-    "isNitroAarea" : {
-      "@id" : "https://w3id.org/ocsm/isNitroAarea",
+    "isNitroArea" : {
+      "@id" : "https://w3id.org/ocsm/isNitroArea",
       "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
     },
     "isNatura2000Area" : {
@@ -2213,6 +2216,47 @@
     },
     "ploutos.Product" : {
       "@id" : "https://www.tno.nl/agrifood/ontology/ploutos/common#Product"
+    },
+    "actsOnCrop" : {
+      "@id" : "https://w3id.org/ocsm/actsOnCrop",
+      "@type" : "@id"
+    },
+    "governsRecordsOf" : {
+      "@id" : "https://w3id.org/ocsm/governsRecordsOf",
+      "@type" : "@id"
+    },
+    "isCheckedBy" : {
+      "@id" : "https://w3id.org/ocsm/isCheckedBy",
+      "@type" : "@id"
+    },
+    "satisfies" : {
+      "@id" : "https://w3id.org/ocsm/satisfies",
+      "@type" : "@id"
+    },
+    "relatedObservation" : {
+      "@id" : "https://w3id.org/ocsm/relatedObservation",
+      "@type" : "@id"
+    },
+    "hasAuthorisationNumber" : {
+      "@id" : "https://w3id.org/ocsm/hasAuthorisationNumber"
+    },
+    "hasBBCHStage" : {
+      "@id" : "https://w3id.org/ocsm/hasBBCHStage"
+    },
+    "hasLegalSource" : {
+      "@id" : "https://w3id.org/ocsm/hasLegalSource"
+    },
+    "retentionPeriod" : {
+      "@id" : "https://w3id.org/ocsm/retentionPeriod"
+    },
+    "recordWithin" : {
+      "@id" : "https://w3id.org/ocsm/recordWithin"
+    },
+    "Obligation" : {
+      "@id" : "https://w3id.org/ocsm/Obligation"
+    },
+    "CompostingOperation" : {
+      "@id" : "https://w3id.org/ocsm/CompostingOperation"
     }
   }
 }

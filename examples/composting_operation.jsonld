@@ -71,7 +71,7 @@
             "hasEndDatetime": "2025-01-09T23:59:59Z",
             "description": "Turn"
         }],
-        "hasMeasurement": [{
+        "relatedObservation": [{
             "@type": "ObservationCollection",
             "@id": "urn:farmcalender:CompostMaterial:obsCol1:94f652c1-b73a-454d-1234",
             "label" : "Collection of observations from Sensor XYZ",

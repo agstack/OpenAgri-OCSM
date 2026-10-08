@@ -410,6 +410,9 @@
     "Duration" : {
       "@id" : "http://www.w3.org/2006/time#Duration"
     },
+    "TemporalPosition" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalPosition"
+    },
     "TIN" : {
       "@id" : "http://www.opengis.net/ont/sf#TIN"
     },

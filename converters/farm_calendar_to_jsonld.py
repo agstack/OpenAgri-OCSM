@@ -46,7 +46,7 @@ def convert_parcel_data(parcel_data_list):
             "inRegion": parcel.get('inRegion', None),
             "hasToponym": parcel.get('hasToponym', None),
             "area": parcel.get('parcel_area') * 10000 if parcel.get('parcel_area') else None,  # Convert Ha to m²
-            "isNitroAarea": parcel.get('isNitroAarea', None),
+            "isNitroArea": parcel.get('isNitroArea', None),
             "isNatura2000Area": parcel.get('isNatura2000Area', None),
             "isPDOPGIArea": parcel.get('isPDOPGIArea', None),
             "isIrrigated": parcel.get('isIrrigated', None),
