@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "DurationDescription": {
+      "@id": "http://www.w3.org/2006/time#DurationDescription"
+    },
+    "Commodity": {
+      "@id": "https://saref.etsi.org/core/Commodity"
+    },
+    "State": {
+      "@id": "https://saref.etsi.org/core/State"
+    },
+    "consistsOf": {
+      "@id": "https://saref.etsi.org/core/consistsOf"
+    },
+    "hasIdentifier": {
+      "@id": "https://saref.etsi.org/core/hasIdentifier"
+    },
+    "hasPropertyValue": {
+      "@id": "https://saref.etsi.org/core/hasPropertyValue"
+    },
+    "hasState": {
+      "@id": "https://saref.etsi.org/core/hasState"
+    },
+    "saref": "https://saref.etsi.org/core/",
+    "time": "http://www.w3.org/2006/time#"
+  }
+}

@@ -66,7 +66,7 @@
                             dct:title "OpenAgri Common Semantic Information Model (OCSM) project ontology"@en ;
                             rdfs:label "OpenAgri Common Semantic Information Model (OCSM) project ontology"@en ;
                             rdfs:comment "The OpenAgri Common Semantic Information Model (OCSM) is the common vocabulary in OpenAgri project providing the basis for semantic interoperability across pilots and components"@en ;
-                            owl:versionInfo "1.0" ;
+                            owl:versionInfo "2.0" ;
                             foaf:maker [ foaf:homepage <https://horizon-openagri.eu/> ;
                                          foaf:name "OpenAgri project"
                                        ] .

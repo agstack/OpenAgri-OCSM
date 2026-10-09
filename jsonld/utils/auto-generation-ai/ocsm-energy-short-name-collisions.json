@@ -1,0 +1,39 @@
+{
+  "collisions": [
+    {
+      "shortName": "Device",
+      "newTermURI": "https://saref.etsi.org/saref4ener/Device",
+      "suggestedKey": "s4ener.Device",
+      "category": "explicitly defined",
+      "existingContextURI": "https://saref.etsi.org/core/Device"
+    },
+    {
+      "shortName": "Role",
+      "newTermURI": "https://saref.etsi.org/saref4ener/Role",
+      "suggestedKey": "s4ener.Role",
+      "category": "explicitly defined",
+      "existingContextURI": "https://schema.org/Role"
+    },
+    {
+      "shortName": "hasCost",
+      "newTermURI": "https://saref.etsi.org/saref4ener/hasCost",
+      "suggestedKey": "s4ener.hasCost",
+      "category": "explicitly defined",
+      "existingContextURI": "https://www.tno.nl/agrifood/ontology/ploutos/common#hasCost"
+    },
+    {
+      "shortName": "hasDevice",
+      "newTermURI": "https://saref.etsi.org/saref4ener/hasDevice",
+      "suggestedKey": "s4ener.hasDevice",
+      "category": "explicitly defined",
+      "existingContextURI": "https://smartdatamodels.org/dataModel.Agrifood/hasDevice"
+    },
+    {
+      "shortName": "receives",
+      "newTermURI": "https://saref.etsi.org/saref4ener/receives",
+      "suggestedKey": "s4ener.receives",
+      "category": "explicitly defined",
+      "existingContextURI": "https://saref.etsi.org/saref4agri/receives"
+    }
+  ]
+}

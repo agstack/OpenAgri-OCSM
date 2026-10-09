@@ -1,0 +1,10 @@
+updated full context including energy module terms
+for the energy module i used gpt to extract new terms.
+generate json-ld context for the energy module, include classes and properties, exclude named individuals, define namespaces prefixes for controlled vocabularies/measurements. include term in an e.g., rdfs:domain, rdfs:range or rdfs:subClassOf even if they are not explicitly defined, as they may be used in data payloads. for validation generate the context in 3 files:
+1. new terms explicitly defined (that do not appear in ocsm-profile-context.jsonld - identifying duplicates using full term URI)
+2. new terms not explicitly defined (e.g.,only in rdfs:domain, rdfs:range or rdfs:subClassOf)(that do not appear in ocsm-profile-context.jsonld - identifying duplicates using full term URI)
+3. duplicated terms (identifying duplicates using full term URI)
+
+then check all short names from the first two files, and check in ocsm-profile-context.jsonld if they already exist,
+c61d672
+jsonld/ocsm-profile-context.jsonld

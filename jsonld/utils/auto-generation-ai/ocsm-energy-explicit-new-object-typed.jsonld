@@ -1,0 +1,848 @@
+{
+  "@context": {
+    "ActuatorLevel": {
+      "@id": "https://saref.etsi.org/saref4ener/ActuatorLevel"
+    },
+    "ActuatorSwitch": {
+      "@id": "https://saref.etsi.org/saref4ener/ActuatorSwitch"
+    },
+    "AllowedLimitRange": {
+      "@id": "https://saref.etsi.org/saref4ener/AllowedLimitRange"
+    },
+    "AlternativesGroup": {
+      "@id": "https://saref.etsi.org/saref4ener/AlternativesGroup"
+    },
+    "ContractualPowerLimit": {
+      "@id": "https://saref.etsi.org/saref4ener/ContractualPowerLimit"
+    },
+    "DDBCInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/DDBCInstruction"
+    },
+    "DataPoint": {
+      "@id": "https://saref.etsi.org/saref4ener/DataPoint"
+    },
+    "DemandDrivenProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/DemandDrivenProfile"
+    },
+    "s4ener.Device": {
+      "@id": "https://saref.etsi.org/saref4ener/Device"
+    },
+    "EndInterruptionInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/EndInterruptionInstruction"
+    },
+    "EndTimeDurationDescription": {
+      "@id": "https://saref.etsi.org/saref4ener/EndTimeDurationDescription"
+    },
+    "EnergyConstraint": {
+      "@id": "https://saref.etsi.org/saref4ener/EnergyConstraint"
+    },
+    "EventActionConsume": {
+      "@id": "https://saref.etsi.org/saref4ener/EventActionConsume"
+    },
+    "EventActionProduce": {
+      "@id": "https://saref.etsi.org/saref4ener/EventActionProduce"
+    },
+    "EventStateConsume": {
+      "@id": "https://saref.etsi.org/saref4ener/EventStateConsume"
+    },
+    "EventStateProduce": {
+      "@id": "https://saref.etsi.org/saref4ener/EventStateProduce"
+    },
+    "FRBCInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/FRBCInstruction"
+    },
+    "FailsafePowerLimit": {
+      "@id": "https://saref.etsi.org/saref4ener/FailsafePowerLimit"
+    },
+    "FailsafeState": {
+      "@id": "https://saref.etsi.org/saref4ener/FailsafeState"
+    },
+    "FillLevelTargetProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/FillLevelTargetProfile"
+    },
+    "FillLevelTargetProfileElement": {
+      "@id": "https://saref.etsi.org/saref4ener/FillLevelTargetProfileElement"
+    },
+    "FillRateProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/FillRateProfile"
+    },
+    "FlexOffer": {
+      "@id": "https://saref.etsi.org/saref4ener/FlexOffer"
+    },
+    "FlexRequest": {
+      "@id": "https://saref.etsi.org/saref4ener/FlexRequest"
+    },
+    "FlexibilityInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/FlexibilityInstruction"
+    },
+    "FlexibilityProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/FlexibilityProfile"
+    },
+    "GaussianDataPoint": {
+      "@id": "https://saref.etsi.org/saref4ener/GaussianDataPoint"
+    },
+    "Incentive": {
+      "@id": "https://saref.etsi.org/saref4ener/Incentive"
+    },
+    "IncentiveTableProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/IncentiveTableProfile"
+    },
+    "IncentiveTableSlot": {
+      "@id": "https://saref.etsi.org/saref4ener/IncentiveTableSlot"
+    },
+    "IncentiveTableTier": {
+      "@id": "https://saref.etsi.org/saref4ener/IncentiveTableTier"
+    },
+    "IncentiveType": {
+      "@id": "https://saref.etsi.org/saref4ener/IncentiveType"
+    },
+    "InstructionStatus": {
+      "@id": "https://saref.etsi.org/saref4ener/InstructionStatus"
+    },
+    "InterruptionInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/InterruptionInstruction"
+    },
+    "LeakageBehaviour": {
+      "@id": "https://saref.etsi.org/saref4ener/LeakageBehaviour"
+    },
+    "LeakageBehaviourElement": {
+      "@id": "https://saref.etsi.org/saref4ener/LeakageBehaviourElement"
+    },
+    "LoadControlEventAction": {
+      "@id": "https://saref.etsi.org/saref4ener/LoadControlEventAction"
+    },
+    "LoadControlEventData": {
+      "@id": "https://saref.etsi.org/saref4ener/LoadControlEventData"
+    },
+    "LoadControlEventState": {
+      "@id": "https://saref.etsi.org/saref4ener/LoadControlEventState"
+    },
+    "LoadControlStateData": {
+      "@id": "https://saref.etsi.org/saref4ener/LoadControlStateData"
+    },
+    "NominalPowerLimit": {
+      "@id": "https://saref.etsi.org/saref4ener/NominalPowerLimit"
+    },
+    "NumberRange": {
+      "@id": "https://saref.etsi.org/saref4ener/NumberRange"
+    },
+    "OMBCInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/OMBCInstruction"
+    },
+    "OperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/OperationMode"
+    },
+    "OperationModeElement": {
+      "@id": "https://saref.etsi.org/saref4ener/OperationModeElement"
+    },
+    "OperationModeProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/OperationModeProfile"
+    },
+    "PEBCInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/PEBCInstruction"
+    },
+    "PPBCInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/PPBCInstruction"
+    },
+    "PowerConstraint": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerConstraint"
+    },
+    "PowerEnvelope": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerEnvelope"
+    },
+    "PowerEnvelopeConsequenceType": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerEnvelopeConsequenceType"
+    },
+    "PowerEnvelopeLimitType": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerEnvelopeLimitType"
+    },
+    "PowerEnvelopeProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerEnvelopeProfile"
+    },
+    "PowerLimit": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerLimit"
+    },
+    "PowerLimitProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerLimitProfile"
+    },
+    "PowerPlan": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerPlan"
+    },
+    "PowerProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerProfile"
+    },
+    "PowerRange": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerRange"
+    },
+    "PowerSequence": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSequence"
+    },
+    "PowerSequenceContainer": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSequenceContainer"
+    },
+    "PowerSequenceElement": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSequenceElement"
+    },
+    "PowerSequenceState": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSequenceState"
+    },
+    "PowerSequenceStatus": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSequenceStatus"
+    },
+    "PowerSource": {
+      "@id": "https://saref.etsi.org/saref4ener/PowerSource"
+    },
+    "s4ener.Role": {
+      "@id": "https://saref.etsi.org/saref4ener/Role"
+    },
+    "RoleType": {
+      "@id": "https://saref.etsi.org/saref4ener/RoleType"
+    },
+    "ScheduleInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/ScheduleInstruction"
+    },
+    "ScopeType": {
+      "@id": "https://saref.etsi.org/saref4ener/ScopeType"
+    },
+    "Slot": {
+      "@id": "https://saref.etsi.org/saref4ener/Slot"
+    },
+    "StartInterruptionInstruction": {
+      "@id": "https://saref.etsi.org/saref4ener/StartInterruptionInstruction"
+    },
+    "Storage": {
+      "@id": "https://saref.etsi.org/saref4ener/Storage"
+    },
+    "TimeSeries": {
+      "@id": "https://saref.etsi.org/saref4ener/TimeSeries"
+    },
+    "Timer": {
+      "@id": "https://saref.etsi.org/saref4ener/Timer"
+    },
+    "Transition": {
+      "@id": "https://saref.etsi.org/saref4ener/Transition"
+    },
+    "Usage": {
+      "@id": "https://saref.etsi.org/saref4ener/Usage"
+    },
+    "ValueSource": {
+      "@id": "https://saref.etsi.org/saref4ener/ValueSource"
+    },
+    "ValueTendency": {
+      "@id": "https://saref.etsi.org/saref4ener/ValueTendency"
+    },
+    "abnormalCondition": {
+      "@id": "https://saref.etsi.org/saref4ener/abnormalCondition"
+    },
+    "abnormalConditionOnly": {
+      "@id": "https://saref.etsi.org/saref4ener/abnormalConditionOnly"
+    },
+    "activateSlot": {
+      "@id": "https://saref.etsi.org/saref4ener/activateSlot"
+    },
+    "activeRepetitionNumber": {
+      "@id": "https://saref.etsi.org/saref4ener/activeRepetitionNumber"
+    },
+    "activeSlotNumber": {
+      "@id": "https://saref.etsi.org/saref4ener/activeSlotNumber"
+    },
+    "allowedLimitRange": {
+      "@id": "https://saref.etsi.org/saref4ener/allowedLimitRange",
+      "@type": "@id"
+    },
+    "belongsTo": {
+      "@id": "https://saref.etsi.org/saref4ener/belongsTo",
+      "@type": "@id"
+    },
+    "belongsToTimeSeries": {
+      "@id": "https://saref.etsi.org/saref4ener/belongsToTimeSeries",
+      "@type": "@id"
+    },
+    "brandName": {
+      "@id": "https://saref.etsi.org/saref4ener/brandName"
+    },
+    "cheapest": {
+      "@id": "https://saref.etsi.org/saref4ener/cheapest"
+    },
+    "deviceCode": {
+      "@id": "https://saref.etsi.org/saref4ener/deviceCode"
+    },
+    "deviceName": {
+      "@id": "https://saref.etsi.org/saref4ener/deviceName"
+    },
+    "endOfRange": {
+      "@id": "https://saref.etsi.org/saref4ener/endOfRange",
+      "@type": "@id"
+    },
+    "fillRate": {
+      "@id": "https://saref.etsi.org/saref4ener/fillRate",
+      "@type": "@id"
+    },
+    "firmwareVersion": {
+      "@id": "https://saref.etsi.org/saref4ener/firmwareVersion"
+    },
+    "fromOperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/fromOperationMode",
+      "@type": "@id"
+    },
+    "greenest": {
+      "@id": "https://saref.etsi.org/saref4ener/greenest"
+    },
+    "hardwareRevision": {
+      "@id": "https://saref.etsi.org/saref4ener/hardwareRevision"
+    },
+    "hasActivationDelay": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActivationDelay"
+    },
+    "hasActiveDurationMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActiveDurationMax"
+    },
+    "hasActiveDurationMin": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActiveDurationMin"
+    },
+    "hasActiveDurationSumMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActiveDurationSumMax"
+    },
+    "hasActiveDurationSumMin": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActiveDurationSumMin"
+    },
+    "hasActiveOperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/hasActiveOperationMode",
+      "@type": "@id"
+    },
+    "hasAppliedEventActionConsume": {
+      "@id": "https://saref.etsi.org/saref4ener/hasAppliedEventActionConsume",
+      "@type": "@id"
+    },
+    "hasAppliedEventActionProduce": {
+      "@id": "https://saref.etsi.org/saref4ener/hasAppliedEventActionProduce",
+      "@type": "@id"
+    },
+    "hasCommodity": {
+      "@id": "https://saref.etsi.org/saref4ener/hasCommodity",
+      "@type": "@id"
+    },
+    "hasConsequenceType": {
+      "@id": "https://saref.etsi.org/saref4ener/hasConsequenceType",
+      "@type": "@id"
+    },
+    "hasConstraints": {
+      "@id": "https://saref.etsi.org/saref4ener/hasConstraints",
+      "@type": "@id"
+    },
+    "hasContractualConsumptionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasContractualConsumptionMax",
+      "@type": "@id"
+    },
+    "hasContractualProductionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasContractualProductionMax",
+      "@type": "@id"
+    },
+    "s4ener.hasCost": {
+      "@id": "https://saref.etsi.org/saref4ener/hasCost",
+      "@type": "@id"
+    },
+    "hasCreationTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasCreationTime"
+    },
+    "hasDataPoint": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDataPoint",
+      "@type": "@id"
+    },
+    "hasDefaultDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDefaultDuration"
+    },
+    "hasDemandRate": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDemandRate",
+      "@type": "@id"
+    },
+    "hasDemandRateForecast": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDemandRateForecast",
+      "@type": "@id"
+    },
+    "s4ener.hasDevice": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDevice",
+      "@type": "@id"
+    },
+    "hasDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDuration"
+    },
+    "hasDurationMin": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDurationMin"
+    },
+    "hasDurationUncertainty": {
+      "@id": "https://saref.etsi.org/saref4ener/hasDurationUncertainty"
+    },
+    "hasEarliestStartTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEarliestStartTime"
+    },
+    "hasEffectivePeriod": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEffectivePeriod",
+      "@type": "@id"
+    },
+    "hasElapsedSlotTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasElapsedSlotTime",
+      "@type": "@id"
+    },
+    "hasEndTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEndTime"
+    },
+    "hasEnergy": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEnergy",
+      "@type": "@id"
+    },
+    "hasEnvelope": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEnvelope",
+      "@type": "@id"
+    },
+    "hasEventStateConsume": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEventStateConsume",
+      "@type": "@id"
+    },
+    "hasEventStateProduce": {
+      "@id": "https://saref.etsi.org/saref4ener/hasEventStateProduce",
+      "@type": "@id"
+    },
+    "hasExecutionTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasExecutionTime"
+    },
+    "hasFailsafeConsumptionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFailsafeConsumptionMax",
+      "@type": "@id"
+    },
+    "hasFailsafeDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFailsafeDuration"
+    },
+    "hasFailsafeProductionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFailsafeProductionMax",
+      "@type": "@id"
+    },
+    "hasFillLevelRange": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFillLevelRange",
+      "@type": "@id"
+    },
+    "hasFillLevelTargetProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFillLevelTargetProfile",
+      "@type": "@id"
+    },
+    "hasFillLevelTargetProfileElement": {
+      "@id": "https://saref.etsi.org/saref4ener/hasFillLevelTargetProfileElement",
+      "@type": "@id"
+    },
+    "hasIncentive": {
+      "@id": "https://saref.etsi.org/saref4ener/hasIncentive",
+      "@type": "@id"
+    },
+    "hasIncentiveType": {
+      "@id": "https://saref.etsi.org/saref4ener/hasIncentiveType",
+      "@type": "@id"
+    },
+    "hasIndex": {
+      "@id": "https://saref.etsi.org/saref4ener/hasIndex"
+    },
+    "hasInstructionStatus": {
+      "@id": "https://saref.etsi.org/saref4ener/hasInstructionStatus",
+      "@type": "@id"
+    },
+    "hasInterruptionEndTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasInterruptionEndTime"
+    },
+    "hasInterruptionStartTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasInterruptionStartTime"
+    },
+    "hasLatestEndTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasLatestEndTime"
+    },
+    "hasLeakageBehaviour": {
+      "@id": "https://saref.etsi.org/saref4ener/hasLeakageBehaviour",
+      "@type": "@id"
+    },
+    "hasLeakageBehaviourElement": {
+      "@id": "https://saref.etsi.org/saref4ener/hasLeakageBehaviourElement",
+      "@type": "@id"
+    },
+    "hasLowerAveragePower": {
+      "@id": "https://saref.etsi.org/saref4ener/hasLowerAveragePower"
+    },
+    "hasLowerBoundary": {
+      "@id": "https://saref.etsi.org/saref4ener/hasLowerBoundary",
+      "@type": "@id"
+    },
+    "hasManufacturerNodeIdentification": {
+      "@id": "https://saref.etsi.org/saref4ener/hasManufacturerNodeIdentification"
+    },
+    "hasMaxDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasMaxDuration"
+    },
+    "hasMaxPauseBefore": {
+      "@id": "https://saref.etsi.org/saref4ener/hasMaxPauseBefore"
+    },
+    "hasMinDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasMinDuration"
+    },
+    "hasNominalConsumption": {
+      "@id": "https://saref.etsi.org/saref4ener/hasNominalConsumption",
+      "@type": "@id"
+    },
+    "hasNominalProduction": {
+      "@id": "https://saref.etsi.org/saref4ener/hasNominalProduction",
+      "@type": "@id"
+    },
+    "hasNumberRange": {
+      "@id": "https://saref.etsi.org/saref4ener/hasNumberRange",
+      "@type": "@id"
+    },
+    "hasOperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/hasOperationMode",
+      "@type": "@id"
+    },
+    "hasOperationModeElement": {
+      "@id": "https://saref.etsi.org/saref4ener/hasOperationModeElement",
+      "@type": "@id"
+    },
+    "hasOperationModeFactor": {
+      "@id": "https://saref.etsi.org/saref4ener/hasOperationModeFactor"
+    },
+    "hasPauseDurationMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPauseDurationMax"
+    },
+    "hasPauseDurationMin": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPauseDurationMin"
+    },
+    "hasPowerEnvelope": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerEnvelope",
+      "@type": "@id"
+    },
+    "hasPowerEnvelopeElement": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerEnvelopeElement",
+      "@type": "@id"
+    },
+    "hasPowerLimitConsumptionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerLimitConsumptionMax",
+      "@type": "@id"
+    },
+    "hasPowerLimitDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerLimitDuration"
+    },
+    "hasPowerLimitProductionMax": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerLimitProductionMax",
+      "@type": "@id"
+    },
+    "hasPowerLimitState": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerLimitState",
+      "@type": "@id"
+    },
+    "hasPowerPlan": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerPlan",
+      "@type": "@id"
+    },
+    "hasPowerRange": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerRange",
+      "@type": "@id"
+    },
+    "hasPowerSequence": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerSequence",
+      "@type": "@id"
+    },
+    "hasPowerSequenceContainer": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerSequenceContainer",
+      "@type": "@id"
+    },
+    "hasPowerSequenceElement": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerSequenceElement",
+      "@type": "@id"
+    },
+    "hasPowerSequenceStatus": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerSequenceStatus",
+      "@type": "@id"
+    },
+    "hasPowerSource": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPowerSource",
+      "@type": "@id"
+    },
+    "hasPreviousOperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/hasPreviousOperationMode",
+      "@type": "@id"
+    },
+    "hasQuantile": {
+      "@id": "https://saref.etsi.org/saref4ener/hasQuantile"
+    },
+    "hasRecipient": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRecipient",
+      "@type": "@id"
+    },
+    "hasRemainingPauseTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRemainingPauseTime"
+    },
+    "hasRemainingSlotTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRemainingSlotTime"
+    },
+    "hasResumeCostEstimated": {
+      "@id": "https://saref.etsi.org/saref4ener/hasResumeCostEstimated",
+      "@type": "@id"
+    },
+    "hasResumeEnergyEstimated": {
+      "@id": "https://saref.etsi.org/saref4ener/hasResumeEnergyEstimated",
+      "@type": "@id"
+    },
+    "hasRole": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRole",
+      "@type": "@id"
+    },
+    "hasRoleType": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRoleType",
+      "@type": "@id"
+    },
+    "hasRunningCosts": {
+      "@id": "https://saref.etsi.org/saref4ener/hasRunningCosts",
+      "@type": "@id"
+    },
+    "hasScopeType": {
+      "@id": "https://saref.etsi.org/saref4ener/hasScopeType",
+      "@type": "@id"
+    },
+    "hasSlotValue": {
+      "@id": "https://saref.etsi.org/saref4ener/hasSlotValue",
+      "@type": "@id"
+    },
+    "hasStandardDeviation": {
+      "@id": "https://saref.etsi.org/saref4ener/hasStandardDeviation"
+    },
+    "hasStartTime": {
+      "@id": "https://saref.etsi.org/saref4ener/hasStartTime"
+    },
+    "hasStorage": {
+      "@id": "https://saref.etsi.org/saref4ener/hasStorage",
+      "@type": "@id"
+    },
+    "hasSupplyRange": {
+      "@id": "https://saref.etsi.org/saref4ener/hasSupplyRange",
+      "@type": "@id"
+    },
+    "hasTaskIdentifier": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTaskIdentifier"
+    },
+    "hasTemporalResolution": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTemporalResolution"
+    },
+    "hasTier": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTier",
+      "@type": "@id"
+    },
+    "hasTimer": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTimer",
+      "@type": "@id"
+    },
+    "hasTransition": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTransition",
+      "@type": "@id"
+    },
+    "hasTransitionCosts": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTransitionCosts"
+    },
+    "hasTransitionDuration": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTransitionDuration"
+    },
+    "hasTransitionTimestamp": {
+      "@id": "https://saref.etsi.org/saref4ener/hasTransitionTimestamp"
+    },
+    "hasUpdateRate": {
+      "@id": "https://saref.etsi.org/saref4ener/hasUpdateRate"
+    },
+    "hasUpperAveragePower": {
+      "@id": "https://saref.etsi.org/saref4ener/hasUpperAveragePower"
+    },
+    "hasUpperBoundary": {
+      "@id": "https://saref.etsi.org/saref4ener/hasUpperBoundary",
+      "@type": "@id"
+    },
+    "hasUsage": {
+      "@id": "https://saref.etsi.org/saref4ener/hasUsage",
+      "@type": "@id"
+    },
+    "hasUsageForecast": {
+      "@id": "https://saref.etsi.org/saref4ener/hasUsageForecast",
+      "@type": "@id"
+    },
+    "hasValue": {
+      "@id": "https://saref.etsi.org/saref4ener/hasValue"
+    },
+    "hasValueSource": {
+      "@id": "https://saref.etsi.org/saref4ener/hasValueSource",
+      "@type": "@id"
+    },
+    "includes": {
+      "@id": "https://saref.etsi.org/saref4ener/includes",
+      "@type": "@id"
+    },
+    "isActive": {
+      "@id": "https://saref.etsi.org/saref4ener/isActive"
+    },
+    "isActuatedBy": {
+      "@id": "https://saref.etsi.org/saref4ener/isActuatedBy",
+      "@type": "@id"
+    },
+    "isBlockedBy": {
+      "@id": "https://saref.etsi.org/saref4ener/isBlockedBy",
+      "@type": "@id"
+    },
+    "isBoundTo": {
+      "@id": "https://saref.etsi.org/saref4ener/isBoundTo",
+      "@type": "@id"
+    },
+    "isChangeable": {
+      "@id": "https://saref.etsi.org/saref4ener/isChangeable"
+    },
+    "isFinishedAt": {
+      "@id": "https://saref.etsi.org/saref4ener/isFinishedAt"
+    },
+    "isInterruptible": {
+      "@id": "https://saref.etsi.org/saref4ener/isInterruptible"
+    },
+    "isLimitedWith": {
+      "@id": "https://saref.etsi.org/saref4ener/isLimitedWith",
+      "@type": "@id"
+    },
+    "isObligatory": {
+      "@id": "https://saref.etsi.org/saref4ener/isObligatory"
+    },
+    "isPausable": {
+      "@id": "https://saref.etsi.org/saref4ener/isPausable"
+    },
+    "isProtectedBy": {
+      "@id": "https://saref.etsi.org/saref4ener/isProtectedBy",
+      "@type": "@id"
+    },
+    "isStoppable": {
+      "@id": "https://saref.etsi.org/saref4ener/isStoppable"
+    },
+    "isWritable": {
+      "@id": "https://saref.etsi.org/saref4ener/isWritable"
+    },
+    "leakageRate": {
+      "@id": "https://saref.etsi.org/saref4ener/leakageRate",
+      "@type": "@id"
+    },
+    "limitType": {
+      "@id": "https://saref.etsi.org/saref4ener/limitType",
+      "@type": "@id"
+    },
+    "maxCyclesPerDay": {
+      "@id": "https://saref.etsi.org/saref4ener/maxCyclesPerDay"
+    },
+    "nodeRemoteControllable": {
+      "@id": "https://saref.etsi.org/saref4ener/nodeRemoteControllable"
+    },
+    "optionalSlot": {
+      "@id": "https://saref.etsi.org/saref4ener/optionalSlot"
+    },
+    "presentFillLevel": {
+      "@id": "https://saref.etsi.org/saref4ener/presentFillLevel",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "https://saref.etsi.org/saref4ener/producedBy",
+      "@type": "@id"
+    },
+    "progress": {
+      "@id": "https://saref.etsi.org/saref4ener/progress"
+    },
+    "rangeBoundary": {
+      "@id": "https://saref.etsi.org/saref4ener/rangeBoundary",
+      "@type": "@id"
+    },
+    "s4ener.receives": {
+      "@id": "https://saref.etsi.org/saref4ener/receives",
+      "@type": "@id"
+    },
+    "receivesPowerLimit": {
+      "@id": "https://saref.etsi.org/saref4ener/receivesPowerLimit",
+      "@type": "@id"
+    },
+    "relatesToCommodity": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToCommodity",
+      "@type": "@id"
+    },
+    "relatesToOffer": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToOffer",
+      "@type": "@id"
+    },
+    "relatesToPowerProfile": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToPowerProfile",
+      "@type": "@id"
+    },
+    "relatesToPowerProfileSequence": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToPowerProfileSequence",
+      "@type": "@id"
+    },
+    "relatesToPowerProfileSequenceContainer": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToPowerProfileSequenceContainer",
+      "@type": "@id"
+    },
+    "relatesToRequest": {
+      "@id": "https://saref.etsi.org/saref4ener/relatesToRequest",
+      "@type": "@id"
+    },
+    "repetitionsTotal": {
+      "@id": "https://saref.etsi.org/saref4ener/repetitionsTotal"
+    },
+    "requiresUpdate": {
+      "@id": "https://saref.etsi.org/saref4ener/requiresUpdate"
+    },
+    "sequenceRemoteControllable": {
+      "@id": "https://saref.etsi.org/saref4ener/sequenceRemoteControllable"
+    },
+    "serialNumber": {
+      "@id": "https://saref.etsi.org/saref4ener/serialNumber"
+    },
+    "slotActivated": {
+      "@id": "https://saref.etsi.org/saref4ener/slotActivated"
+    },
+    "slotNumber": {
+      "@id": "https://saref.etsi.org/saref4ener/slotNumber"
+    },
+    "softwareRevision": {
+      "@id": "https://saref.etsi.org/saref4ener/softwareRevision"
+    },
+    "startOfRange": {
+      "@id": "https://saref.etsi.org/saref4ener/startOfRange",
+      "@type": "@id"
+    },
+    "startsTimer": {
+      "@id": "https://saref.etsi.org/saref4ener/startsTimer",
+      "@type": "@id"
+    },
+    "supportsReselection": {
+      "@id": "https://saref.etsi.org/saref4ener/supportsReselection"
+    },
+    "supportsSingleSlotSchedulingOnly": {
+      "@id": "https://saref.etsi.org/saref4ener/supportsSingleSlotSchedulingOnly"
+    },
+    "toOperationMode": {
+      "@id": "https://saref.etsi.org/saref4ener/toOperationMode",
+      "@type": "@id"
+    },
+    "totalSequencesCountMax": {
+      "@id": "https://saref.etsi.org/saref4ener/totalSequencesCountMax"
+    },
+    "triggersEventActionConsume": {
+      "@id": "https://saref.etsi.org/saref4ener/triggersEventActionConsume",
+      "@type": "@id"
+    },
+    "triggersEventActionProduce": {
+      "@id": "https://saref.etsi.org/saref4ener/triggersEventActionProduce",
+      "@type": "@id"
+    },
+    "valueTendency": {
+      "@id": "https://saref.etsi.org/saref4ener/valueTendency",
+      "@type": "@id"
+    },
+    "vendorCode": {
+      "@id": "https://saref.etsi.org/saref4ener/vendorCode"
+    },
+    "vendorName": {
+      "@id": "https://saref.etsi.org/saref4ener/vendorName"
+    },
+    "s4ener": "https://saref.etsi.org/saref4ener/"
+  }
+}

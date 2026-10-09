@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "Interval": {
+      "@id": "http://www.w3.org/2006/time#Interval"
+    },
+    "TemporalEntity": {
+      "@id": "http://www.w3.org/2006/time#TemporalEntity"
+    },
+    "Actuator": {
+      "@id": "https://saref.etsi.org/core/Actuator"
+    },
+    "Device": {
+      "@id": "https://saref.etsi.org/core/Device"
+    },
+    "saref.Observation": {
+      "@id": "https://saref.etsi.org/core/Observation"
+    },
+    "Profile": {
+      "@id": "https://saref.etsi.org/core/Profile"
+    },
+    "PropertyValue": {
+      "@id": "https://saref.etsi.org/core/PropertyValue"
+    },
+    "hasTimestamp": {
+      "@id": "https://saref.etsi.org/core/hasTimestamp",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "saref": "https://saref.etsi.org/core/",
+    "time": "http://www.w3.org/2006/time#"
+  }
+}
