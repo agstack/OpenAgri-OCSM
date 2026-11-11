@@ -1,0 +1,179 @@
+{
+  "@context": {
+    "ocsm": "https://w3id.org/ocsm/",
+    "ploutos": "https://www.tno.nl/agrifood/ontology/ploutos/common#",
+    "saref4agri": "https://saref.etsi.org/saref4agri/",
+    "s4ener": "https://saref.etsi.org/saref4ener/",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "time": "http://www.w3.org/2006/time#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "ploutos:hasStartDatetime": {
+      "@type": "xsd:dateTime"
+    },
+    "ploutos:hasEndDatetime": {
+      "@type": "xsd:dateTime"
+    },
+    "ploutos:isOperatedOn": {
+      "@type": "@id"
+    },
+    "ploutos:usesAgriculturalMachinery": {
+      "@type": "@id"
+    },
+    "ocsm:relatedObservation": {
+      "@type": "@id"
+    },
+    "sosa:observedProperty": {
+      "@type": "@id"
+    },
+    "sosa:hasFeatureOfInterest": {
+      "@type": "@id"
+    },
+    "sosa:hasResult": {
+      "@type": "@id"
+    },
+    "sosa:phenomenonTime": {
+      "@type": "@id"
+    },
+    "sosa:resultTime": {
+      "@type": "xsd:dateTime"
+    },
+    "s4ener:hasUsage": {
+      "@type": "@id"
+    },
+    "s4ener:hasEffectivePeriod": {
+      "@type": "@id"
+    },
+    "qudt:unit": {
+      "@type": "@id"
+    },
+    "time:hasBeginning": {
+      "@type": "@id"
+    },
+    "time:hasEnd": {
+      "@type": "@id"
+    },
+    "time:inXSDDateTimeStamp": {
+      "@type": "xsd:dateTimeStamp"
+    },
+    "prov:wasDerivedFrom": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "urn:openagri:sip1:parcel:illustrative-01",
+      "@type": [
+        "saref4agri:Parcel",
+        "ocsm:Vineyard"
+      ],
+      "rdfs:label": "Illustrative SIP1 vineyard parcel"
+    },
+    {
+      "@id": "urn:openagri:sip1:tractor:illustrative-01",
+      "@type": "ploutos:AgriculturalMachine",
+      "rdfs:label": "Tractor carrying the Viewer camera and edge processing unit"
+    },
+    {
+      "@id": "urn:openagri:sip1:viewer:illustrative-01",
+      "@type": "s4ener:Device",
+      "s4ener:deviceName": "Tractor-mounted Viewer edge computing unit",
+      "rdfs:comment": "The electrical consumption described here belongs to the Viewer unit, not to the tractor's propulsion system."
+    },
+    {
+      "@id": "urn:openagri:sip1:operation:scouting-01",
+      "@type": "ploutos:PestMonitoringOperation",
+      "rdfs:label": "Illustrative vineyard visual scouting pass",
+      "rdfs:comment": "Synthetic example based on SIP1's tractor-mounted Viewer workflow. The two-hour session is assumed, not a recorded pilot event.",
+      "ploutos:hasStartDatetime": "2026-09-15T08:00:00Z",
+      "ploutos:hasEndDatetime": "2026-09-15T10:00:00Z",
+      "ploutos:isOperatedOn": {
+        "@id": "urn:openagri:sip1:parcel:illustrative-01"
+      },
+      "ploutos:usesAgriculturalMachinery": {
+        "@id": "urn:openagri:sip1:tractor:illustrative-01"
+      },
+      "ocsm:relatedObservation": [
+        {
+          "@id": "urn:openagri:sip1:observation:viewer-power-01"
+        },
+        {
+          "@id": "urn:openagri:sip1:observation:viewer-energy-01"
+        }
+      ]
+    },
+    {
+      "@id": "urn:openagri:sip1:interval:scouting-01",
+      "@type": "time:Interval",
+      "time:hasBeginning": {
+        "@type": "time:Instant",
+        "time:inXSDDateTimeStamp": "2026-09-15T08:00:00Z"
+      },
+      "time:hasEnd": {
+        "@type": "time:Instant",
+        "time:inXSDDateTimeStamp": "2026-09-15T10:00:00Z"
+      }
+    },
+    {
+      "@id": "urn:openagri:sip1:observation:viewer-power-01",
+      "@type": "sosa:Observation",
+      "rdfs:label": "Illustrative constant Viewer power during edge scouting",
+      "rdfs:comment": "57 W is the SIP1 published edge field-power figure, used here as a constant-power modelling assumption.",
+      "sosa:observedProperty": {
+        "@id": "http://qudt.org/vocab/quantitykind/Power"
+      },
+      "sosa:hasFeatureOfInterest": {
+        "@id": "urn:openagri:sip1:viewer:illustrative-01"
+      },
+      "sosa:phenomenonTime": {
+        "@id": "urn:openagri:sip1:interval:scouting-01"
+      },
+      "sosa:resultTime": "2026-09-15T10:00:00Z",
+      "sosa:hasResult": {
+        "@type": "qudt:QuantityValue",
+        "qudt:numericValue": 57,
+        "qudt:unit": {
+          "@id": "unit:W"
+        }
+      }
+    },
+    {
+      "@id": "urn:openagri:sip1:observation:viewer-energy-01",
+      "@type": [
+        "sosa:Observation",
+        "s4ener:DataPoint"
+      ],
+      "rdfs:label": "Estimated electrical energy consumed by the Viewer during the scouting pass",
+      "rdfs:comment": "Illustrative estimate only: 57 W x 2 h = 114 Wh = 0.114 kWh. It excludes propulsion fuel and other tractor loads.",
+      "sosa:observedProperty": {
+        "@id": "s4ener:Energy"
+      },
+      "s4ener:hasUsage": {
+        "@id": "s4ener:Consumption"
+      },
+      "s4ener:hasEffectivePeriod": {
+        "@id": "urn:openagri:sip1:interval:scouting-01"
+      },
+      "sosa:hasFeatureOfInterest": {
+        "@id": "urn:openagri:sip1:viewer:illustrative-01"
+      },
+      "sosa:phenomenonTime": {
+        "@id": "urn:openagri:sip1:interval:scouting-01"
+      },
+      "sosa:resultTime": "2026-09-15T10:00:00Z",
+      "sosa:hasResult": {
+        "@type": "qudt:QuantityValue",
+        "qudt:numericValue": 0.114,
+        "qudt:unit": {
+          "@id": "unit:KiloW-HR"
+        }
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "urn:openagri:sip1:observation:viewer-power-01"
+      }
+    }
+  ]
+}
